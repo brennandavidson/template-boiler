@@ -1,0 +1,24 @@
+{
+  "slug": "privacy",
+  "seo": {
+    "title": "Privacy Policy - Valiance Media",
+    "description": "",
+    "keywords": [],
+    "noIndex": false,
+    "noFollow": false,
+    "canonical": "",
+    "image": ""
+  },
+  "sitemap": {
+    "exclude": false,
+    "priority": 0.5,
+    "changeFrequency": "monthly"
+  },
+  "metadata": {
+    "category": "legal",
+    "featured": false,
+    "lastModified": "2025-09-02",
+    "isClientComponent": false
+  },
+  "schemas": []
+}
