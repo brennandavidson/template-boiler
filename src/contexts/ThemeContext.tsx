@@ -1,13 +1,10 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { lightTheme, darkTheme, ThemeMode, ThemeColors } from '@/styles/themes';
+import React, { createContext, useContext } from 'react';
+import { darkTheme, ThemeColors } from '@/styles/themes';
 
 interface ThemeContextType {
   colors: ThemeColors;
-  mode: ThemeMode;
-  setTheme: (theme: ThemeMode) => void;
-  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -25,21 +22,10 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  // Lock theme to dark mode
-  const [mode] = useState<ThemeMode>('dark');
-
-  const setTheme = (theme: ThemeMode) => {
-    // Theme is locked to dark mode, do nothing
-  };
-
-  const toggleTheme = () => {
-    // Theme is locked to dark mode, do nothing
-  };
-
-  const colors = darkTheme; // Always use dark theme
+  const colors = darkTheme;
 
   return (
-    <ThemeContext.Provider value={{ colors, mode, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ colors }}>
       {children}
     </ThemeContext.Provider>
   );

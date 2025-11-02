@@ -1,0 +1,21 @@
+{
+  "title": "Contact Us | Get a Free Quote Today",
+  "description": "Contact us for a free quote on pool installation, renovation, maintenance, and design services in Phoenix, AZ. We respond within 24 hours.",
+  "keywords": [
+    "contact pool company",
+    "pool quote Phoenix",
+    "pool services contact",
+    "free pool estimate",
+    "pool company Phoenix contact"
+  ],
+  "openGraph": {
+    "title": "Contact Us | Get a Free Quote Today",
+    "description": "Contact us for a free quote on pool installation, renovation, maintenance, and design services in Phoenix, AZ.",
+    "type": "website"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Contact Us | Get a Free Quote Today",
+    "description": "Contact us for a free quote on pool installation, renovation, maintenance, and design services in Phoenix, AZ."
+  }
+}

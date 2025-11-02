@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useHeader } from '@/contexts/HeaderContext';
 import { seoConfig } from '@/seo/seo.config';
 
 interface NavLink {
@@ -21,7 +21,7 @@ interface HeaderProps {
 export function Header({
   navLinks = [
     { href: '/services', label: 'Services' },
-    { href: '/gallery', label: 'Projects' },
+    { href: '/projects', label: 'Projects' },
     { href: '/service-areas', label: 'Service Areas' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
@@ -29,11 +29,32 @@ export function Header({
   phoneNumber = '(555) 123-4567',
   onQuoteClick,
 }: HeaderProps) {
-  const { mode } = useTheme();
+  const { hasHeroImage } = useHeader();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
+
+  const servicesSubmenu = [
+    { href: '/services/installation', label: 'Installation' },
+    { href: '/services/renovation', label: 'Renovation' },
+    { href: '/services/maintenance', label: 'Maintenance' },
+    { href: '/services/masonry-design', label: 'Design Services' },
+  ];
+
+  const serviceAreasSubmenu = [
+    { href: '/service-areas/phoenix', label: 'Phoenix' },
+    { href: '/service-areas/mesa', label: 'Mesa' },
+    { href: '/service-areas/scottsdale', label: 'Scottsdale' },
+    { href: '/service-areas/tempe', label: 'Tempe' },
+    { href: '/service-areas/chandler', label: 'Chandler' },
+    { href: '/service-areas/gilbert', label: 'Gilbert' },
+  ];
 
   useEffect(() => {
+    // Check scroll position immediately on mount
+    setIsScrolled(window.scrollY > 10);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -44,6 +65,8 @@ export function Header({
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    setIsServiceAreasOpen(false);
   };
 
   const handleQuoteClick = () => {
@@ -53,15 +76,19 @@ export function Header({
     setIsMenuOpen(false);
   };
 
+  // Determine if header should have background
+  // For pages WITH hero: only show background when scrolled or menu open
+  // For pages WITHOUT hero: always show background
+  const shouldShowBackground = !hasHeroImage || isScrolled || isMenuOpen;
+
   return (
     <header
-      className={`fixed top-0 w-full z-50 ${
-        isScrolled || isMenuOpen
-          ? 'bg-background-blue shadow-lg border-b-2 border-primary'
-          : ''
-      }`}
+      suppressHydrationWarning
+      className="fixed top-0 w-full z-50"
       style={{
-        transition: 'background-color 0ms, box-shadow 0ms'
+        backgroundColor: shouldShowBackground ? 'rgb(30, 58, 95)' : 'transparent',
+        borderBottom: shouldShowBackground ? '2px solid rgb(59, 130, 246)' : '2px solid transparent',
+        transition: 'all 300ms'
       }}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,15 +100,104 @@ export function Header({
               alt={`${seoConfig.siteName} Logo`}
               width={180}
               height={36}
-              className="h-9 w-auto"
+              style={{ height: 'auto', width: 'auto', maxHeight: '36px' }}
               priority
             />
           </Link>
 
           {/* Desktop Navigation - Center */}
           <div className="hidden nav:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              link.external ? (
+            {navLinks.map((link) => {
+              // Special handling for Services link with dropdown
+              if (link.href === '/services') {
+                return (
+                  <div
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
+                    <Link
+                      href={link.href}
+                      className="font-montserrat text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide flex items-center gap-1"
+                    >
+                      {link.label}
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </Link>
+
+                    {/* Dropdown Menu */}
+                    <div
+                      className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                        isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                      }`}
+                    >
+                      {servicesSubmenu.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Special handling for Service Areas link with dropdown
+              if (link.href === '/service-areas') {
+                return (
+                  <div
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={() => setIsServiceAreasOpen(true)}
+                    onMouseLeave={() => setIsServiceAreasOpen(false)}
+                  >
+                    <Link
+                      href={link.href}
+                      className="font-montserrat text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide flex items-center gap-1"
+                    >
+                      {link.label}
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${isServiceAreasOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </Link>
+
+                    {/* Dropdown Menu */}
+                    <div
+                      className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                        isServiceAreasOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                      }`}
+                    >
+                      {serviceAreasSubmenu.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Regular links
+              return link.external ? (
                 <a
                   key={link.href}
                   href={link.href}
@@ -99,8 +215,8 @@ export function Header({
                 >
                   {link.label}
                 </Link>
-              )
-            ))}
+              );
+            })}
           </div>
 
           {/* Desktop CTA Section - Right */}
@@ -160,15 +276,92 @@ export function Header({
           }`}
         >
           <div className={`py-4 space-y-4 transition-all duration-300 ${isMenuOpen ? 'border-t border-primary' : ''}`}>
-            {navLinks.map((link) => (
-              link.external ? (
+            {navLinks.map((link) => {
+              // Special handling for Services link with dropdown in mobile
+              if (link.href === '/services') {
+                return (
+                  <div key={link.href}>
+                    <button
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      className="w-full flex items-center justify-between text-gray-300 hover:text-primary transition-colors font-medium py-2"
+                    >
+                      <span>{link.label}</span>
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    {/* Mobile Submenu */}
+                    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
+                      isServicesOpen ? 'max-h-96 mt-2' : 'max-h-0'
+                    }`}>
+                      {servicesSubmenu.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={handleNavClick}
+                          className="block text-gray-400 hover:text-primary transition-colors font-medium py-2 text-sm"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Special handling for Service Areas link with dropdown in mobile
+              if (link.href === '/service-areas') {
+                return (
+                  <div key={link.href}>
+                    <button
+                      onClick={() => setIsServiceAreasOpen(!isServiceAreasOpen)}
+                      className="w-full flex items-center justify-between text-gray-300 hover:text-primary transition-colors font-medium py-2"
+                    >
+                      <span>{link.label}</span>
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${isServiceAreasOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    {/* Mobile Submenu */}
+                    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
+                      isServiceAreasOpen ? 'max-h-96 mt-2' : 'max-h-0'
+                    }`}>
+                      {serviceAreasSubmenu.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={handleNavClick}
+                          className="block text-gray-400 hover:text-primary transition-colors font-medium py-2 text-sm"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Regular links
+              return link.external ? (
                 <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleNavClick}
-                  className="block text-gray-300 hover:text-background-blue transition-colors font-medium py-2"
+                  className="block text-gray-300 hover:text-primary transition-colors font-medium py-2"
                 >
                   {link.label}
                 </a>
@@ -177,12 +370,12 @@ export function Header({
                   key={link.href}
                   href={link.href}
                   onClick={handleNavClick}
-                  className="block text-gray-300 hover:text-background-blue transition-colors font-medium py-2"
+                  className="block text-gray-300 hover:text-primary transition-colors font-medium py-2"
                 >
                   {link.label}
                 </Link>
-              )
-            ))}
+              );
+            })}
 
             {/* Mobile Quote Button */}
             <button

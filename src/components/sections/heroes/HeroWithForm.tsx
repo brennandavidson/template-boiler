@@ -25,7 +25,7 @@ export default function HeroWithForm() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-[10vh]">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-[10vh] pb-8 lg:pb-0">
       {/* Background Image Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
@@ -199,7 +199,7 @@ export default function HeroWithForm() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="font-heading w-full rounded-lg bg-primary px-8 py-5 text-xl font-bold text-white uppercase tracking-wide transition-all hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                  className="font-heading w-full rounded-lg bg-primary px-8 py-5 text-xl font-bold text-white uppercase tracking-wide transition-all hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl lg:hover:scale-[1.02]"
                 >
                   SEND
                 </button>

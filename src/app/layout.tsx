@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans, Montserrat } from "next/font/google";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { HeaderProvider } from "@/contexts/HeaderContext";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 import { Analytics } from "@/components/admin/Analytics";
 import { generateMetadata } from "@/seo/seo-utils";
@@ -70,10 +71,12 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <Analytics />
-          <ConditionalLayout>
-            {children}
-          </ConditionalLayout>
+          <HeaderProvider>
+            <Analytics />
+            <ConditionalLayout>
+              {children}
+            </ConditionalLayout>
+          </HeaderProvider>
         </ThemeProvider>
       </body>
     </html>

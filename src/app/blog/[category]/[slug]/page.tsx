@@ -69,12 +69,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const resolvedParams = await params;
   const post = await loadPost(resolvedParams.slug, resolvedParams.category);
-  
+
   // If post doesn't exist, let 404 page handle the smart redirect
   if (!post) {
     notFound();
   }
-  
+
   // Verify the category matches
   if (post.category !== resolvedParams.category) {
     // Post exists but in wrong category - redirect to correct URL
@@ -84,8 +84,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       redirect(`/blog/${post.slug}`);
     }
   }
-  
+
   const relatedPosts = await getRelatedPosts(post, 3);
-  
-  return <BlogLayout post={post} relatedPosts={relatedPosts} useFullUrl={true} />;
+
+  return (
+    <BlogLayout post={post} relatedPosts={relatedPosts} useFullUrl={true} />
+  );
 }

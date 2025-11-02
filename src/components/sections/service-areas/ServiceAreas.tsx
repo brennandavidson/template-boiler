@@ -1,17 +1,11 @@
 export default function ServiceAreas() {
   const serviceAreas = [
-    'Your County',
-    'City Name 1',
-    'City Name 2',
-    'City Name 3',
-    'City Name 4',
-    'City Name 5',
-    'City Name 6',
-    'City Name 7',
-    'City Name 8',
-    'City Name 9',
-    'City Name 10',
-    'City Name 11',
+    { name: 'Phoenix', slug: 'phoenix' },
+    { name: 'Mesa', slug: 'mesa' },
+    { name: 'Scottsdale', slug: 'scottsdale' },
+    { name: 'Tempe', slug: 'tempe' },
+    { name: 'Chandler', slug: 'chandler' },
+    { name: 'Gilbert', slug: 'gilbert' },
   ];
 
   return (
@@ -24,7 +18,7 @@ export default function ServiceAreas() {
               {/* Map Placeholder - Replace with actual embedded map */}
               <div className="relative aspect-square w-full bg-gray-200">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2798904705!2d-74.25986548251228!3d40.697670063539654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d427224.8741266059!2d-112.32374299999999!3d33.448376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b12ed50a179cb%3A0x8c69c7f8354a1bac!2sPhoenix%2C%20AZ!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -52,10 +46,10 @@ export default function ServiceAreas() {
               {serviceAreas.map((area, index) => (
                 <a
                   key={index}
-                  href={`/service-areas/${area.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="text-lg hover:text-gray-300 transition-colors"
+                  href={`/service-areas/${area.slug}`}
+                  className="text-lg hover:text-primary transition-colors"
                 >
-                  {area}
+                  {area.name}
                 </a>
               ))}
             </div>

@@ -16,13 +16,13 @@ export function BlogCard({ post, featured = false, showCategoryLink = true, cate
   const CardContent = () => (
     <>
       {post.image && (
-        <div className={`relative overflow-hidden ${featured ? 'aspect-w-16 aspect-h-9' : 'aspect-w-16 aspect-h-9'}`}>
+        <div className="relative w-full h-48 overflow-hidden">
           <Image
             src={post.image}
             alt={post.imageAlt || post.title}
-            width={featured ? 800 : 400}
-            height={featured ? 450 : 225}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           {post.category && showCategoryLink && (
             <span className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-xs font-semibold text-primary dark:text-primary-light rounded-full uppercase tracking-wide">

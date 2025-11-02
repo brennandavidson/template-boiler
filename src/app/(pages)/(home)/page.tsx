@@ -13,10 +13,14 @@ import OurProcess from '@/components/sections/process/OurProcess';
 import WorkGallery from '@/components/sections/gallery/WorkGallery';
 import FAQ from '@/components/sections/faq/FAQ';
 import ServiceAreas from '@/components/sections/service-areas/ServiceAreas';
+import { HeaderSetter } from '@/components/layout/HeaderSetter';
 
 export default function HomePage() {
   return (
     <>
+      {/* Set header context for hero image */}
+      <HeaderSetter hasHeroImage={true} />
+
       {/* Hero Section with Contact Form */}
       <HeroWithForm />
 
