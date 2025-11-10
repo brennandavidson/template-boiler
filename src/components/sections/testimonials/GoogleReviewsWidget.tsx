@@ -54,6 +54,22 @@ export default function GoogleReviewsWidget({
   const [isMobile, setIsMobile] = useState(false);
   const [displayCount, setDisplayCount] = useState(9);
 
+  // Helper function to safely format dates
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return '';
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+    } catch {
+      return '';
+    }
+  };
+
   // Check if mobile on mount and resize
   useEffect(() => {
     const checkMobile = () => {
@@ -241,7 +257,7 @@ export default function GoogleReviewsWidget({
                   {truncatedText}
                 </p>
                 <p className="text-xs mt-4 text-gray-500">
-                  {new Date(review.datePublished).toLocaleDateString()}
+                  {formatDate(review.datePublished)}
                 </p>
               </div>
             );
@@ -359,7 +375,7 @@ export default function GoogleReviewsWidget({
                       {truncatedText}
                     </p>
                     <p className="text-xs mt-3 sm:mt-4 text-gray-500">
-                      {new Date(review.datePublished).toLocaleDateString()}
+                      {formatDate(review.datePublished)}
                     </p>
                   </div>
                 );
@@ -443,7 +459,7 @@ export default function GoogleReviewsWidget({
               {truncatedText}
             </p>
             <p className="text-xs mt-3 text-gray-500">
-              {new Date(review.datePublished).toLocaleDateString()}
+              {formatDate(review.datePublished)}
             </p>
           </div>
         );
