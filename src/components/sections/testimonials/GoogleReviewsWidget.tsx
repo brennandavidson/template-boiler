@@ -105,8 +105,19 @@ export default function GoogleReviewsWidget({
         if (data.success && data.widget) {
           console.log('Fetched reviews count:', data.widget.reviews.length);
           console.log('Total reviews on GBP:', data.widget.gbpLocationSummary.reviewsCount);
+
+          // Transform the new API structure to match our interface
+          const transformedReviews = data.widget.reviews.map((review: any) => ({
+            uuid: review.id,
+            authorName: review.author?.name || 'Anonymous',
+            authorAvatar: review.author?.avatarUrl || '',
+            text: review.text || '',
+            starRating: review.rating?.value || 5,
+            datePublished: review.publishedAt || '',
+          }));
+
           setWidgetData({
-            reviews: data.widget.reviews,
+            reviews: transformedReviews,
             gbpLocationSummary: data.widget.gbpLocationSummary,
           });
         } else {
