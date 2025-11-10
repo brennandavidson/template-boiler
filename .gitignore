@@ -155,9 +155,7 @@ settings.json
 /public/pages-config.json
 /src/seo/sitemap/generated-sitemap-routes.json
 
-.playright-mcp/*
-.playright-mcp
-.playright-mcp/
+.playwright-mcp/
 
 # Client intake folders (used during setup, not part of template)
 client-intake/
