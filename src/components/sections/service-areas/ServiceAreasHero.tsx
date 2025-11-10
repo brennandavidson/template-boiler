@@ -1,3 +1,7 @@
+'use client';
+
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
+
 interface ServiceAreasHeroProps {
   title?: string;
   subtitle?: string;
@@ -11,6 +15,7 @@ export default function ServiceAreasHero({
   backgroundImage = 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
   onQuoteClick,
 }: ServiceAreasHeroProps) {
+  const { openModal } = useQuoteModal();
   return (
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -35,8 +40,8 @@ export default function ServiceAreasHero({
           {subtitle}
         </p>
         <button
-          onClick={onQuoteClick}
-          className="font-heading bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-lg"
+          onClick={onQuoteClick || openModal}
+          className="font-heading bg-primary hover-dark text-white px-8 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-lg"
         >
           Get Free Quote
         </button>

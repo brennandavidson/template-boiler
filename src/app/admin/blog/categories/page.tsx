@@ -56,10 +56,10 @@ export default function BlogCategoriesPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-48 mb-6"></div>
+          <div className="h-8 bg-gray-200 rounded w-48 mb-6"></div>
           <div className="space-y-4">
             {[1, 2, 3].map(i => (
-              <div key={i} className="h-20 bg-gray-200 dark:bg-gray-700 rounded"></div>
+              <div key={i} className="h-20 bg-gray-200 rounded"></div>
             ))}
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function BlogCategoriesPage() {
     {/* Delete Confirmation Modal */}
       {deleteModalOpen && categoryToDelete && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
             <h3 className="text-lg font-semibold mb-4">Delete Category</h3>
             <p className="mb-6">
               Are you sure you want to delete the category "{categoryToDelete.name}"?
@@ -256,7 +256,7 @@ export default function BlogCategoriesPage() {
                   setDeleteModalOpen(false);
                   setCategoryToDelete(null);
                 }}
-                className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
               >
                 Cancel
               </button>

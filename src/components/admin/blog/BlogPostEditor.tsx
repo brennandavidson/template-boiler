@@ -590,10 +590,10 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
             
             {/* Completion Indicator */}
             <div className="text-right">
-              <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+              <div className="text-sm text-gray-600 mb-1">
                 {completionPercentage}% Complete
               </div>
-              <div className="w-48 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div className="w-48 h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div 
                   className="h-full bg-gradient-to-r from-primary-500 to-primary-600 transition-all duration-300"
                   style={{ width: `${completionPercentage}%` }}
@@ -604,11 +604,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
 
           {/* Save Status */}
           {saveStatus !== 'idle' && (
-            <div className={`p-3 rounded-lg mb-4 ${
-              saveStatus === 'saving' ? 'bg-primary-50 dark:bg-gray-800/60 text-primary-700 dark:text-primary-200' :
-              saveStatus === 'saved' ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300' :
-              'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300'
-            }`}>
+            <div className={`p-3 rounded-lg mb-4 ${ saveStatus ==='saving'?'bg-primary-50 text-primary-700': saveStatus ==='saved'?'bg-green-50 text-green-700':'bg-red-50 text-red-700'}`}>
               {saveStatus === 'saving' && '⏳ Saving...'}
               {saveStatus === 'saved' && '✅ Post saved successfully! Redirecting...'}
               {saveStatus === 'error' && '❌ Error saving post. Please try again.'}
@@ -617,30 +613,22 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
         </div>
 
         {/* Tab Navigation */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 mb-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
           <div className="flex overflow-x-auto">
             {tabs.map((tab, index) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 min-w-[150px] px-6 py-4 border-b-2 transition-all ${
-                  activeTab === tab.id
-                    ? 'border-primary bg-primary-50 dark:bg-gray-800/60'
-                    : 'border-transparent hover:bg-gray-50 dark:hover:bg-gray-700/50'
-                }`}
+                className={`flex-1 min-w-[150px] px-6 py-4 border-b-2 transition-all ${ activeTab === tab.id ?'border-primary bg-primary-50':'border-transparent hover:bg-gray-50/50'}`}
               >
                 <div className="flex flex-col items-center gap-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xl">{tab.icon}</span>
-                    <span className={`font-medium ${
-                      activeTab === tab.id 
-                        ? 'text-primary dark:text-primary-light' 
-                        : 'text-gray-700 dark:text-gray-300'
-                    }`}>
+                    <span className={`font-medium ${ activeTab === tab.id ?'text-primary':'text-gray-700'}`}>
                       {tab.label}
                     </span>
                   </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                  <span className="text-xs text-gray-500">
                     {tab.description}
                   </span>
                 </div>
@@ -650,7 +638,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <form onSubmit={handleSubmit}>
             {/* Content Tab */}
             {activeTab === 'content' && (
@@ -668,7 +656,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                       name="title"
                       value={formData.title}
                       onChange={handleInputChange}
-                      className={`input-field ${errors.title ? 'border-red-500' : ''}`}
+                      className={`input-field ${errors.title ?'border-red-500':''}`}
                       placeholder="Enter a compelling title"
                     />
                     {errors.title && (
@@ -718,7 +706,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                       name="slug"
                       value={formData.slug || (mode === 'create' ? generateSlug(formData.title) : '')}
                       onChange={(e) => handleSlugChange(e.target.value)}
-                      className={`input-field font-mono w-full ${errors.slug ? 'border-red-500' : ''}`}
+                      className={`input-field font-mono w-full ${errors.slug ?'border-red-500':''}`}
                       placeholder="enter-post-slug"
                     />
                   </div>
@@ -741,7 +729,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                       value={formData.excerpt}
                       onChange={handleInputChange}
                       rows={3}
-                      className={`input-field ${errors.excerpt ? 'border-red-500' : ''}`}
+                      className={`input-field ${errors.excerpt ?'border-red-500':''}`}
                       placeholder="Write a brief summary that will appear in blog listings"
                     />
                     {errors.excerpt && (
@@ -809,7 +797,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                               onChange={(e) => setShowFeaturedPreview(e.target.checked)}
                               className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary/50"
                             />
-                            <span className="text-sm text-gray-600 dark:text-gray-400">Show preview</span>
+                            <span className="text-sm text-gray-600">Show preview</span>
                           </label>
                         </div>
                       </div>
@@ -851,7 +839,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                   )}
                 </div>
 
-                <div className="p-4 bg-primary-50 dark:bg-gray-800/60 rounded-lg">
+                <div className="p-4 bg-primary-50 rounded-lg">
                   <p className="text-sm">
                     <strong>💡 Tip:</strong> Use high-quality images that relate to your content. 
                     The featured image appears in blog listings and social media shares.
@@ -865,8 +853,8 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
               <div className="space-y-6">
                 <div>
                   <h3 className="text-h3 mb-4">Search Engine Optimization</h3>
-                  <div className="bg-gray-50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-lg p-4 mb-4">
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+                    <p className="text-sm text-gray-700 mb-3">
                       {mode === 'create' 
                         ? 'You can apply the default blog post SEO template to quickly fill in the fields below.'
                         : 'Apply the SEO template to replace current SEO fields with template values.'}
@@ -874,7 +862,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                     <button
                       type="button"
                       onClick={applySEOTemplate}
-                      className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors text-sm font-medium"
+                      className="px-4 py-2 bg-primary text-white rounded-md hover-dark transition-colors text-sm font-medium"
                     >
                       Apply SEO Template
                     </button>
@@ -955,7 +943,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                               onChange={(e) => setShowSEOPreview(e.target.checked)}
                               className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary/50"
                             />
-                            <span className="text-sm text-gray-600 dark:text-gray-400">Show preview</span>
+                            <span className="text-sm text-gray-600">Show preview</span>
                           </label>
                         </div>
                       </div>
@@ -990,7 +978,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
               <div className="space-y-6">
                 <div>
                   <h3 className="text-h3 mb-4">Structured Data Schema</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+                  <p className="text-sm text-gray-600 mb-6">
                     Configure structured data schemas to enhance how your content appears in search results.
                     These schemas help search engines better understand your content and can enable rich snippets.
                   </p>
@@ -1076,10 +1064,10 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                   <h3 className="text-h3 mb-4">Post Settings</h3>
                   
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                       <div>
                         <p className="font-medium">Featured Post</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-600">
                           Display this post prominently on the homepage
                         </p>
                       </div>
@@ -1089,10 +1077,10 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                       />
                     </div>
 
-                    <div className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                       <div>
                         <p className="font-medium">{mode === 'edit' && !initialData?.draft ? 'Unpublish to Draft' : 'Save as Draft'}</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-600">
                           {mode === 'edit' && !initialData?.draft 
                             ? 'Move this published post back to draft status'
                             : 'Post will not be published publicly'}
@@ -1104,10 +1092,10 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                       />
                     </div>
 
-                    <div className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                       <div>
                         <p className="font-medium">Exclude from Search</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-600">
                           Hide this post from search engines
                         </p>
                       </div>
@@ -1119,9 +1107,9 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
                   </div>
                 </div>
 
-                <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                <div className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-medium mb-2">Publishing Notes</h4>
-                  <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                  <ul className="text-sm text-gray-600 space-y-1">
                     <li>• Draft posts are only visible to administrators</li>
                     <li>• Featured posts appear at the top of blog listings</li>
                     <li>• Excluded posts won't appear in search engine results</li>
@@ -1132,7 +1120,7 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
             )}
 
             {/* Action Buttons */}
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
               <button
                 type="button"
                 onClick={() => router.push('/admin/blog')}
@@ -1163,9 +1151,9 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
         </div>
 
         {/* Help Sidebar */}
-        <div className="mt-6 p-4 bg-primary-50 dark:bg-gray-800/60 rounded-lg">
+        <div className="mt-6 p-4 bg-primary-50 rounded-lg">
           <h3 className="font-medium mb-2">Quick Tips</h3>
-          <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+          <ul className="text-sm text-gray-600 space-y-1">
             <li>• Required fields are marked with an asterisk (*)</li>
             <li>• Your progress is shown at the top of the page</li>
             <li>• SEO settings help your post rank better in search results</li>

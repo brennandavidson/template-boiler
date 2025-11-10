@@ -11,8 +11,12 @@ import OurProcess from '@/components/sections/process/OurProcess';
 import ServiceAreas from '@/components/sections/service-areas/ServiceAreas';
 import FinalCTA from '@/components/sections/cta/FinalCTA';
 import { HeaderSetter } from '@/components/layout/HeaderSetter';
+import { getSiteConfig } from '@/lib/get-site-config';
 
 export default function GalleryPage() {
+  const config = getSiteConfig();
+  const projects = config.projects?.gallery || [];
+
   return (
     <>
       {/* Set header context - has hero image on this page */}
@@ -22,7 +26,7 @@ export default function GalleryPage() {
       <GalleryHero />
 
       {/* Gallery Grid */}
-      <GalleryGrid />
+      <GalleryGrid images={projects} />
 
       {/* Reviews/Testimonials */}
       <Reviews />

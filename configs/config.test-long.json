@@ -1,0 +1,125 @@
+{
+  "business": {
+    "name": "All-Star Professional Swimming Pool Installation",
+    "tagline": "PREMIER LUXURY POOL SERVICES & EXPERT INSTALLATIONS IN",
+    "primaryLocation": "GREATER PHOENIX METROPOLITAN AREA",
+    "heroDescription": "Offering the most comprehensive, top-notch installation, complete renovation, professional maintenance, and cutting-edge custom design services exclusively in your local area for discerning homeowners and commercial businesses.",
+    "heroBackgroundImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+  },
+  "contact": {
+    "phone": "(555) 987-6543",
+    "email": "contact@allstarprofessional-pools.com",
+    "address": {
+      "street": "123 Professional Boulevard Suite 456",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85001"
+    },
+    "googleMapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d427224.8741266059!2d-112.32374299999999!3d33.448376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b12ed50a179cb%3A0x8c69c7f8354a1bac!2sPhoenix%2C%20AZ!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus",
+    "googleReviewUrl": "https://www.google.com/search?q=all+star+professional+pools+phoenix+az"
+  },
+  "services": {
+    "sectionBadge": "WHAT WE SPECIALIZE IN DOING",
+    "sectionHeading": "OUR COMPREHENSIVE SERVICES",
+    "items": [
+      {
+        "title": "Custom Pool Installation",
+        "slug": "installation",
+        "imageSrc": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Professional custom pool installation services with expert craftsmanship",
+        "description": "From luxurious custom in-ground pools to versatile above-ground installations, our team of certified professionals brings decades of experience to every project. We specialize in creating stunning outdoor living spaces that perfectly complement your property's unique architecture and landscape design. Our comprehensive installation services include site evaluation, permit acquisition, excavation, plumbing, electrical work, tile selection, coping installation, deck construction, and complete system setup. Each project is managed by dedicated project managers who ensure timeline adherence, quality control, and customer satisfaction from initial consultation through final inspection."
+      },
+      {
+        "title": "Complete Pool Renovation",
+        "slug": "renovation",
+        "imageSrc": "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Expert pool renovation and restoration services",
+        "description": "Transform your aging or outdated pool into a modern masterpiece with our comprehensive renovation services. We handle everything from minor cosmetic updates to complete structural overhauls, including resurfacing, tile replacement, equipment upgrades, lighting installation, and landscape integration."
+      },
+      {
+        "title": "Professional Maintenance",
+        "slug": "maintenance",
+        "imageSrc": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Regular professional pool maintenance services",
+        "description": "Keep your pool in pristine condition year-round with our professional maintenance programs. Our certified technicians provide weekly cleaning, chemical balancing, equipment inspection, filter maintenance, and preventive care to ensure optimal performance and longevity."
+      },
+      {
+        "title": "Luxury Design Services",
+        "slug": "design",
+        "imageSrc": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Professional luxury pool design and consultation services",
+        "description": "Our award-winning design team creates custom pool concepts that blend functionality with aesthetic excellence. We provide 3D renderings, material selection guidance, and complete landscape integration planning."
+      },
+      {
+        "title": "Equipment Repair & Upgrade",
+        "slug": "equipment",
+        "imageSrc": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Pool equipment repair and upgrade services",
+        "description": "Expert repair and replacement of all pool equipment including pumps, filters, heaters, automation systems, and lighting. We work with all major brands and offer energy-efficient upgrade options."
+      },
+      {
+        "title": "Commercial Pool Services",
+        "slug": "commercial",
+        "imageSrc": "https://images.unsplash.com/photo-1519638399535-1b036603ac77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Commercial pool services for hotels and resorts",
+        "description": "Specialized services for hotels, resorts, apartment complexes, and community pools. We provide compliance inspection, commercial-grade maintenance, and rapid emergency response services."
+      },
+      {
+        "title": "Spa & Hot Tub Installation",
+        "slug": "spa",
+        "imageSrc": "https://images.unsplash.com/photo-1571019613576-2b22c76fd955?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Spa and hot tub installation services",
+        "description": "Professional installation of spas, hot tubs, and water features. We handle site preparation, electrical connections, plumbing, and integration with existing pool systems."
+      },
+      {
+        "title": "Pool Safety & Automation",
+        "slug": "automation",
+        "imageSrc": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Pool safety features and automation systems",
+        "description": "Installation of safety covers, fencing, alarms, and smart automation systems. Control your pool temperature, lighting, and cleaning remotely from your smartphone."
+      }
+    ]
+  },
+  "serviceAreas": {
+    "sectionBadge": "Locations We Proudly Serve",
+    "sectionHeading": "PROUDLY SERVING THE ENTIRE PHOENIX METRO",
+    "ctaText": "Don't see your specific city or neighborhood listed here? No problem! Give us a call today - we frequently expand our service area and may still be able to accommodate your location.",
+    "cities": [
+      { "name": "Phoenix", "slug": "phoenix", "description": "Serving the greater Phoenix metropolitan area with comprehensive pool services" },
+      { "name": "Mesa", "slug": "mesa", "description": "Professional pool installation and maintenance in Mesa" },
+      { "name": "Scottsdale", "slug": "scottsdale", "description": "Luxury pool services for Scottsdale's finest properties" },
+      { "name": "Tempe", "slug": "tempe", "description": "Expert pool care throughout Tempe and surrounding areas" },
+      { "name": "Chandler", "slug": "chandler", "description": "Complete pool solutions for Chandler residents" },
+      { "name": "Gilbert", "slug": "gilbert", "description": "Top-rated pool services in Gilbert" },
+      { "name": "Glendale", "slug": "glendale", "description": "Professional pool services in Glendale" },
+      { "name": "Peoria", "slug": "peoria", "description": "Expert pool installation and repair in Peoria" },
+      { "name": "Surprise", "slug": "surprise", "description": "Quality pool services for Surprise homeowners" },
+      { "name": "Avondale", "slug": "avondale", "description": "Comprehensive pool care in Avondale" },
+      { "name": "Goodyear", "slug": "goodyear", "description": "Professional pool maintenance in Goodyear" },
+      { "name": "Buckeye", "slug": "buckeye", "description": "Reliable pool services for Buckeye residents" }
+    ]
+  },
+  "branding": {
+    "primaryColor": "#2563eb",
+    "backgroundBlue": "#1e3a5f",
+    "logo": {
+      "horizontal": "/logos/horizontal-logo.png",
+      "horizontalInverted": "/logos/horizontal-logo-inverted.png"
+    }
+  },
+  "social": {
+    "facebook": "https://facebook.com/allstarprofessionalpools",
+    "instagram": "https://instagram.com/allstarprofessionalpools",
+    "twitter": "https://twitter.com/allstarpools",
+    "youtube": "https://youtube.com/@allstarpools",
+    "linkedin": "https://linkedin.com/company/allstarpools"
+  },
+  "hours": {
+    "monday": { "opens": "08:00", "closes": "18:00" },
+    "tuesday": { "opens": "08:00", "closes": "18:00" },
+    "wednesday": { "opens": "08:00", "closes": "18:00" },
+    "thursday": { "opens": "08:00", "closes": "18:00" },
+    "friday": { "opens": "08:00", "closes": "18:00" },
+    "saturday": { "opens": "09:00", "closes": "14:00" }
+  }
+}

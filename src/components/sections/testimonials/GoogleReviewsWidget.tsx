@@ -121,20 +121,20 @@ export default function GoogleReviewsWidget({
   if (!featurableId) {
     return (
       <div className="text-center py-12 px-4">
-        <div className="max-w-2xl mx-auto bg-blue-50 border border-blue-200 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <div className="max-w-2xl mx-auto bg-primary-50 border border-primary-200 rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-primary-900 mb-2">
             Google Reviews Setup Required
           </h3>
-          <p className="text-sm text-blue-700 mb-4">
+          <p className="text-sm text-primary-700 mb-4">
             To display real Google reviews, please configure one of the following options:
           </p>
-          <div className="text-left text-sm text-blue-800 space-y-2">
+          <div className="text-left text-sm text-primary-800 space-y-2">
             <div>
               <strong>Option 1 (Recommended):</strong> Use Featurable (Free)
               <ol className="list-decimal list-inside ml-4 mt-1">
                 <li>Create account at <a href="https://featurable.com" target="_blank" rel="noopener noreferrer" className="underline">featurable.com</a></li>
                 <li>Create a widget and copy the widget ID</li>
-                <li>Add <code className="bg-blue-100 px-1 rounded">NEXT_PUBLIC_FEATURABLE_WIDGET_ID</code> to .env.local</li>
+                <li>Add <code className="bg-primary-100 px-1 rounded">NEXT_PUBLIC_FEATURABLE_WIDGET_ID</code> to .env.local</li>
               </ol>
             </div>
             <div className="mt-3">
@@ -189,7 +189,7 @@ export default function GoogleReviewsWidget({
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
-                  key={i}
+                  key={`summary-star-${i}`}
                   className="w-5 h-5 fill-yellow-400 text-yellow-400"
                 />
               ))}
@@ -205,14 +205,14 @@ export default function GoogleReviewsWidget({
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {visibleReviews.map((review) => {
+          {visibleReviews.map((review, index) => {
             const truncatedText = review.text.length > maxCharacters
               ? review.text.substring(0, maxCharacters) + '...'
               : review.text;
 
             return (
               <div
-                key={review.uuid}
+                key={`grid-review-${review.uuid}-${index}`}
                 className="p-6 rounded-lg bg-white border border-gray-200 shadow-md transition-all duration-300 hover:shadow-xl hover:border-background-blue"
               >
                 <div className="flex items-start gap-3 mb-4">
@@ -226,7 +226,7 @@ export default function GoogleReviewsWidget({
                     <div className="flex gap-1 mt-1">
                       {[...Array(5)].map((_, i) => (
                         <Star
-                          key={i}
+                          key={`${review.uuid}-star-${i}`}
                           className={`w-4 h-4 ${
                             i < review.starRating
                               ? 'fill-yellow-400 text-yellow-400'
@@ -286,7 +286,7 @@ export default function GoogleReviewsWidget({
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
-                  key={i}
+                  key={`carousel-summary-star-${i}`}
                   className="w-5 h-5 fill-yellow-400 text-yellow-400"
                 />
               ))}
@@ -323,14 +323,14 @@ export default function GoogleReviewsWidget({
                 transform: `translateX(0)`,
               }}
             >
-              {currentReviews.map((review) => {
+              {currentReviews.map((review, index) => {
                 const truncatedText = review.text.length > maxCharacters
                   ? review.text.substring(0, maxCharacters) + '...'
                   : review.text;
 
                 return (
                   <div
-                    key={review.uuid}
+                    key={`${review.uuid}-${startIndex + index}`}
                     className="p-4 sm:p-6 rounded-lg bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
                   >
                     <div className="flex items-start gap-3 mb-3 sm:mb-4">
@@ -344,7 +344,7 @@ export default function GoogleReviewsWidget({
                         <div className="flex gap-1 mt-1">
                           {[...Array(5)].map((_, i) => (
                             <Star
-                              key={i}
+                              key={`${review.uuid}-carousel-star-${i}`}
                               className={`w-3 h-3 sm:w-4 sm:h-4 ${
                                 i < review.starRating
                                   ? 'fill-yellow-400 text-yellow-400'
@@ -385,7 +385,7 @@ export default function GoogleReviewsWidget({
         <div className="flex justify-center gap-2 mt-8">
           {[...Array(totalPages)].map((_, index) => (
             <button
-              key={index}
+              key={`carousel-dot-${index}`}
               onClick={() => setCurrentPage(index)}
               className={`h-2 rounded-full transition-all ${
                 index === currentPage
@@ -407,14 +407,14 @@ export default function GoogleReviewsWidget({
   // Default grid layout (for non-carousel)
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {reviews.slice(0, 6).map((review) => {
+      {reviews.slice(0, 6).map((review, index) => {
         const truncatedText = review.text.length > maxCharacters
           ? review.text.substring(0, maxCharacters) + '...'
           : review.text;
 
         return (
           <div
-            key={review.uuid}
+            key={`default-review-${review.uuid}-${index}`}
             className="p-6 rounded-lg bg-white shadow-lg"
           >
             <div className="flex items-start gap-3 mb-4">
@@ -428,7 +428,7 @@ export default function GoogleReviewsWidget({
                 <div className="flex gap-1 mt-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
-                      key={i}
+                      key={`${review.uuid}-default-star-${i}`}
                       className={`w-3 h-3 ${
                         i < review.starRating
                           ? 'fill-yellow-400 text-yellow-400'

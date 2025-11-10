@@ -1,40 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
-interface Service {
-  title: string;
-  href: string;
-  imageSrc: string;
-  imageAlt: string;
-}
+import { getSiteConfigServices } from '@/lib/get-site-config';
 
 export default function ServicesGrid() {
-  const services: Service[] = [
-    {
-      title: 'Installation',
-      href: '/services/installation',
-      imageSrc: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      imageAlt: 'Professional installation services',
-    },
-    {
-      title: 'Renovation',
-      href: '/services/renovation',
-      imageSrc: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      imageAlt: 'Expert renovation services',
-    },
-    {
-      title: 'Maintenance',
-      href: '/services/maintenance',
-      imageSrc: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      imageAlt: 'Regular maintenance services',
-    },
-    {
-      title: 'Design Services',
-      href: '/services/design',
-      imageSrc: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      imageAlt: 'Professional design services',
-    },
-  ];
+  // Load services configuration
+  const servicesConfig = getSiteConfigServices();
 
   return (
     <section className="bg-white py-16 sm:py-24">
@@ -43,20 +13,20 @@ export default function ServicesGrid() {
         <div className="mb-16 text-center">
           <div className="inline-block mb-4">
             <span className="inline-block bg-[#1e3a5f] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
-              WHAT WE ARE BEST AT
+              {servicesConfig.sectionBadge}
             </span>
           </div>
           <h2 className="font-heading text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            OUR SERVICES
+            {servicesConfig.sectionHeading}
           </h2>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
+          {servicesConfig.items.map((service) => (
             <Link
-              key={service.title}
-              href={service.href}
+              key={service.slug}
+              href={`/services/${service.slug}`}
               className="group relative overflow-hidden rounded-xl shadow-xl transition-all hover:shadow-2xl"
             >
               {/* Image Background */}

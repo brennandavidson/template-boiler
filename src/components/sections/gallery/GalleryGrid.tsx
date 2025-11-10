@@ -2,12 +2,15 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { getSiteConfig } from '@/lib/get-site-config';
 
 interface GalleryImage {
   id: string;
-  src: string;
+  imageSrc: string;
   alt: string;
+  title: string;
   category?: string;
+  featured?: boolean;
 }
 
 interface GalleryGridProps {
@@ -153,7 +156,7 @@ export default function GalleryGrid({ images = defaultImages }: GalleryGridProps
                 className="group relative aspect-square overflow-hidden rounded-lg bg-gray-200 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <Image
-                  src={image.src}
+                  src={image.imageSrc}
                   alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
@@ -186,7 +189,7 @@ export default function GalleryGrid({ images = defaultImages }: GalleryGridProps
 
           <div className="relative max-h-[90vh] max-w-5xl" onClick={(e) => e.stopPropagation()}>
             <Image
-              src={selectedImage.src}
+              src={selectedImage.imageSrc}
               alt={selectedImage.alt}
               width={1200}
               height={800}

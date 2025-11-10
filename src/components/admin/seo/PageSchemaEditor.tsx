@@ -3,13 +3,13 @@
 import { useState, useEffect } from 'react';
 import { seoConfig } from '@/seo/seo.config';
 
-// Consistent input styling for dark mode support
-const INPUT_CLASS = 'w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors';
-const LABEL_CLASS = 'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1';
-const BUTTON_PRIMARY_CLASS = 'px-3 py-1.5 bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors shadow-sm';
-const BUTTON_DANGER_CLASS = 'text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm transition-colors';
-const SECTION_CLASS = 'bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-4 space-y-3';
-const CARD_CLASS = 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 space-y-2';
+// Consistent input styling
+const INPUT_CLASS = 'w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors';
+const LABEL_CLASS = 'block text-sm font-medium text-gray-700 mb-1';
+const BUTTON_PRIMARY_CLASS = 'px-3 py-1.5 bg-primary hover-dark text-white rounded-lg transition-colors shadow-sm';
+const BUTTON_DANGER_CLASS = 'text-red-600 hover:text-red-700 text-sm transition-colors';
+const SECTION_CLASS = 'bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-3';
+const CARD_CLASS = 'bg-white border border-gray-200 rounded-lg p-3 space-y-2';
 import { 
   PageSchema, 
   SCHEMAS_BY_PAGE_TYPE, 
@@ -295,9 +295,9 @@ export default function PageSchemaEditor({
     <div className="space-y-6">
       {/* Add Schema Dropdown */}
       <div className="flex items-center gap-4">
-        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Add Schema:</label>
+        <label className="text-sm font-medium text-gray-700">Add Schema:</label>
         <select 
-          className="px-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all hover:border-gray-400 dark:hover:border-gray-500 cursor-pointer shadow-sm"
+          className="px-4 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all hover:border-gray-400 cursor-pointer shadow-sm"
           onChange={(e) => {
             if (e.target.value) {
               addSchema(e.target.value);
@@ -319,16 +319,16 @@ export default function PageSchemaEditor({
       {activeSchemas.length > 0 && (
         <div className="space-y-4">
           {activeSchemas.map((schema, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm transition-all">
+            <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-sm transition-all">
               <div 
-                className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors rounded-t-lg"
+                className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50/50 transition-colors rounded-t-lg"
                 onClick={() => setExpandedSchema(expandedSchema === schema.type ? null : schema.type)}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{getSchemaIcon(schema.type)}</span>
                   <div>
-                    <h3 className="font-medium text-gray-900 dark:text-gray-100">{schema.type}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <h3 className="font-medium text-gray-900">{schema.type}</h3>
+                    <p className="text-sm text-gray-500">
                       {schema.enabled ? '✓ Enabled' : 'Disabled'}
                     </p>
                   </div>
@@ -339,18 +339,18 @@ export default function PageSchemaEditor({
                       e.stopPropagation();
                       removeSchema(index);
                     }}
-                    className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 px-3 py-1.5 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                    className="text-red-600 hover:text-red-700 px-3 py-1.5 rounded hover:bg-red-50 transition-colors"
                   >
                     Remove
                   </button>
-                  <span className="text-gray-400 dark:text-gray-500">
+                  <span className="text-gray-400">
                     {expandedSchema === schema.type ? '▼' : '▶'}
                   </span>
                 </div>
               </div>
               
               {expandedSchema === schema.type && (
-                <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-b-lg">
+                <div className="border-t border-gray-200 p-4 bg-gray-50 rounded-b-lg">
                   {renderSchemaForm(schema, index)}
                 </div>
               )}
@@ -361,11 +361,11 @@ export default function PageSchemaEditor({
 
       {/* Preview JSON-LD */}
       {activeSchemas.length > 0 && (
-        <details className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm">
-          <summary className="cursor-pointer font-medium text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary-light transition-colors">
+        <details className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+          <summary className="cursor-pointer font-medium text-gray-900 hover:text-primary transition-colors">
             Preview JSON-LD Output
           </summary>
-          <pre className="mt-4 p-4 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg overflow-x-auto text-xs text-gray-800 dark:text-gray-200">
+          <pre className="mt-4 p-4 bg-gray-100 border border-gray-200 rounded-lg overflow-x-auto text-xs text-gray-800">
             {JSON.stringify(activeSchemas.filter(s => s.enabled), null, 2)}
           </pre>
         </details>
@@ -491,7 +491,7 @@ function FAQSchemaForm({
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h4 className="font-medium text-gray-900 dark:text-gray-100">Questions & Answers</h4>
+        <h4 className="font-medium text-gray-900">Questions & Answers</h4>
         <button
           type="button"
           onClick={addQuestion}
@@ -601,7 +601,7 @@ function HowToSchemaForm({
 
       <div className="space-y-2">
         <div className="flex justify-between items-center">
-          <h4 className="font-medium text-gray-900 dark:text-gray-100">Steps</h4>
+          <h4 className="font-medium text-gray-900">Steps</h4>
           <button
             type="button"
             onClick={addStep}
@@ -785,7 +785,7 @@ function ProductSchemaForm({
       </div>
 
       <div className={SECTION_CLASS}>
-        <h4 className="font-medium text-gray-900 dark:text-gray-100">Pricing & Availability</h4>
+        <h4 className="font-medium text-gray-900">Pricing & Availability</h4>
         
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -847,7 +847,7 @@ function ProductSchemaForm({
       </div>
 
       <div className={SECTION_CLASS}>
-        <h4 className="font-medium text-gray-900 dark:text-gray-100">Rating</h4>
+        <h4 className="font-medium text-gray-900">Rating</h4>
         
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -1088,7 +1088,7 @@ function RecipeSchemaForm({
 
       <div className="space-y-2">
         <div className="flex justify-between items-center">
-          <h4 className="font-medium text-gray-900 dark:text-gray-100">Ingredients</h4>
+          <h4 className="font-medium text-gray-900">Ingredients</h4>
           <button
             type="button"
             onClick={addIngredient}
@@ -1110,7 +1110,7 @@ function RecipeSchemaForm({
             <button
               type="button"
               onClick={() => removeIngredient(index)}
-              className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 px-2 transition-colors"
+              className="text-red-600 hover:text-red-700 px-2 transition-colors"
             >
               ✕
             </button>
@@ -1120,7 +1120,7 @@ function RecipeSchemaForm({
 
       <div className="space-y-2">
         <div className="flex justify-between items-center">
-          <h4 className="font-medium text-gray-900 dark:text-gray-100">Instructions</h4>
+          <h4 className="font-medium text-gray-900">Instructions</h4>
           <button
             type="button"
             onClick={addInstruction}
@@ -2143,7 +2143,7 @@ function GenericSchemaForm({
   onChange: (schema: PageSchema) => void;
 }) {
   return (
-    <div className="text-sm text-gray-600 dark:text-gray-400">
+    <div className="text-sm text-gray-600">
       <p>This schema type is automatically generated based on page content.</p>
       <p className="mt-2">No additional configuration needed.</p>
     </div>

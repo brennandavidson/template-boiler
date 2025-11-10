@@ -134,19 +134,19 @@ export default function RedirectsManager() {
 
       {/* Status Messages */}
       {error && (
-        <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-lg">
+        <div className="p-3 bg-red-50 text-red-700 rounded-lg">
           {error}
         </div>
       )}
       {success && (
-        <div className="p-3 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded-lg">
+        <div className="p-3 bg-green-50 text-green-700 rounded-lg">
           {success}
         </div>
       )}
 
       {/* Add Redirect Form */}
       {showAddForm && (
-        <form onSubmit={handleAddRedirect} className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg space-y-4">
+        <form onSubmit={handleAddRedirect} className="bg-gray-50 p-4 rounded-lg space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="text-label block mb-2">From URL *</label>
@@ -204,67 +204,63 @@ export default function RedirectsManager() {
       )}
 
       {/* Redirects Table */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         {redirects.length === 0 ? (
           <div className="p-8 text-center">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500">
               No redirects configured yet.
             </p>
-            <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
+            <p className="text-sm text-gray-400 mt-2">
               Redirects will be automatically created when you change blog post slugs.
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-900/50">
+              <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     From
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     To
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Type
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Created
                   </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+              <tbody className="divide-y divide-gray-200">
                 {redirects.map((redirect) => (
-                  <tr key={redirect.from} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <tr key={redirect.from} className="hover:bg-gray-50/50">
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <code className="text-sm font-mono text-primary dark:text-primary-light">
+                      <code className="text-sm font-mono text-primary">
                         {redirect.from}
                       </code>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <code className="text-sm font-mono text-green-600 dark:text-green-400">
+                      <code className="text-sm font-mono text-green-600">
                         {redirect.to}
                       </code>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        redirect.permanent
-                          ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300'
-                          : 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300'
-                      }`}>
+                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${ redirect.permanent ?'bg-purple-100 text-purple-800':'bg-yellow-100 text-yellow-800'}`}>
                         {redirect.permanent ? '308 Permanent' : '307 Temporary'}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                       {new Date(redirect.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right">
                       <button
                         onClick={() => handleDeleteRedirect(redirect.from)}
-                        className="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 text-sm font-medium"
+                        className="text-red-600 hover:text-red-700 text-sm font-medium"
                       >
                         Delete
                       </button>
@@ -278,11 +274,11 @@ export default function RedirectsManager() {
       </div>
 
       {/* Help Text */}
-      <div className="bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg p-4">
-        <h4 className="font-medium text-primary-900 dark:text-primary-400 mb-2">
+      <div className="bg-primary-50 border border-primary-200 rounded-lg p-4">
+        <h4 className="font-medium text-primary-900 mb-2">
           About Redirects
         </h4>
-        <ul className="text-sm text-primary-800 dark:text-primary-400 space-y-1">
+        <ul className="text-sm text-primary-800 space-y-1">
           <li>• Redirects are automatically created when you change a published blog post's slug</li>
           <li>• Use permanent redirects (308) for content that has permanently moved</li>
           <li>• Use temporary redirects (307) for maintenance or temporary changes</li>

@@ -315,12 +315,12 @@ export default function EditCategoryPage() {
     return (
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-48 mb-6"></div>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
+          <div className="h-8 bg-gray-200 rounded w-48 mb-6"></div>
+          <div className="bg-white rounded-lg shadow p-6">
+            <div className="h-10 bg-gray-200 rounded mb-4"></div>
             <div className="space-y-4">
-              <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
-              <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded"></div>
+              <div className="h-10 bg-gray-200 rounded"></div>
+              <div className="h-20 bg-gray-200 rounded"></div>
             </div>
           </div>
         </div>
@@ -454,7 +454,7 @@ export default function EditCategoryPage() {
                     <p className="text-red-500 text-sm mt-1">{errors.slug}</p>
                   )}
                   {hasPublishedPosts && formData.slug !== originalSlug && (
-                    <p className="text-yellow-600 dark:text-yellow-400 text-sm mt-2">
+                    <p className="text-yellow-600 text-sm mt-2">
                       ⚠️ Changing the slug will affect URLs of published posts in this category
                     </p>
                   )}
@@ -481,14 +481,14 @@ export default function EditCategoryPage() {
           {/* SEO Tab */}
           {activeTab === 'seo' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-              <div className="bg-gray-50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-lg p-4 mb-6">
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                <p className="text-sm text-gray-700 mb-3">
                   You can apply the default category SEO template to quickly fill in the fields below.
                 </p>
                 <button
                   type="button"
                   onClick={applySEOTemplate}
-                  className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors text-sm font-medium"
+                  className="px-4 py-2 bg-primary text-white rounded-md hover-dark transition-colors text-sm font-medium"
                 >
                   Apply SEO Template
                 </button>
@@ -554,9 +554,9 @@ export default function EditCategoryPage() {
           {/* Schema Tab */}
           {activeTab === 'schema' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-              <div className="bg-gray-50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-lg p-4 mb-6">
-                <h3 className="text-lg font-medium mb-2 text-gray-900 dark:text-gray-100">Structured Data Schema</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                <h3 className="text-lg font-medium mb-2 text-gray-900">Structured Data Schema</h3>
+                <p className="text-sm text-gray-700">
                   Configure structured data schemas for this category page. These schemas help search engines understand 
                   your content and can enable rich snippets in search results.
                 </p>
@@ -576,8 +576,8 @@ export default function EditCategoryPage() {
 
           {/* Error message */}
           {errors.submit && (
-            <div className="mt-6 p-3 bg-red-100 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded">
-              <p className="text-red-700 dark:text-red-300">{errors.submit}</p>
+            <div className="mt-6 p-3 bg-red-100 border border-red-200 rounded">
+              <p className="text-red-700">{errors.submit}</p>
             </div>
           )}
 

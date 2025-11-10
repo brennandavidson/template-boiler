@@ -197,11 +197,7 @@ export default function AdminDashboard() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 text-body font-medium transition-all capitalize ${
-                activeTab === tab 
-                  ? 'border-b-2' 
-                  : 'hover:bg-gray-50 dark:hover:bg-gray-800'
-              }`}
+              className={`px-6 py-3 text-body font-medium transition-all capitalize ${ activeTab === tab ?'border-b-2':'hover:bg-gray-50'}`}
               style={{ 
                 borderColor: activeTab === tab ? 'var(--color-primary)' : 'transparent',
                 color: activeTab === tab ? 'var(--color-primary)' : 'var(--color-text-secondary)',
@@ -405,7 +401,7 @@ export default function AdminDashboard() {
                       {stats.recentPosts.slice(0, 5).map((post) => (
                         <div 
                           key={post.slug}
-                          className="flex items-start justify-between p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+                          className="flex items-start justify-between p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
                           onClick={() => router.push(`/admin/blog-post/${post.slug}`)}
                           style={{ 
                             background: 'var(--color-surface)',
@@ -466,31 +462,31 @@ export default function AdminDashboard() {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>GitHub</span>
-                      <span className={`badge ${systemStatus.githubConnected ? 'badge-success' : 'badge-error'}`}>
+                      <span className={`badge ${systemStatus.githubConnected ?'badge-success':'badge-error'}`}>
                         {systemStatus.githubConnected ? 'Connected' : 'Not Connected'}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Email</span>
-                      <span className={`badge ${systemStatus.emailConfigured ? 'badge-success' : 'badge-warning'}`}>
+                      <span className={`badge ${systemStatus.emailConfigured ?'badge-success':'badge-warning'}`}>
                         {systemStatus.emailConfigured ? 'Configured' : 'Not Configured'}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Analytics</span>
-                      <span className={`badge ${systemStatus.analyticsEnabled ? 'badge-success' : 'badge-warning'}`}>
+                      <span className={`badge ${systemStatus.analyticsEnabled ?'badge-success':'badge-warning'}`}>
                         {systemStatus.analyticsEnabled ? 'Active' : 'Inactive'}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>SEO</span>
-                      <span className={`badge ${systemStatus.seoOptimized ? 'badge-success' : 'badge-warning'}`}>
+                      <span className={`badge ${systemStatus.seoOptimized ?'badge-success':'badge-warning'}`}>
                         {systemStatus.seoOptimized ? 'Optimized' : 'Needs Work'}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Sitemap</span>
-                      <span className={`badge ${systemStatus.sitemapGenerated ? 'badge-success' : 'badge-error'}`}>
+                      <span className={`badge ${systemStatus.sitemapGenerated ?'badge-success':'badge-error'}`}>
                         {systemStatus.sitemapGenerated ? 'Generated' : 'Missing'}
                       </span>
                     </div>
@@ -511,7 +507,7 @@ export default function AdminDashboard() {
                       {Object.entries(stats.categories).slice(0, 5).map(([category, count]) => (
                         <div 
                           key={category} 
-                          className="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors"
+                          className="flex justify-between items-center cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors"
                           onClick={() => router.push(`/admin/blog/categories`)}
                         >
                           <span className="text-body" style={{ color: 'var(--color-text-primary)' }}>
@@ -568,15 +564,15 @@ export default function AdminDashboard() {
                 Blog Management
               </h3>
               <div className="space-y-4">
-                <Link href="/admin/blog" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/blog" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>All Posts</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Manage all blog posts</p>
                 </Link>
-                <Link href="/admin/blog-post" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/blog-post" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>Create New Post</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Write a new blog post</p>
                 </Link>
-                <Link href="/admin/blog/categories" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/blog/categories" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>Categories</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Manage blog categories</p>
                 </Link>
@@ -588,15 +584,15 @@ export default function AdminDashboard() {
                 Page Management
               </h3>
               <div className="space-y-4">
-                <Link href="/admin/pages" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/pages" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>All Pages</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>View and edit static pages</p>
                 </Link>
-                <Link href="/admin/pages/new" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/pages/new" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>Create New Page</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Add a new static page</p>
                 </Link>
-                <Link href="/admin/seo?tab=redirects" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/seo?tab=redirects" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>Redirects</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Manage URL redirects</p>
                 </Link>
@@ -615,17 +611,17 @@ export default function AdminDashboard() {
               <div className="space-y-4">
                 <button 
                   onClick={() => { router.push('/admin/settings'); setActiveTab('system'); }}
-                  className="w-full p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-left" 
+                  className="w-full p-4 border rounded-lg hover:bg-gray-50 text-left" 
                   style={{ borderColor: 'var(--color-border-light)' }}
                 >
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>All Settings</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>GitHub, Email, Analytics & Verification</p>
                 </button>
-                <Link href="/admin/seo" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/seo" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>SEO Settings</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Search engine optimization</p>
                 </Link>
-                <Link href="/admin/seo/edit" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/admin/seo/edit" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>Advanced SEO Editor</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Edit SEO configuration file</p>
                 </Link>
@@ -639,7 +635,7 @@ export default function AdminDashboard() {
               <div className="space-y-4">
                 <button 
                   onClick={() => { router.push('/admin/settings'); setTimeout(() => setActiveTab('github'), 100); }}
-                  className="w-full p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-left" 
+                  className="w-full p-4 border rounded-lg hover:bg-gray-50 text-left" 
                   style={{ borderColor: 'var(--color-border-light)' }}
                 >
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>GitHub Integration</h4>
@@ -647,7 +643,7 @@ export default function AdminDashboard() {
                 </button>
                 <button 
                   onClick={() => { router.push('/admin/settings'); setTimeout(() => setActiveTab('analytics'), 100); }}
-                  className="w-full p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-left" 
+                  className="w-full p-4 border rounded-lg hover:bg-gray-50 text-left" 
                   style={{ borderColor: 'var(--color-border-light)' }}
                 >
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>Analytics Setup</h4>
@@ -655,7 +651,7 @@ export default function AdminDashboard() {
                 </button>
                 <button 
                   onClick={() => { router.push('/admin/settings'); setTimeout(() => setActiveTab('verification'), 100); }}
-                  className="w-full p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-left" 
+                  className="w-full p-4 border rounded-lg hover:bg-gray-50 text-left" 
                   style={{ borderColor: 'var(--color-border-light)' }}
                 >
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>Site Verification</h4>
@@ -669,15 +665,15 @@ export default function AdminDashboard() {
                 Site Files
               </h3>
               <div className="space-y-4">
-                <Link href="/sitemap.xml" target="_blank" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/sitemap.xml" target="_blank" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>View Sitemap</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Check generated sitemap</p>
                 </Link>
-                <Link href="/robots.txt" target="_blank" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/robots.txt" target="_blank" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>View Robots.txt</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Check crawler rules</p>
                 </Link>
-                <Link href="/" target="_blank" className="block p-4 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800" style={{ borderColor: 'var(--color-border-light)' }}>
+                <Link href="/" target="_blank" className="block p-4 border rounded-lg hover:bg-gray-50" style={{ borderColor: 'var(--color-border-light)' }}>
                   <h4 className="text-body font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>View Live Site</h4>
                   <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)' }}>Open site in new tab</p>
                 </Link>

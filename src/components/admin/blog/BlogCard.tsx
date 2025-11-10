@@ -25,16 +25,16 @@ export function BlogCard({ post, featured = false, showCategoryLink = true, cate
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           {post.category && showCategoryLink && (
-            <span className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-xs font-semibold text-primary dark:text-primary-light rounded-full uppercase tracking-wide">
+            <span className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-semibold text-primary rounded-full uppercase tracking-wide">
               {categories.find(cat => cat.slug === post.category)?.name || post.category}
             </span>
           )}
         </div>
       )}
       
-      <div className={`p-6 ${featured ? 'lg:p-8' : ''}`}>
+      <div className={`p-6 ${featured ?'lg:p-8':''}`}>
         {/* Meta Information */}
-        <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-3">
+        <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
           <time dateTime={post.publishedAt}>
             {new Date(post.publishedAt).toLocaleDateString('en-US', {
               year: 'numeric',
@@ -44,23 +44,19 @@ export function BlogCard({ post, featured = false, showCategoryLink = true, cate
           </time>
           {post.readingTime && (
             <>
-              <span className="text-gray-300 dark:text-gray-600">•</span>
+              <span className="text-gray-300">•</span>
               <span>{post.readingTime} min read</span>
             </>
           )}
         </div>
         
         {/* Title */}
-        <h3 className={`font-bold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors mb-3 ${
-          featured ? 'text-2xl lg:text-3xl' : 'text-xl'
-        }`}>
+        <h3 className={`font-bold text-gray-900 group-hover:text-primary transition-colors mb-3 ${ featured ?'text-2xl lg:text-3xl':'text-xl'}`}>
           {post.title}
         </h3>
         
         {/* Excerpt */}
-        <p className={`text-gray-600 dark:text-gray-400 mb-4 ${
-          featured ? 'text-base lg:text-lg line-clamp-3' : 'text-sm line-clamp-2'
-        }`}>
+        <p className={`text-gray-600 mb-4 ${ featured ?'text-base lg:text-lg line-clamp-3':'text-sm line-clamp-2'}`}>
           {post.excerpt}
         </p>
         
@@ -75,7 +71,7 @@ export function BlogCard({ post, featured = false, showCategoryLink = true, cate
               className="rounded-full"
             />
           )}
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+          <span className="text-sm font-medium text-gray-700">
             {post.author.name}
           </span>
         </div>
@@ -86,7 +82,7 @@ export function BlogCard({ post, featured = false, showCategoryLink = true, cate
             {post.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded"
+                className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded"
               >
                 #{tag}
               </span>
@@ -102,9 +98,7 @@ export function BlogCard({ post, featured = false, showCategoryLink = true, cate
   
   return (
     <Link href={postUrl} className="group block">
-      <article className={`bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full ${
-        featured ? 'lg:grid lg:grid-cols-2' : ''
-      }`}>
+      <article className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full ${ featured ?'lg:grid lg:grid-cols-2':''}`}>
         {featured ? (
           <CardContent />
         ) : (

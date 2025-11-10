@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Open_Sans, Montserrat } from "next/font/google";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import { HeaderProvider } from "@/contexts/HeaderContext";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 import { Analytics } from "@/components/admin/Analytics";
+import { GHLChatWidget } from "@/components/GHLChatWidget";
 import { generateMetadata } from "@/seo/seo-utils";
 import { seoConfig } from "@/seo/seo.config";
 import "@/styles/globals.css";
@@ -52,32 +52,56 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" data-theme="dark" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                document.documentElement.classList.add('dark');
-                document.documentElement.setAttribute('data-theme', 'dark');
-              })();
-            `,
-          }}
-        />
+        {/* Preconnect to GHL domains for faster form and chat widget loading */}
+        <link rel="preconnect" href="https://api.leadconnectorhq.com" />
+        <link rel="preconnect" href="https://link.msgsndr.com" />
+        <link rel="preconnect" href="https://stcdn.leadconnectorhq.com" />
+        <link rel="preconnect" href="https://widgets.leadconnectorhq.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <style id="nav-font-override" dangerouslySetInnerHTML={{__html: `
+          header nav a.font-montserrat,
+          header nav a.font-montserrat:link,
+          header nav a.font-montserrat:visited,
+          header nav a.font-montserrat:hover,
+          header nav a.font-montserrat:active {
+            font-family: var(--font-montserrat), sans-serif !important;
+            font-size: 0.875rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.05em !important;
+            text-transform: uppercase !important;
+          }
+
+          /* Force override any GHL widget styles */
+          body header nav a.font-montserrat,
+          body header nav a.font-montserrat * {
+            font-family: var(--font-montserrat), sans-serif !important;
+            font-size: 0.875rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.05em !important;
+            text-transform: uppercase !important;
+          }
+        `}} />
       </head>
       <body
         className={`${openSans.variable} ${montserrat.variable} antialiased font-sans`}
-        suppressHydrationWarning
       >
-        <ThemeProvider>
-          <HeaderProvider>
-            <Analytics />
-            <ConditionalLayout>
-              {children}
-            </ConditionalLayout>
-          </HeaderProvider>
-        </ThemeProvider>
+        <HeaderProvider>
+          <Analytics />
+          <GHLChatWidget />
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
+        </HeaderProvider>
+        <script dangerouslySetInnerHTML={{__html: `
+          (function() {
+            const style = document.createElement('style');
+            style.innerHTML = 'header nav a.font-montserrat { font-family: var(--font-montserrat), sans-serif !important; }';
+            document.head.appendChild(style);
+          })();
+        `}} />
       </body>
     </html>
   );

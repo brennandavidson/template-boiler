@@ -334,14 +334,14 @@ export default function NewCategoryPage() {
           {/* SEO Tab */}
           {activeTab === 'seo' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-              <div className="bg-gray-50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-lg p-4 mb-6">
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                <p className="text-sm text-gray-700 mb-3">
                   You can apply the default category SEO template to quickly fill in the fields below.
                 </p>
                 <button
                   type="button"
                   onClick={applySEOTemplate}
-                  className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors text-sm font-medium"
+                  className="px-4 py-2 bg-primary text-white rounded-md hover-dark transition-colors text-sm font-medium"
                 >
                   Apply SEO Template
                 </button>
@@ -407,9 +407,9 @@ export default function NewCategoryPage() {
           {/* Schema Tab */}
           {activeTab === 'schema' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-md)' }}>
-              <div className="bg-gray-50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-lg p-4 mb-6">
-                <h3 className="text-lg font-medium mb-2 text-gray-900 dark:text-gray-100">Structured Data Schema</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                <h3 className="text-lg font-medium mb-2 text-gray-900">Structured Data Schema</h3>
+                <p className="text-sm text-gray-700">
                   Configure structured data schemas for this category page. These schemas help search engines understand 
                   your content and can enable rich snippets in search results.
                 </p>
@@ -429,8 +429,8 @@ export default function NewCategoryPage() {
 
           {/* Error message */}
           {errors.submit && (
-            <div className="mt-6 p-3 bg-red-100 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded">
-              <p className="text-red-700 dark:text-red-300">{errors.submit}</p>
+            <div className="mt-6 p-3 bg-red-100 border border-red-200 rounded">
+              <p className="text-red-700">{errors.submit}</p>
             </div>
           )}
 

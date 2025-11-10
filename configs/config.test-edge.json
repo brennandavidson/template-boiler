@@ -1,0 +1,43 @@
+{
+  "business": {
+    "name": "O'Brien's Pool & Spa",
+    "tagline": "POOL SERVICES",
+    "primaryLocation": "AZ",
+    "heroDescription": "Quality pool services.",
+    "heroBackgroundImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+  },
+  "contact": {
+    "phone": "5551234567",
+    "email": "info@obriens-pools.com",
+    "googleMapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d427224.8741266059!2d-112.32374299999999!3d33.448376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b12ed50a179cb%3A0x8c69c7f8354a1bac!2sPhoenix%2C%20AZ!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+  },
+  "services": {
+    "sectionBadge": "SERVICES",
+    "sectionHeading": "WHAT WE DO",
+    "items": [
+      {
+        "title": "Pools",
+        "slug": "pools",
+        "imageSrc": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "imageAlt": "Pool services",
+        "description": "We do pools."
+      }
+    ]
+  },
+  "serviceAreas": {
+    "sectionBadge": "Areas",
+    "sectionHeading": "WHERE WE WORK",
+    "ctaText": "Call us!",
+    "cities": [
+      { "name": "Phoenix", "slug": "phoenix" }
+    ]
+  },
+  "branding": {
+    "primaryColor": "#3b82f6",
+    "backgroundBlue": "#1e3a5f",
+    "logo": {
+      "horizontal": "/logos/horizontal-logo.png",
+      "horizontalInverted": "/logos/horizontal-logo-inverted.png"
+    }
+  }
+}

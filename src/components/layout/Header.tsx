@@ -4,7 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useHeader } from '@/contexts/HeaderContext';
-import { seoConfig } from '@/seo/seo.config';
+import {
+  getSiteConfigBusiness,
+  getSiteConfigContact,
+  getSiteConfigServices,
+  getSiteConfigServiceAreas,
+  getSiteConfigBranding,
+} from '@/lib/get-site-config';
 
 interface NavLink {
   href: string;
@@ -26,30 +32,35 @@ export function Header({
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ],
-  phoneNumber = '(555) 123-4567',
+  phoneNumber,
   onQuoteClick,
 }: HeaderProps) {
+  // Load configuration
+  const business = getSiteConfigBusiness();
+  const contact = getSiteConfigContact();
+  const services = getSiteConfigServices();
+  const serviceAreas = getSiteConfigServiceAreas();
+  const branding = getSiteConfigBranding();
+
+  // Use config values with fallback to props
+  const phone = phoneNumber || contact.phone;
+
   const { hasHeroImage } = useHeader();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
 
-  const servicesSubmenu = [
-    { href: '/services/installation', label: 'Installation' },
-    { href: '/services/renovation', label: 'Renovation' },
-    { href: '/services/maintenance', label: 'Maintenance' },
-    { href: '/services/masonry-design', label: 'Design Services' },
-  ];
+  // Build submenus from config
+  const servicesSubmenu = services.items.map(service => ({
+    href: `/services/${service.slug}`,
+    label: service.title,
+  }));
 
-  const serviceAreasSubmenu = [
-    { href: '/service-areas/phoenix', label: 'Phoenix' },
-    { href: '/service-areas/mesa', label: 'Mesa' },
-    { href: '/service-areas/scottsdale', label: 'Scottsdale' },
-    { href: '/service-areas/tempe', label: 'Tempe' },
-    { href: '/service-areas/chandler', label: 'Chandler' },
-    { href: '/service-areas/gilbert', label: 'Gilbert' },
-  ];
+  const serviceAreasSubmenu = serviceAreas.cities.map(city => ({
+    href: `/service-areas/${city.slug}`,
+    label: city.name,
+  }));
 
   useEffect(() => {
     // Check scroll position immediately on mount
@@ -96,8 +107,8 @@ export function Header({
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
-              src="/logos/horizontal-logo-inverted.png"
-              alt={`${seoConfig.siteName} Logo`}
+              src={branding.logo.horizontalInverted}
+              alt={`${business.name} Logo`}
               width={180}
               height={36}
               style={{ height: 'auto', width: 'auto', maxHeight: '36px' }}
@@ -119,7 +130,8 @@ export function Header({
                   >
                     <Link
                       href={link.href}
-                      className="font-montserrat text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide flex items-center gap-1"
+                      className="font-montserrat text-white hover:text-primary transition-colors font-bold uppercase text-sm tracking-wide flex items-center gap-1"
+                      style={{ fontFamily: 'var(--font-montserrat), sans-serif !important', fontSize: '0.875rem !important', fontWeight: '700 !important', letterSpacing: '0.05em !important', textTransform: 'uppercase !important' }}
                     >
                       {link.label}
                       <svg
@@ -163,7 +175,8 @@ export function Header({
                   >
                     <Link
                       href={link.href}
-                      className="font-montserrat text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide flex items-center gap-1"
+                      className="font-montserrat text-white hover:text-primary transition-colors font-bold uppercase text-sm tracking-wide flex items-center gap-1"
+                      style={{ fontFamily: 'var(--font-montserrat), sans-serif !important', fontSize: '0.875rem !important', fontWeight: '700 !important', letterSpacing: '0.05em !important', textTransform: 'uppercase !important' }}
                     >
                       {link.label}
                       <svg
@@ -203,7 +216,8 @@ export function Header({
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-montserrat text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide"
+                  className="font-montserrat text-white hover:text-primary transition-colors font-bold uppercase text-sm tracking-wide"
+                  style={{ fontFamily: 'var(--font-montserrat), sans-serif', fontSize: '0.875rem', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase' }}
                 >
                   {link.label}
                 </a>
@@ -211,7 +225,8 @@ export function Header({
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-montserrat text-white hover:text-primary transition-colors font-medium uppercase text-sm tracking-wide"
+                  className="font-montserrat text-white hover:text-primary transition-colors font-bold uppercase text-sm tracking-wide"
+                  style={{ fontFamily: 'var(--font-montserrat), sans-serif', fontSize: '0.875rem', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase' }}
                 >
                   {link.label}
                 </Link>
@@ -223,19 +238,19 @@ export function Header({
           <div className="hidden nav:flex items-center space-x-4">
             {/* Phone Number Button */}
             <a
-              href={`tel:${phoneNumber.replace(/\D/g, '')}`}
+              href={`tel:${phone.replace(/\D/g, '')}`}
               className="font-heading bg-white hover:bg-gray-100 text-primary px-6 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-md flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              {phoneNumber}
+              {phone}
             </a>
 
             {/* Get Free Quote Button */}
             <button
               onClick={handleQuoteClick}
-              className="font-heading bg-primary hover:bg-primary-dark text-white px-6 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-md"
+              className="font-heading bg-primary hover-dark text-white px-6 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-md"
             >
               Get Free Quote
             </button>
@@ -245,13 +260,13 @@ export function Header({
           <div className="nav:hidden flex items-center gap-4">
             {/* Mobile Call Button */}
             <a
-              href={`tel:${phoneNumber.replace(/\D/g, '')}`}
-              className="font-heading bg-primary hover:bg-primary-dark text-white px-4 py-3 rounded-md font-bold uppercase text-xs transition-colors shadow-md flex items-center gap-2"
+              href={`tel:${phone.replace(/\D/g, '')}`}
+              className="font-heading bg-primary hover-dark text-white px-4 py-3 rounded-md font-bold uppercase text-xs transition-colors shadow-md flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              <span className="hidden min-[500px]:inline">{phoneNumber}</span>
+              <span className="hidden min-[500px]:inline">{phone}</span>
             </a>
 
             {/* Hamburger Menu Button */}
@@ -380,7 +395,7 @@ export function Header({
             {/* Mobile Quote Button */}
             <button
               onClick={handleQuoteClick}
-              className="font-heading w-full bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-md font-bold uppercase text-sm transition-colors"
+              className="font-heading w-full bg-primary hover-dark text-white px-6 py-3 rounded-md font-bold uppercase text-sm transition-colors"
             >
               Get Free Quote
             </button>

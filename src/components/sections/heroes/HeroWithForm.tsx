@@ -1,28 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { getSiteConfigBusiness, getSiteConfigContact, getSiteConfigIntegrations } from '@/lib/get-site-config';
 
 export default function HeroWithForm() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phone: '',
-    message: '',
-    agreed: false,
-  });
+  // Load configuration
+  const business = getSiteConfigBusiness();
+  const contact = getSiteConfigContact();
+  const integrations = getSiteConfigIntegrations();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
-    }));
-  };
+  // Extract form URL from the inline embed code
+  const embedCode = integrations.ghl?.quoteFormEmbedInline || '';
+  const srcMatch = embedCode.match(/src="([^"]+)"/);
+  const formUrl = srcMatch ? srcMatch[1] : '';
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-[10vh] pb-8 lg:pb-0">
@@ -30,7 +19,7 @@ export default function HeroWithForm() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+          backgroundImage: `url('${business.heroBackgroundImage}')`,
         }}
       />
 
@@ -40,13 +29,12 @@ export default function HeroWithForm() {
           {/* Left Column - Hero Text */}
           <div className="flex flex-col justify-center">
             <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl mb-4 mt-0">
-              POOL SERVICES IN
-              <span className="block mt-2">PHOENIX, AZ</span>
+              {business.tagline}
+              <span className="block mt-2">{business.primaryLocation}</span>
             </h1>
 
             <p className="text-xl text-gray-200 max-w-xl lg:text-2xl mt-0 mb-0">
-              Offering top-notch installation, renovation, maintenance, and design services
-              exclusively in your area for discerning homeowners and businesses.
+              {business.heroDescription}
             </p>
 
             {/* Trust Indicators - Review Badges */}
@@ -118,93 +106,19 @@ export default function HeroWithForm() {
 
           {/* Right Column - Contact Form - HERO ELEMENT */}
           <div className="flex items-center justify-center lg:justify-end mt-0">
-            <div className="w-full max-w-xl rounded-2xl bg-white p-10 sm:p-12 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-              <h2 className="font-heading mb-8 mt-0 text-3xl sm:text-4xl font-bold text-gray-900 text-center">
-                GET A FREE QUOTE
-              </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Full Name */}
-                <div>
-                  <label htmlFor="fullName" className="sr-only">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder="Full Name *"
-                    required
-                    className="w-full rounded-lg border-2 border-gray-300 px-5 py-4 text-lg text-gray-900 placeholder-gray-500 focus:border-background-blue focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label htmlFor="phone" className="sr-only">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone *"
-                    required
-                    className="w-full rounded-lg border-2 border-gray-300 px-5 py-4 text-lg text-gray-900 placeholder-gray-500 focus:border-background-blue focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label htmlFor="message" className="sr-only">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project *"
-                    required
-                    rows={5}
-                    className="w-full rounded-lg border-2 border-gray-300 px-5 py-4 text-lg text-gray-900 placeholder-gray-500 focus:border-background-blue focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  />
-                </div>
-
-                {/* Terms Checkbox */}
-                <div className="flex items-start">
-                  <input
-                    type="checkbox"
-                    id="agreed"
-                    name="agreed"
-                    checked={formData.agreed}
-                    onChange={handleChange}
-                    required
-                    className="mt-1 h-5 w-5 rounded border-gray-300 text-background-blue focus:ring-primary"
-                  />
-                  <label htmlFor="agreed" className="ml-3 text-sm text-gray-600 leading-relaxed">
-                    I agree to{' '}
-                    <a href="/terms-of-service" className="text-background-blue hover:underline font-medium">
-                      terms & conditions
-                    </a>{' '}
-                    provided by the company. By providing my phone number, I agree to receive
-                    text messages from the business.
-                  </label>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="font-heading w-full rounded-lg bg-primary px-8 py-5 text-xl font-bold text-white uppercase tracking-wide transition-all hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-primary focus:ring-offset-2 shadow-lg hover:shadow-xl lg:hover:scale-[1.02]"
-                >
-                  SEND
-                </button>
-              </form>
-            </div>
+            {formUrl && (
+              <iframe
+                src={formUrl}
+                className="w-full max-w-xl"
+                style={{
+                  height: '800px',
+                  border: 'none',
+                  borderRadius: '12px'
+                }}
+                title="Get Free Quote"
+                fetchPriority="high"
+              />
+            )}
           </div>
         </div>
       </div>

@@ -1,14 +1,9 @@
 /**
  * Styles Index
- * 
+ *
  * Central export point for all style-related modules.
  * This makes imports cleaner and more maintainable.
  */
-
-// Theme exports
-export { ThemeProvider, useTheme } from '@/contexts/ThemeContext';
-export { lightTheme, darkTheme, themes } from './themes';
-export type { ThemeColors, ThemeMode } from './themes';
 
 // Typography exports
 export { typography } from './typography';

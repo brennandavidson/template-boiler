@@ -25,7 +25,7 @@ export default function Reviews() {
           <h2 className="font-heading mb-6 text-4xl font-bold tracking-tight sm:text-5xl">REVIEWS</h2>
           <Link
             href="/reviews"
-            className="font-heading inline-block rounded-md bg-primary px-8 py-3 font-bold uppercase text-sm transition-colors hover:bg-primary-dark shadow-lg"
+            className="font-heading inline-block rounded-md bg-primary px-8 py-3 font-bold uppercase text-sm transition-colors hover-dark shadow-lg"
           >
             See All Reviews
           </Link>

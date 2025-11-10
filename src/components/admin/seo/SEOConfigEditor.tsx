@@ -290,11 +290,7 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(section.id)}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
-                    activeSection === section.id
-                      ? 'bg-primary text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
-                  }`}
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${ activeSection === section.id ?'bg-primary text-white':'hover:bg-gray-100 text-gray-700'}`}
                 >
                   <span>{section.icon}</span>
                   <span className="font-medium">{section.label}</span>
@@ -311,7 +307,7 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
             {activeSection === 'basic' && (
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Site Information</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-sm text-gray-600 mb-4">
                   Global site settings that apply across your entire website.
                 </p>
                 <div className="grid grid-cols-1 gap-4">
@@ -337,14 +333,14 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
                         setConfig({...config, siteUrl: newUrl});
                         setUrlWarnings(validateUrl(newUrl));
                       }}
-                      className={`input-field ${urlWarnings.length > 0 ? 'border-yellow-500' : ''}`}
+                      className={`input-field ${urlWarnings.length > 0 ?'border-yellow-500':''}`}
                       placeholder="https://example.com"
                     />
                     <p className="text-xs text-gray-500 mt-1">Full URL including protocol (https://)</p>
                     {urlWarnings.length > 0 && (
-                      <div className="mt-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
-                        <p className="text-xs font-semibold text-yellow-800 dark:text-yellow-200 mb-1">URL Warnings:</p>
-                        <ul className="text-xs text-yellow-700 dark:text-yellow-300 space-y-1">
+                      <div className="mt-2 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <p className="text-xs font-semibold text-yellow-800 mb-1">URL Warnings:</p>
+                        <ul className="text-xs text-yellow-700 space-y-1">
                           {urlWarnings.map((warning, index) => (
                             <li key={index} className="flex items-start gap-1">
                               <span>⚠️</span>
@@ -364,7 +360,7 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
             {activeSection === 'company' && (
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Organization Schema</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-sm text-gray-600 mb-4">
                   Optional structured data about your organization for search engines. Leave empty for personal sites.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -491,11 +487,11 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
             {activeSection === 'templates' && (
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Default SEO Templates</h3>
-                <div className="bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg p-4 mb-6">
-                  <p className="text-sm text-primary-800 dark:text-primary-400 mb-2">
+                <div className="bg-primary-50 border border-primary-200 rounded-lg p-4 mb-6">
+                  <p className="text-sm text-primary-800 mb-2">
                     Default SEO templates that automatically apply to new content when custom SEO is not provided.
                   </p>
-                  <p className="text-xs text-primary-700 dark:text-primary-400">
+                  <p className="text-xs text-primary-700">
                     <strong>Available variables:</strong> {'{pageName}'} = current page/post/category name | {'{siteName}'} = your site name | {'{siteTagline}'} = your tagline
                   </p>
                 </div>
@@ -677,9 +673,9 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
                             type="checkbox"
                             checked={showOGPreview}
                             onChange={(e) => setShowOGPreview(e.target.checked)}
-                            className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary/50 dark:focus:ring-primary/50 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary/50:ring-primary/50 focus:ring-2"
                           />
-                          <span className="text-sm text-gray-600 dark:text-gray-400">Show preview</span>
+                          <span className="text-sm text-gray-600">Show preview</span>
                         </label>
                       </div>
                     </div>
@@ -736,7 +732,7 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
             {activeSection === 'social' && (
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Social Media Links</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-sm text-gray-600 mb-4">
                   Optional: Add links to your social media profiles. Leave empty if not applicable.
                 </p>
                 <div className="grid grid-cols-1 gap-4">
@@ -773,7 +769,7 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
             {activeSection === 'schema' && (
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Schema Data</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-sm text-gray-600 mb-6">
                   Configure structured data to enhance your search appearance with rich snippets, knowledge panels, and other SERP features.
                 </p>
 
@@ -943,8 +939,8 @@ export default function SEOConfigEditor({ initialSection = 'basic' }: SEOConfigE
                     <h4 className="text-h4 mb-4">🏢 Organization Schema</h4>
                     
                     {/* Info box about auto-population */}
-                    <div className="bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg p-3 mb-4">
-                      <p className="text-xs text-blue-800 dark:text-blue-400">
+                    <div className="bg-primary-50 border border-primary-200 rounded-lg p-3 mb-4">
+                      <p className="text-xs text-primary-800">
                         ℹ️ Basic organization info (name, address, phone, email) is automatically pulled from the <strong>Organization</strong> tab.
                         Configure additional schema-specific settings below.
                       </p>
@@ -1034,7 +1030,7 @@ https://www.wikidata.org/wiki/Q12345"
                 {config.schema?.activeTypes?.organization && config.schema?.organization?.contactPoint?.enabled !== false && (
                   <div className="card p-6">
                     <h4 className="text-h4 mb-4">☎️ Contact Point</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    <p className="text-sm text-gray-600 mb-4">
                       Define customer service contact information for search results and knowledge panels.
                     </p>
                     
@@ -1538,8 +1534,8 @@ https://www.wikidata.org/wiki/Q12345"
                 )}
 
                 {/* Preview Information */}
-                <div className="p-4 bg-primary-50 dark:bg-primary-50 rounded-lg">
-                  <p className="text-sm text-blue-800 dark:text-blue-400">
+                <div className="p-4 bg-primary-50 rounded-lg">
+                  <p className="text-sm text-primary-800">
                     💡 <strong>Tip:</strong> After configuring schema, validate your structured data using Google's{' '}
                     <a 
                       href="https://search.google.com/test/rich-results" 
@@ -1568,7 +1564,7 @@ https://www.wikidata.org/wiki/Q12345"
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Robots & Crawling Settings</h3>
                 
-                <div className="bg-gray-50 dark:bg-gray-900/20 rounded-lg p-6">
+                <div className="bg-gray-50 rounded-lg p-6">
                   <h4 className="font-semibold text-lg mb-4">Default Robot Settings</h4>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between py-2">
@@ -1582,7 +1578,7 @@ https://www.wikidata.org/wiki/Q12345"
                       />
                     </div>
                     
-                    <div className="flex items-center justify-between py-2 border-t dark:border-gray-700">
+                    <div className="flex items-center justify-between py-2 border-t">
                       <div>
                         <span className="text-sm font-medium">Follow</span>
                         <p className="text-xs text-gray-500 mt-1">Allow search engines to follow links</p>
@@ -1593,7 +1589,7 @@ https://www.wikidata.org/wiki/Q12345"
                       />
                     </div>
                     
-                    <div className="flex items-center justify-between py-2 border-t dark:border-gray-700">
+                    <div className="flex items-center justify-between py-2 border-t">
                       <div>
                         <span className="text-sm font-medium">No Cache</span>
                         <p className="text-xs text-gray-500 mt-1">Prevent search engines from caching</p>
@@ -1606,7 +1602,7 @@ https://www.wikidata.org/wiki/Q12345"
                   </div>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-900/20 rounded-lg p-6">
+                <div className="bg-gray-50 rounded-lg p-6">
                   <h4 className="font-semibold text-lg mb-4">GoogleBot Settings</h4>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between py-2">
@@ -1620,7 +1616,7 @@ https://www.wikidata.org/wiki/Q12345"
                       />
                     </div>
                     
-                    <div className="flex items-center justify-between py-2 border-t dark:border-gray-700">
+                    <div className="flex items-center justify-between py-2 border-t">
                       <div>
                         <span className="text-sm font-medium">Follow</span>
                         <p className="text-xs text-gray-500 mt-1">Allow GoogleBot to follow links</p>
@@ -1631,7 +1627,7 @@ https://www.wikidata.org/wiki/Q12345"
                       />
                     </div>
                     
-                    <div className="flex items-center justify-between py-2 border-t dark:border-gray-700">
+                    <div className="flex items-center justify-between py-2 border-t">
                       <div>
                         <span className="text-sm font-medium">No Image Index</span>
                         <p className="text-xs text-gray-500 mt-1">Prevent GoogleBot from indexing images</p>
@@ -1663,7 +1659,7 @@ https://www.wikidata.org/wiki/Q12345"
             {activeSection === 'languages' && (
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Language & Region Settings</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-sm text-gray-600 mb-4">
                   Optional: Configure for multi-language sites. Leave empty for single-language sites.
                 </p>
                 
@@ -1745,7 +1741,7 @@ https://www.wikidata.org/wiki/Q12345"
             {activeSection === 'sitemap' && (
               <div className="space-y-6">
                 <h3 className="text-h3 mb-4">Sitemap Configuration</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-sm text-gray-600 mb-4">
                   Control how your sitemap.xml is generated and what content is included.
                 </p>
                 

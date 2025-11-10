@@ -250,11 +250,7 @@ ${pages.map(page => `  <url>
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                activeTab === tab.id
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-              }`}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${ activeTab === tab.id ?'bg-primary text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
               <span className="mr-2">{tab.icon}</span>
               {tab.label}
@@ -304,7 +300,7 @@ ${pages.map(page => `  <url>
               </h2>
               
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 rounded-lg bg-green-50 dark:bg-green-900/20">
+                <div className="flex items-center justify-between p-4 rounded-lg bg-green-50">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">✅</span>
                     <div>
@@ -319,7 +315,7 @@ ${pages.map(page => `  <url>
                   <span className="badge badge-success">Good</span>
                 </div>
 
-                <div className="flex items-center justify-between p-4 rounded-lg bg-green-50 dark:bg-green-900/20">
+                <div className="flex items-center justify-between p-4 rounded-lg bg-green-50">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">✅</span>
                     <div>
@@ -334,7 +330,7 @@ ${pages.map(page => `  <url>
                   <span className="badge badge-success">Good</span>
                 </div>
 
-                <div className="flex items-center justify-between p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/20">
+                <div className="flex items-center justify-between p-4 rounded-lg bg-yellow-50">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">⚠️</span>
                     <div>
@@ -349,7 +345,7 @@ ${pages.map(page => `  <url>
                   <span className="badge badge-warning">Needs Attention</span>
                 </div>
 
-                <div className="flex items-center justify-between p-4 rounded-lg bg-green-50 dark:bg-green-900/20">
+                <div className="flex items-center justify-between p-4 rounded-lg bg-green-50">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">✅</span>
                     <div>
@@ -383,8 +379,8 @@ ${pages.map(page => `  <url>
                 </div>
               </div>
 
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto">
-                <pre className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="bg-gray-50 rounded-lg p-4 overflow-x-auto">
+                <pre className="text-sm text-gray-700">
 {`<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -428,14 +424,14 @@ ${pages.map(page => `  <url>
                   Contains {sitemapData?.sitemaps?.pages?.count || 0} static pages
                 </p>
                 
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 max-h-64 overflow-y-auto">
+                <div className="bg-gray-50 rounded-lg p-3 max-h-64 overflow-y-auto">
                   {sitemapData?.sitemaps?.pages?.entries?.length > 0 ? (
                     <ul className="space-y-1 text-sm">
                       {sitemapData.sitemaps.pages.entries.map((entry: any) => {
                         const path = entry.url.replace(seoConfig?.siteUrl || '', '');
                         const displayName = path === '' || path === '/' ? 'home' : path;
                         return (
-                          <li key={entry.url} className="text-gray-700 dark:text-gray-300">
+                          <li key={entry.url} className="text-gray-700">
                             <code>{displayName}</code>
                             <span className="text-xs text-gray-500 ml-2">
                               (priority: {entry.priority})
@@ -445,7 +441,7 @@ ${pages.map(page => `  <url>
                       })}
                     </ul>
                   ) : (
-                    <p className="text-sm text-gray-500 dark:text-gray-400 italic">No static pages in sitemap</p>
+                    <p className="text-sm text-gray-500 italic">No static pages in sitemap</p>
                   )}
                 </div>
                 
@@ -470,22 +466,22 @@ ${pages.map(page => `  <url>
                   {sitemapData?.sitemaps?.blogPosts?.message || `Contains ${sitemapData?.sitemaps?.blogPosts?.count || 0} blog posts`}
                 </p>
                 
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 max-h-64 overflow-y-auto">
+                <div className="bg-gray-50 rounded-lg p-3 max-h-64 overflow-y-auto">
                   {sitemapData?.sitemaps?.blogPosts?.entries?.length > 0 ? (
                     <ul className="space-y-1 text-sm">
                       {sitemapData.sitemaps.blogPosts.entries.slice(0, 10).map((entry: any) => (
-                        <li key={entry.url} className="text-gray-700 dark:text-gray-300">
+                        <li key={entry.url} className="text-gray-700">
                           <code>{entry.url.replace(seoConfig?.siteUrl || '', '')}</code>
                         </li>
                       ))}
                       {sitemapData.sitemaps.blogPosts.entries.length > 10 && (
-                        <li className="text-gray-500 dark:text-gray-400 italic">
+                        <li className="text-gray-500 italic">
                           ... and {sitemapData.sitemaps.blogPosts.entries.length - 10} more
                         </li>
                       )}
                     </ul>
                   ) : (
-                    <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                    <p className="text-sm text-gray-500 italic">
                       {sitemapData?.sitemaps?.blogPosts?.message || 'No blog posts in sitemap'}
                     </p>
                   )}
@@ -514,17 +510,17 @@ ${pages.map(page => `  <url>
                   {sitemapData?.sitemaps?.categories?.message || `Contains ${sitemapData?.sitemaps?.categories?.count || 0} category pages`}
                 </p>
                 
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 max-h-64 overflow-y-auto">
+                <div className="bg-gray-50 rounded-lg p-3 max-h-64 overflow-y-auto">
                   {sitemapData?.sitemaps?.categories?.entries?.length > 0 ? (
                     <ul className="space-y-1 text-sm">
                       {sitemapData.sitemaps.categories.entries.map((entry: any) => (
-                        <li key={entry.url} className="text-gray-700 dark:text-gray-300">
+                        <li key={entry.url} className="text-gray-700">
                           <code>{entry.url.replace(seoConfig?.siteUrl || '', '')}</code>
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                    <p className="text-sm text-gray-500 italic">
                       {sitemapData?.sitemaps?.categories?.message || 'No category pages in sitemap'}
                     </p>
                   )}
@@ -576,8 +572,8 @@ ${pages.map(page => `  <url>
                   </p>
                 </div>
                 
-                <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                  <p className="text-xs text-green-700 dark:text-green-300">
+                <div className="mt-4 p-3 bg-green-50 rounded-lg">
+                  <p className="text-xs text-green-700">
                     ✅ Following SEO best practices with separate sitemaps for better crawling
                   </p>
                 </div>
@@ -642,13 +638,13 @@ ${pages.map(page => `  <url>
             </div>
 
             {/* Help Info */}
-            <div className="p-4 bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg">
+            <div className="p-4 bg-primary-50 border border-primary-200 rounded-lg">
               <p className="text-body-sm flex items-start gap-2">
                 <span>💡</span>
                 <span>
                   Your sitemaps are automatically generated and served at their respective URLs. 
                   The main sitemap index at{' '}
-                  <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs">
+                  <code className="bg-gray-100 px-2 py-1 rounded text-xs">
                     /sitemap.xml
                   </code>{' '}
                   references all sub-sitemaps, following SEO best practices.
@@ -672,7 +668,7 @@ ${pages.map(page => `  <url>
                 <textarea
                   value={robotsTxt}
                   onChange={(e) => setRobotsTxt(e.target.value)}
-                  className="font-mono text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 w-full"
+                  className="font-mono text-sm bg-gray-50 border border-gray-200 rounded-lg p-4 w-full"
                   rows={12}
                 />
               </div>
@@ -726,50 +722,50 @@ ${pages.map(page => `  <url>
 
               {/* Schema Status Summary */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.organization ? 'bg-green-50 dark:bg-green-900/20' : 'bg-gray-50 dark:bg-gray-800'}`}>
+                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.organization ?'bg-green-50':'bg-gray-50'}`}>
                   <div className="text-2xl mb-1">🏢</div>
                   <div className="text-xs font-medium">Organization</div>
-                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.organization ? 'text-green-600 dark:text-green-400' : 'text-gray-500'}`}>
+                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.organization ?'text-green-600':'text-gray-500'}`}>
                     {seoConfig?.schema?.activeTypes?.organization ? '✓ Active' : 'Inactive'}
                   </div>
                 </div>
 
-                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.localBusiness ? 'bg-green-50 dark:bg-green-900/20' : 'bg-gray-50 dark:bg-gray-800'}`}>
+                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.localBusiness ?'bg-green-50':'bg-gray-50'}`}>
                   <div className="text-2xl mb-1">📍</div>
                   <div className="text-xs font-medium">LocalBusiness</div>
-                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.localBusiness ? 'text-green-600 dark:text-green-400' : 'text-gray-500'}`}>
+                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.localBusiness ?'text-green-600':'text-gray-500'}`}>
                     {seoConfig?.schema?.activeTypes?.localBusiness ? '✓ Active' : 'Inactive'}
                   </div>
                 </div>
 
-                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.person ? 'bg-green-50 dark:bg-green-900/20' : 'bg-gray-50 dark:bg-gray-800'}`}>
+                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.person ?'bg-green-50':'bg-gray-50'}`}>
                   <div className="text-2xl mb-1">👤</div>
                   <div className="text-xs font-medium">Person</div>
-                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.person ? 'text-green-600 dark:text-green-400' : 'text-gray-500'}`}>
+                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.person ?'text-green-600':'text-gray-500'}`}>
                     {seoConfig?.schema?.activeTypes?.person ? '✓ Active' : 'Inactive'}
                   </div>
                 </div>
 
-                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.organization?.contactPoint?.enabled ? 'bg-green-50 dark:bg-green-900/20' : 'bg-gray-50 dark:bg-gray-800'}`}>
+                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.organization?.contactPoint?.enabled ?'bg-green-50':'bg-gray-50'}`}>
                   <div className="text-2xl mb-1">📞</div>
                   <div className="text-xs font-medium">Contact Point</div>
-                  <div className={`text-xs mt-1 ${seoConfig?.schema?.organization?.contactPoint?.enabled ? 'text-green-600 dark:text-green-400' : 'text-gray-500'}`}>
+                  <div className={`text-xs mt-1 ${seoConfig?.schema?.organization?.contactPoint?.enabled ?'text-green-600':'text-gray-500'}`}>
                     {seoConfig?.schema?.organization?.contactPoint?.enabled ? '✓ Active' : 'Inactive'}
                   </div>
                 </div>
 
-                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.breadcrumbs ? 'bg-green-50 dark:bg-green-900/20' : 'bg-gray-50 dark:bg-gray-800'}`}>
+                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.breadcrumbs ?'bg-green-50':'bg-gray-50'}`}>
                   <div className="text-2xl mb-1">🍞</div>
                   <div className="text-xs font-medium">Breadcrumbs</div>
-                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.breadcrumbs ? 'text-green-600 dark:text-green-400' : 'text-gray-500'}`}>
+                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.breadcrumbs ?'text-green-600':'text-gray-500'}`}>
                     {seoConfig?.schema?.activeTypes?.breadcrumbs ? '✓ Active' : 'Inactive'}
                   </div>
                 </div>
 
-                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.website ? 'bg-green-50 dark:bg-green-900/20' : 'bg-gray-50 dark:bg-gray-800'}`}>
+                <div className={`p-3 rounded-lg text-center ${seoConfig?.schema?.activeTypes?.website ?'bg-green-50':'bg-gray-50'}`}>
                   <div className="text-2xl mb-1">🌐</div>
                   <div className="text-xs font-medium">WebSite</div>
-                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.website ? 'text-green-600 dark:text-green-400' : 'text-gray-500'}`}>
+                  <div className={`text-xs mt-1 ${seoConfig?.schema?.activeTypes?.website ?'text-green-600':'text-gray-500'}`}>
                     {seoConfig?.schema?.activeTypes?.website ? '✓ Active' : 'Inactive'}
                   </div>
                 </div>
@@ -780,7 +776,7 @@ ${pages.map(page => `  <url>
                 {/* Organization Schema */}
                 {seoConfig?.schema?.activeTypes?.organization && schemas?.organization && (
                   <div className="rounded-lg">
-                    <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                    <div className="p-4 bg-gray-50">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="text-lg">🏢</span>
@@ -812,7 +808,7 @@ ${pages.map(page => `  <url>
                 {/* LocalBusiness Schema */}
                 {seoConfig?.schema?.activeTypes?.localBusiness && schemas?.localBusiness && (
                   <div className="rounded-lg">
-                    <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                    <div className="p-4 bg-gray-50">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="text-lg">📍</span>
@@ -843,7 +839,7 @@ ${pages.map(page => `  <url>
                 {/* Person Schema */}
                 {seoConfig?.schema?.activeTypes?.person && schemas?.person && (
                   <div className="rounded-lg">
-                    <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                    <div className="p-4 bg-gray-50">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="text-lg">👤</span>
@@ -874,7 +870,7 @@ ${pages.map(page => `  <url>
                 {/* Contact Point Schema */}
                 {seoConfig?.schema?.organization?.contactPoint?.enabled && schemas?.organization?.contactPoint && (
                   <div className="rounded-lg">
-                    <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                    <div className="p-4 bg-gray-50">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="text-lg">📞</span>
@@ -905,7 +901,7 @@ ${pages.map(page => `  <url>
                 {/* Breadcrumbs Schema Info */}
                 {seoConfig?.schema?.activeTypes?.breadcrumbs && (
                   <div className="rounded-lg">
-                    <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                    <div className="p-4 bg-gray-50">
                       <div className="flex items-center gap-2">
                         <span className="text-lg">🍞</span>
                         <h3 className="font-semibold">Breadcrumbs Schema</h3>
@@ -913,12 +909,12 @@ ${pages.map(page => `  <url>
                       </div>
                     </div>
                     <div className="p-4">
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                      <p className="text-sm text-gray-600 mb-3">
                         Breadcrumbs are dynamically generated for each page based on the URL structure.
                       </p>
-                      <div className="bg-gray-100 dark:bg-gray-800 rounded p-3">
+                      <div className="bg-gray-100 rounded p-3">
                         <p className="text-xs font-medium mb-2">Configuration:</p>
-                        <ul className="text-xs space-y-1 text-gray-600 dark:text-gray-400">
+                        <ul className="text-xs space-y-1 text-gray-600">
                           <li>• Home Label: <span className="font-mono">{seoConfig?.schema?.breadcrumbs?.homeLabel || 'Home'}</span></li>
                           <li>• Separator: <span className="font-mono">{seoConfig?.schema?.breadcrumbs?.separator || '›'}</span></li>
                           <li>• Show Current: <span className="font-mono">{seoConfig?.schema?.breadcrumbs?.showCurrent ? 'Yes' : 'No'}</span></li>
@@ -931,7 +927,7 @@ ${pages.map(page => `  <url>
                 {/* Website Schema */}
                 {seoConfig?.schema?.activeTypes?.website && schemas?.website && (
                   <div className="rounded-lg">
-                    <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                    <div className="p-4 bg-gray-50">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="text-lg">🌐</span>
@@ -971,7 +967,7 @@ ${pages.map(page => `  <url>
                   <div className="text-center py-12">
                     <div className="text-4xl mb-4">📋</div>
                     <h3 className="text-lg font-medium mb-2">No Active Schemas</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600">
                       Enable structured data schemas to enhance your search appearance
                     </p>
                   </div>
@@ -979,7 +975,7 @@ ${pages.map(page => `  <url>
               </div>
 
               {/* Schema Validation Tools */}
-              <div className="mt-6 p-4 bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg">
+              <div className="mt-6 p-4 bg-primary-50 border border-primary-200 rounded-lg">
                 <h4 className="font-medium mb-3">🔍 Validation Tools</h4>
                 <div className="flex flex-wrap gap-3">
                   <a 

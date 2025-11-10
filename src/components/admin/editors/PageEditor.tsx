@@ -801,7 +801,7 @@ export default function PageEditor({ initialPage, isNew = false }: PageEditorPro
                   <p className="text-xs text-gray-500">
                     Full title shown in search results and browser tabs (include brand name for SEO)
                   </p>
-                  <p className={`text-xs ${seoTitle.length > 60 ? 'text-red-500' : 'text-gray-500'}`}>
+                  <p className={`text-xs ${seoTitle.length > 60 ?'text-red-500':'text-gray-500'}`}>
                     {seoTitle.length}/60
                   </p>
                 </div>
@@ -821,7 +821,7 @@ export default function PageEditor({ initialPage, isNew = false }: PageEditorPro
                   <p className="text-xs text-gray-500">
                     Shown in search results below the title
                   </p>
-                  <p className={`text-xs ${seoDescription.length > 155 ? 'text-red-500' : 'text-gray-500'}`}>
+                  <p className={`text-xs ${seoDescription.length > 155 ?'text-red-500':'text-gray-500'}`}>
                     {seoDescription.length}/160
                   </p>
                 </div>
@@ -848,8 +848,8 @@ export default function PageEditor({ initialPage, isNew = false }: PageEditorPro
         {activeTab === 'opengraph' && (
           <div className="card p-6">
             <div className="space-y-6">
-              <div className="p-4 bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg mb-6">
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="p-4 bg-primary-50 border border-primary-200 rounded-lg mb-6">
+                <p className="text-sm text-gray-700">
                   Open Graph tags control how your page appears when shared on social media platforms.
                 </p>
               </div>
@@ -902,7 +902,7 @@ export default function PageEditor({ initialPage, isNew = false }: PageEditorPro
                       onChange={(e) => setShowOGPreview(e.target.checked)}
                       className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary/50"
                     />
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Show preview</span>
+                    <span className="text-sm text-gray-600">Show preview</span>
                   </label>
                 </div>
               </div>
@@ -971,14 +971,14 @@ export default function PageEditor({ initialPage, isNew = false }: PageEditorPro
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                 <div>
                   <label className="text-label block">Exclude from Sitemap</label>
-                  <p className="text-xs mt-1 text-gray-500 dark:text-gray-400">
+                  <p className="text-xs mt-1 text-gray-500">
                     Prevent this page from appearing in the sitemap.xml
                   </p>
                   {robots.includes('noindex') && (
-                    <p className="text-xs mt-1 text-amber-600 dark:text-amber-400">
+                    <p className="text-xs mt-1 text-amber-600">
                       Note: Page is already excluded due to noindex setting
                     </p>
                   )}
@@ -1028,9 +1028,9 @@ export default function PageEditor({ initialPage, isNew = false }: PageEditorPro
         {activeTab === 'schema' && (
           <div className="card p-6">
             <div className="space-y-6">
-              <div className="p-4 bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg mb-6">
-                <h3 className="text-lg font-medium mb-2 text-gray-900 dark:text-gray-100">Structured Data Schema</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="p-4 bg-primary-50 border border-primary-200 rounded-lg mb-6">
+                <h3 className="text-lg font-medium mb-2 text-gray-900">Structured Data Schema</h3>
+                <p className="text-sm text-gray-700">
                   Configure structured data schemas for this page. These schemas help search engines understand 
                   your content and can enable rich snippets in search results.
                 </p>

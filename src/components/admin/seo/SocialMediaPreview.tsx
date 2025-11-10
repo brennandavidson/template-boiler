@@ -20,7 +20,7 @@ export default function SocialMediaPreview({
   url,
   siteName = '',
   twitterCard = 'summary_large_image',
-  className = ''
+  className =''
 }: SocialMediaPreviewProps) {
   const [activePreview, setActivePreview] = useState<'facebook' | 'twitter' | 'linkedin'>('facebook');
   const [imageError, setImageError] = useState(false);
@@ -42,16 +42,12 @@ export default function SocialMediaPreview({
   return (
     <div className={`space-y-4 ${className}`}>
       {/* Preview Tabs */}
-      <div className="flex gap-2 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex gap-2 border-b border-gray-200">
         {previewTabs.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActivePreview(tab.id as any)}
-            className={`px-4 py-2 text-sm font-medium transition-all border-b-2 ${
-              activePreview === tab.id
-                ? 'border-primary text-primary'
-                : 'border-transparent text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200'
-            }`}
+            className={`px-4 py-2 text-sm font-medium transition-all border-b-2 ${ activePreview === tab.id ?'border-primary text-primary':'border-transparent text-gray-600 hover:text-gray-900'}`}
           >
             <span className="mr-2">{tab.icon}</span>
             {tab.label}
@@ -62,12 +58,12 @@ export default function SocialMediaPreview({
       {/* Facebook Preview */}
       {activePreview === 'facebook' && (
         <div className="space-y-3">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600">
             This is how your content will appear when shared on Facebook
           </p>
-          <div className="border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden max-w-[500px] bg-white dark:bg-gray-800">
+          <div className="border border-gray-300 rounded-lg overflow-hidden max-w-[500px] bg-white">
             {imageUrl && (
-              <div className="relative aspect-[1.91/1] bg-gray-100 dark:bg-gray-700">
+              <div className="relative aspect-[1.91/1] bg-gray-100">
                 {imageLoading && !imageError && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="animate-pulse flex flex-col items-center">
@@ -80,7 +76,7 @@ export default function SocialMediaPreview({
                   <img
                     src={imageUrl}
                     alt={`${seoConfig.siteName} Open Graph preview image`}
-                    className={`w-full h-full object-cover ${imageLoading ? 'opacity-0' : 'opacity-100'} transition-opacity`}
+                    className={`w-full h-full object-cover ${imageLoading ?'opacity-0':'opacity-100'} transition-opacity`}
                     onLoad={() => setImageLoading(false)}
                     onError={() => {
                       setImageError(true);
@@ -98,14 +94,14 @@ export default function SocialMediaPreview({
                 )}
               </div>
             )}
-            <div className="p-3 border-t border-gray-200 dark:border-gray-700">
-              <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+            <div className="p-3 border-t border-gray-200">
+              <p className="text-xs text-gray-500 uppercase tracking-wide">
                 {domain}
               </p>
-              <h3 className="font-semibold text-base mt-1 text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold text-base mt-1 text-gray-900">
                 {truncateText(title, 60) || 'Page Title'}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+              <p className="text-sm text-gray-600 mt-1">
                 {truncateText(description, 120) || 'Page description will appear here...'}
               </p>
             </div>
@@ -116,13 +112,13 @@ export default function SocialMediaPreview({
       {/* Twitter Preview */}
       {activePreview === 'twitter' && (
         <div className="space-y-3">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600">
             This is how your content will appear when shared on X (Twitter)
           </p>
           {twitterCard === 'summary_large_image' ? (
-            <div className="border border-gray-300 dark:border-gray-600 rounded-2xl overflow-hidden max-w-[500px] bg-white dark:bg-gray-800">
+            <div className="border border-gray-300 rounded-2xl overflow-hidden max-w-[500px] bg-white">
               {imageUrl && (
-                <div className="relative aspect-[2/1] bg-gray-100 dark:bg-gray-700">
+                <div className="relative aspect-[2/1] bg-gray-100">
                   {imageLoading && !imageError && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="animate-pulse flex flex-col items-center">
@@ -135,7 +131,7 @@ export default function SocialMediaPreview({
                     <img
                       src={imageUrl}
                       alt={`${seoConfig.siteName} Twitter card preview image`}
-                      className={`w-full h-full object-cover ${imageLoading ? 'opacity-0' : 'opacity-100'} transition-opacity`}
+                      className={`w-full h-full object-cover ${imageLoading ?'opacity-0':'opacity-100'} transition-opacity`}
                       onLoad={() => setImageLoading(false)}
                       onError={() => {
                         setImageError(true);
@@ -153,22 +149,22 @@ export default function SocialMediaPreview({
                 </div>
               )}
               <div className="p-3">
-                <h3 className="font-bold text-base text-gray-900 dark:text-gray-100">
+                <h3 className="font-bold text-base text-gray-900">
                   {truncateText(title, 70) || 'Page Title'}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                <p className="text-sm text-gray-600 mt-1">
                   {truncateText(description, 125) || 'Page description will appear here...'}
                 </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 flex items-center">
+                <p className="text-sm text-gray-500 mt-2 flex items-center">
                   <span className="mr-1">🔗</span> {domain}
                 </p>
               </div>
             </div>
           ) : (
-            <div className="border border-gray-300 dark:border-gray-600 rounded-2xl overflow-hidden max-w-[500px] bg-white dark:bg-gray-800">
+            <div className="border border-gray-300 rounded-2xl overflow-hidden max-w-[500px] bg-white">
               <div className="flex p-3">
                 {imageUrl && (
-                  <div className="relative w-32 h-32 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
+                  <div className="relative w-32 h-32 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
                     {!imageError ? (
                       <img
                         src={imageUrl}
@@ -184,13 +180,13 @@ export default function SocialMediaPreview({
                   </div>
                 )}
                 <div className="ml-3 flex-1">
-                  <h3 className="font-bold text-sm text-gray-900 dark:text-gray-100">
+                  <h3 className="font-bold text-sm text-gray-900">
                     {truncateText(title, 50) || 'Page Title'}
                   </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">
+                  <p className="text-xs text-gray-600 mt-1">
                     {truncateText(description, 100) || 'Description...'}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                  <p className="text-xs text-gray-500 mt-2">
                     {domain}
                   </p>
                 </div>
@@ -203,12 +199,12 @@ export default function SocialMediaPreview({
       {/* LinkedIn Preview */}
       {activePreview === 'linkedin' && (
         <div className="space-y-3">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600">
             This is how your content will appear when shared on LinkedIn
           </p>
-          <div className="border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden max-w-[500px] bg-white dark:bg-gray-800">
+          <div className="border border-gray-300 rounded-lg overflow-hidden max-w-[500px] bg-white">
             {imageUrl && (
-              <div className="relative aspect-[1.91/1] bg-gray-100 dark:bg-gray-700">
+              <div className="relative aspect-[1.91/1] bg-gray-100">
                 {imageLoading && !imageError && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="animate-pulse flex flex-col items-center">
@@ -221,7 +217,7 @@ export default function SocialMediaPreview({
                   <img
                     src={imageUrl}
                     alt={`${seoConfig.siteName} LinkedIn preview image`}
-                    className={`w-full h-full object-cover ${imageLoading ? 'opacity-0' : 'opacity-100'} transition-opacity`}
+                    className={`w-full h-full object-cover ${imageLoading ?'opacity-0':'opacity-100'} transition-opacity`}
                     onLoad={() => setImageLoading(false)}
                     onError={() => {
                       setImageError(true);
@@ -239,10 +235,10 @@ export default function SocialMediaPreview({
               </div>
             )}
             <div className="p-4">
-              <h3 className="font-semibold text-base text-gray-900 dark:text-gray-100">
+              <h3 className="font-semibold text-base text-gray-900">
                 {truncateText(title, 70) || 'Page Title'}
               </h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-xs text-gray-500 mt-1">
                 {domain} • {siteName}
               </p>
             </div>
@@ -251,9 +247,9 @@ export default function SocialMediaPreview({
       )}
 
       {/* Image Guidelines */}
-      <div className="mt-4 p-4 bg-primary-50 dark:bg-primary-50 rounded-lg">
+      <div className="mt-4 p-4 bg-primary-50 rounded-lg">
         <h4 className="font-medium text-sm mb-2">Image Guidelines</h4>
-        <ul className="text-xs space-y-1 text-gray-600 dark:text-gray-400">
+        <ul className="text-xs space-y-1 text-gray-600">
           <li>• <strong>Facebook & LinkedIn:</strong> 1200×630px (1.91:1 ratio) for best results</li>
           <li>• <strong>Twitter:</strong> 1200×600px (2:1 ratio) for large image cards</li>
           <li>• <strong>File size:</strong> Keep under 5MB for faster loading</li>

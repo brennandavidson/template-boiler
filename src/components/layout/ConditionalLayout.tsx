@@ -6,9 +6,9 @@ import { Header } from './Header';
 import { AdminHeader } from '@/components/admin/layout/AdminHeader';
 import ConfigWarningBanner from '@/components/admin/ConfigWarningBanner';
 import ContractorFooter from '@/components/sections/footer/ContractorFooter';
-import ChatBubble from '@/components/ui/ChatBubble';
 import FloatingQuoteButton from '@/components/ui/FloatingQuoteButton';
 import LeadFormModal from '@/components/ui/LeadFormModal';
+import { QuoteModalProvider } from '@/contexts/QuoteModalContext';
 
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -86,17 +86,18 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
 
   // Regular pages: with header/footer and lead generation components
   return (
-    <div className="min-h-screen flex flex-col transition-colors duration-300">
-      <Header onQuoteClick={() => setIsModalOpen(true)} />
-      <main className="flex-1 w-full relative z-10">
-        {children}
-      </main>
-      <ContractorFooter />
+    <QuoteModalProvider openModal={() => setIsModalOpen(true)}>
+      <div className="min-h-screen flex flex-col transition-colors duration-300">
+        <Header onQuoteClick={() => setIsModalOpen(true)} />
+        <main className="flex-1 w-full relative z-10">
+          {children}
+        </main>
+        <ContractorFooter onQuoteClick={() => setIsModalOpen(true)} />
 
-      {/* Lead Generation Components */}
-      <ChatBubble onClick={() => setIsModalOpen(true)} />
-      <FloatingQuoteButton onClick={() => setIsModalOpen(true)} />
-      <LeadFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </div>
+        {/* Lead Generation Components */}
+        <FloatingQuoteButton onClick={() => setIsModalOpen(true)} />
+        <LeadFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </div>
+    </QuoteModalProvider>
   );
 }

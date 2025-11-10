@@ -28,9 +28,9 @@ export function Switch({ checked, onChange, disabled = false, label, className =
         <div
           className={`
             block w-14 h-8 rounded-full transition-colors duration-200 ease-in-out
-            ${checked 
-              ? 'bg-primary' 
-              : 'bg-gray-300 dark:bg-gray-600'
+            ${checked
+              ? 'bg-primary'
+              : 'bg-gray-300'
             }
           `}
         >
@@ -44,7 +44,7 @@ export function Switch({ checked, onChange, disabled = false, label, className =
         </div>
       </div>
       {label && (
-        <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-100">
+        <span className="ml-3 text-sm font-medium text-gray-900">
           {label}
         </span>
       )}

@@ -98,9 +98,9 @@ export function BlogLayout({ post, relatedPosts = [], useFullUrl = false }: Blog
             [&_strong]:!text-gray-900 [&_strong]:font-bold
             [&_ul]:my-6 [&_ul]:list-disc [&_ul]:pl-6
             [&_li]:!text-gray-900 [&_li]:mb-2
-            [&_code]:text-primary [&_code]:bg-blue-50 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded
-            [&_pre]:bg-gray-900 [&_pre]:text-gray-100 [&_pre]:overflow-x-auto [&_pre]:max-w-full
-            [&_blockquote]:border-l-4 [&_blockquote]:border-l-primary [&_blockquote]:bg-blue-50 [&_blockquote]:py-2 [&_blockquote]:px-4
+            [&_code]:text-primary [&_code]-50 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded
+            [&_pre]:bg-gray-900 [&_pre] [&_pre]:overflow-x-auto [&_pre]:max-w-full
+            [&_blockquote]:border-l-4 [&_blockquote]:border-l-primary [&_blockquote]-50 [&_blockquote]:py-2 [&_blockquote]:px-4
             [&_img]:rounded-xl [&_img]:shadow-lg
             [&_pre]:whitespace-pre-wrap [&_pre]:break-words [&_code]:break-words"
           dangerouslySetInnerHTML={{ __html: post.content }}

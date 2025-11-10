@@ -229,11 +229,7 @@ export default function SettingsPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                activeTab === tab.id
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-              }`}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${ activeTab === tab.id ?'bg-primary text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
               <span className="mr-2">{tab.icon}</span>
               {tab.label}
@@ -255,12 +251,12 @@ export default function SettingsPage() {
               </div>
 
               {/* Status Overview */}
-              <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
+              <div className="p-4 rounded-lg bg-gray-50">
                 <h3 className="font-semibold mb-3">Configuration Status</h3>
                 {isLoadingEnv ? (
                   <div className="flex items-center gap-2 py-2">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
-                    <span className="text-gray-600 dark:text-gray-400">Checking configuration...</span>
+                    <span className="text-gray-600">Checking configuration...</span>
                   </div>
                 ) : (
                   <div className="space-y-2">
@@ -292,7 +288,7 @@ export default function SettingsPage() {
                 
                 <div className="space-y-3">
                   <p className="text-body" style={{ color: 'var(--color-text-secondary)' }}>
-                    To enable GitHub integration for blog content, add these environment variables to your <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm">.env.local</code> file:
+                    To enable GitHub integration for blog content, add these environment variables to your <code className="bg-gray-100 px-2 py-1 rounded text-sm">.env.local</code> file:
                   </p>
                   
                   <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm">
@@ -362,17 +358,17 @@ export default function SettingsPage() {
                     <li>Go to GitHub → Settings → Developer settings → Personal access tokens</li>
                     <li>Click "Generate new token" (classic)</li>
                     <li>Give it a descriptive name like "Blog CMS"</li>
-                    <li>Select scopes: <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-sm">repo</code> (full control of private repositories)</li>
+                    <li>Select scopes: <code className="bg-gray-100 px-1 rounded text-sm">repo</code> (full control of private repositories)</li>
                     <li>Click "Generate token" and copy it immediately</li>
                   </ol>
                 </div>
 
-                <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                <div className="p-4 bg-yellow-50 rounded-lg">
                   <p className="text-body-sm flex items-start gap-2">
                     <span>⚠️</span>
                     <span>
                       <strong>Security Note:</strong> Never commit environment variables to your repository. 
-                      Always use <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-xs">.env.local</code> which is gitignored by default.
+                      Always use <code className="bg-gray-100 px-1 rounded text-xs">.env.local</code> which is gitignored by default.
                     </span>
                   </p>
                 </div>
@@ -457,7 +453,7 @@ export default function SettingsPage() {
                 </div>
               </div>
 
-              <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <div className="p-4 bg-yellow-50 rounded-lg">
                 <p className="text-body-sm flex items-start gap-2">
                   <span>⚠️</span>
                   <span>
@@ -546,7 +542,7 @@ export default function SettingsPage() {
                 </div>
               </div>
 
-              <div className="p-4 bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg">
+              <div className="p-4 bg-primary-50 border border-primary-200 rounded-lg">
                 <p className="text-body-sm">
                   <strong>How to get verification codes:</strong>
                 </p>
@@ -558,13 +554,13 @@ export default function SettingsPage() {
                 </ul>
               </div>
 
-              <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <div className="p-4 bg-yellow-50 rounded-lg">
                 <p className="text-body-sm flex items-start gap-2">
                   <span>⚠️</span>
                   <span>
                     <strong>Important:</strong> Only enter the content value, not the entire meta tag. 
-                    For example, if Google gives you <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-xs">&lt;meta name="google-site-verification" content="abc123" /&gt;</code>, 
-                    only enter <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-xs">abc123</code>
+                    For example, if Google gives you <code className="bg-gray-100 px-1 rounded text-xs">&lt;meta name="google-site-verification" content="abc123" /&gt;</code>, 
+                    only enter <code className="bg-gray-100 px-1 rounded text-xs">abc123</code>
                   </span>
                 </p>
               </div>
@@ -650,23 +646,23 @@ export default function SettingsPage() {
                 </div>
               </div>
 
-              <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <div className="p-4 bg-yellow-50 rounded-lg">
                 <p className="text-body-sm flex items-start gap-2">
                   <span>💡</span>
                   <span>
                     Authentication is handled through encrypted credentials set in environment variables. 
-                    Use the setup script to generate credentials: <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-xs">npm run setup-auth</code>
+                    Use the setup script to generate credentials: <code className="bg-gray-100 px-1 rounded text-xs">npm run setup-auth</code>
                   </span>
                 </p>
               </div>
               
-              <div className="p-4 bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg">
+              <div className="p-4 bg-primary-50 border border-primary-200 rounded-lg">
                 <p className="text-body-sm flex items-start gap-2">
                   <span>🔒</span>
                   <span>
                     <strong>Single Account System:</strong> This admin panel uses a single-account authentication system. 
-                    Set your credentials using <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-xs">ADMIN_USERNAME</code> and 
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded text-xs ml-1">ADMIN_PASSWORD_HASH</code> environment variables.
+                    Set your credentials using <code className="bg-gray-100 px-1 rounded text-xs">ADMIN_USERNAME</code> and 
+                    <code className="bg-gray-100 px-1 rounded text-xs ml-1">ADMIN_PASSWORD_HASH</code> environment variables.
                   </span>
                 </p>
               </div>
@@ -675,12 +671,10 @@ export default function SettingsPage() {
 
           {/* Save Button - Only show for Analytics, Verification, and Admin tabs */}
           {(activeTab === 'analytics' || activeTab === 'verification' || activeTab === 'admin') && (
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
               <div>
                 {saveMessage && (
-                  <p className={`text-body-sm ${
-                    saveMessage.includes('success') ? 'text-green-600' : 'text-red-600'
-                  }`}>
+                  <p className={`text-body-sm ${ saveMessage.includes('success') ?'text-green-600':'text-red-600'}`}>
                     {saveMessage}
                   </p>
                 )}
@@ -697,7 +691,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Help Section */}
-        <div className="mt-8 p-6 bg-primary-50 dark:bg-primary-50 border border-primary-200 dark:border-gray-700 rounded-lg">
+        <div className="mt-8 p-6 bg-primary-50 border border-primary-200 rounded-lg">
           <h3 className="text-h4 mb-4" style={{ color: 'var(--color-text-primary)' }}>
             Important Notes
           </h3>

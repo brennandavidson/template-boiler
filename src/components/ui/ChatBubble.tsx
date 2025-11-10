@@ -14,7 +14,7 @@ export default function ChatBubble({ onClick }: ChatBubbleProps) {
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="fixed bottom-6 right-6 z-40 bg-primary hover:bg-primary-dark text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110"
+      className="fixed bottom-6 right-6 z-40 bg-primary hover-dark text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110"
       aria-label="Open chat"
     >
       <svg

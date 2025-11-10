@@ -1,5 +1,7 @@
 'use client';
 
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
+
 interface ServiceDetailHeroProps {
   title: string;
   subtitle?: string;
@@ -15,12 +17,13 @@ export default function ServiceDetailHero({
   backgroundImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
   onQuoteClick
 }: ServiceDetailHeroProps) {
+  const { openModal } = useQuoteModal();
+
   const handleQuoteClick = () => {
     if (onQuoteClick) {
       onQuoteClick();
     } else {
-      // Scroll to top where the form is, or trigger modal
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      openModal();
     }
   };
 
@@ -54,7 +57,7 @@ export default function ServiceDetailHero({
 
         <button
           onClick={handleQuoteClick}
-          className="font-heading inline-block rounded-md bg-primary px-10 py-4 text-lg font-bold uppercase transition-all hover:bg-primary-dark hover:scale-105"
+          className="font-heading inline-block rounded-md bg-primary px-10 py-4 text-lg font-bold uppercase transition-all hover-dark hover:scale-105"
         >
           Get Free Quote
         </button>
