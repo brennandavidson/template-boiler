@@ -5,27 +5,41 @@ export const metadata = generateStaticMetadata('privacy');
 
 import Link from "next/link";
 import { PageWrapper } from "@/components/layout/PageWrapper";
+import { getSiteConfigBusiness, getSiteConfigContact } from '@/lib/get-site-config';
 
 export default function PrivacyPolicy() {
+  const business = getSiteConfigBusiness();
+  const contact = getSiteConfigContact();
+
   return (
     <PageWrapper>
+      {/* LEGAL NOTICE: This is a template privacy policy. Review and customize this document
+          with legal counsel before publishing. Ensure compliance with applicable privacy laws
+          (GDPR, CCPA, etc.) based on your business operations and customer base. */}
+
       {/* Main Content */}
       <main className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg p-8">
+          {/* Admin Warning Banner */}
+          <div className="mb-8 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800">
+            <p className="font-semibold">⚠️ Template Privacy Policy</p>
+            <p className="text-sm mt-1">This is a template. Review and customize with legal counsel before publishing.</p>
+          </div>
+
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
-          
+
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-600 mb-6">
-              <strong>Last updated:</strong> December 2024
+              <strong>Last updated:</strong> {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
             </p>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 mb-4">
-                Welcome to Valiance Media ("we," "our," or "us"). This Privacy Policy explains how Valiance Media LLC collects, uses, discloses, and safeguards your information when you use our Valiance Media mobile application and related services.
+                Welcome to {business.name} ("we," "our," or "us"). This Privacy Policy explains how {business.name} collects, uses, discloses, and safeguards your information when you visit our website and use our services.
               </p>
               <p className="text-gray-700">
-                By using Valiance Media, you agree to the collection and use of information in accordance with this Privacy Policy.
+                By using our services, you agree to the collection and use of information in accordance with this Privacy Policy.
               </p>
             </section>
 
@@ -111,7 +125,7 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Children's Privacy</h2>
               <p className="text-gray-700">
-                Valiance Media is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information, please contact us immediately.
+                {business.name} services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information, please contact us immediately.
               </p>
             </section>
 
@@ -129,14 +143,19 @@ export default function PrivacyPolicy() {
               </p>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700 mb-2">
-                  <strong>Valiance Media LLC</strong>
+                  <strong>{business.name}</strong>
                 </p>
                 <p className="text-gray-700 mb-2">
-                  Email: privacy@example.com
+                  Email: {contact.email}
                 </p>
-                <p className="text-gray-700">
-                  Address: [Your Business Address]
+                <p className="text-gray-700 mb-2">
+                  Phone: {contact.phone}
                 </p>
+                {contact.address && (
+                  <p className="text-gray-700">
+                    Address: {contact.address.street}, {contact.address.city}, {contact.address.state} {contact.address.zip}
+                  </p>
+                )}
               </div>
             </section>
           </div>
