@@ -7,6 +7,7 @@ import {
   getSiteConfigServices,
   getSiteConfigServiceAreas,
   getSiteConfigSocial,
+  getSiteConfigBranding,
 } from '@/lib/get-site-config';
 
 interface ContractorFooterProps {
@@ -21,6 +22,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
   const services = getSiteConfigServices();
   const serviceAreas = getSiteConfigServiceAreas();
   const social = getSiteConfigSocial();
+  const branding = getSiteConfigBranding();
 
   // Format business hours for display
   const businessHours = [
@@ -40,17 +42,16 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
           {/* Column 1: Company Info & Contact */}
           <div className="lg:col-span-1">
             <div className="mb-4">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-background-blue">
-                <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
-              </div>
-              <p className="mb-2 text-lg font-bold">{business.name}</p>
+              <Link href="/" className="inline-block mb-4">
+                <Image
+                  src={branding.logo?.horizontalInverted || branding.logo?.horizontal || '/logos/horizontal-logo-inverted.png'}
+                  alt={`${business.name} Logo`}
+                  width={160}
+                  height={40}
+                  className="h-10 w-auto"
+                />
+              </Link>
+              <p className="mb-2 text-sm text-gray-300">{business.tagline} {business.primaryLocation}</p>
             </div>
 
             <div className="space-y-2 text-sm text-gray-300">
