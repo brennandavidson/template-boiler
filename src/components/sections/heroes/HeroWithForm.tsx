@@ -41,7 +41,7 @@ export default function HeroWithForm() {
             <div className="mt-6 mb-0 flex flex-wrap items-center gap-4 sm:gap-8">
               {/* Google Reviews */}
               <a
-                href="https://www.google.com/search?q=your+business+name"
+                href={business.reviewBadges?.google?.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View our Google reviews"
@@ -74,7 +74,7 @@ export default function HeroWithForm() {
 
               {/* Facebook Reviews */}
               <a
-                href="https://www.facebook.com/your-business-page/reviews"
+                href={business.reviewBadges?.facebook?.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View our Facebook reviews"
