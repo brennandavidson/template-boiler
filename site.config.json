@@ -18,7 +18,21 @@
         "reviewCount": "40+",
         "url": "https://www.facebook.com/allstarpools"
       }
-    }
+    },
+    "trustBadges": [
+      {
+        "iconType": "location",
+        "title": "100% LOCAL"
+      },
+      {
+        "iconType": "time",
+        "title": "15+ YEARS EXPERIENCE"
+      },
+      {
+        "iconType": "star",
+        "title": "HIGH QUALITY"
+      }
+    ]
   },
   "contact": {
     "phone": "(555) 123-4567",
