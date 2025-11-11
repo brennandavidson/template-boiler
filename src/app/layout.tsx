@@ -6,6 +6,7 @@ import { Analytics } from "@/components/admin/Analytics";
 import { GHLChatWidget } from "@/components/GHLChatWidget";
 import { generateMetadata } from "@/seo/seo-utils";
 import { seoConfig } from "@/seo/seo.config";
+import { getSiteConfigBranding } from "@/lib/get-site-config";
 import "@/styles/globals.css";
 
 const openSans = Open_Sans({
@@ -51,6 +52,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const branding = getSiteConfigBranding();
+  const colors = branding.colors || {};
+
+  // Generate CSS variables from config colors
+  const colorVars = `
+    :root {
+      ${colors.primary ? `--color-primary: ${colors.primary};` : ''}
+      ${colors.primaryLight ? `--color-primary-light: ${colors.primaryLight};` : ''}
+      ${colors.primaryDark ? `--color-primary-dark: ${colors.primaryDark};` : ''}
+      ${colors.backgroundBlue ? `--color-background-blue: ${colors.backgroundBlue};` : ''}
+      ${colors.backgroundBlueLight ? `--color-background-blue-light: ${colors.backgroundBlueLight};` : ''}
+      ${colors.backgroundBlueDark ? `--color-background-blue-dark: ${colors.backgroundBlueDark};` : ''}
+      ${colors.premium ? `--color-premium: ${colors.premium};` : ''}
+      ${colors.premiumLight ? `--color-premium-light: ${colors.premiumLight};` : ''}
+      ${colors.premiumDark ? `--color-premium-dark: ${colors.premiumDark};` : ''}
+    }
+  `;
+
   return (
     <html lang="en">
       <head>
@@ -61,6 +80,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://stcdn.leadconnectorhq.com" />
         <link rel="preconnect" href="https://widgets.leadconnectorhq.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
+        {/* Inject theme colors from config */}
+        <style id="theme-colors" dangerouslySetInnerHTML={{__html: colorVars}} />
         <style id="nav-font-override" dangerouslySetInnerHTML={{__html: `
           header nav a.font-montserrat,
           header nav a.font-montserrat:link,
