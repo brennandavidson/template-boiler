@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, User } from 'lucide-react';
+import { getSiteConfigIntegrations } from '@/lib/get-site-config';
 
 interface Review {
   uuid: string;
@@ -46,7 +47,8 @@ export default function GoogleReviewsWidget({
   theme = 'light',
   maxCharacters = 200,
 }: GoogleReviewsWidgetProps) {
-  const featurableId = process.env.NEXT_PUBLIC_FEATURABLE_WIDGET_ID;
+  const integrations = getSiteConfigIntegrations();
+  const featurableId = integrations.featurable?.widgetId || process.env.NEXT_PUBLIC_FEATURABLE_WIDGET_ID;
   const [widgetData, setWidgetData] = useState<WidgetData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

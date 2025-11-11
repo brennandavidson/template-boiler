@@ -486,6 +486,9 @@
       "quoteFormEmbedPopup": "<iframe src=\"https://api.leadconnectorhq.com/widget/form/hZb4B6NKLcgsumLCU8mp\" style=\"display:none;width:100%;height:100%;border:none;border-radius:12px\" id=\"popup-hZb4B6NKLcgsumLCU8mp\" data-layout=\"{'id':'POPUP'}\" data-trigger-type=\"alwaysShow\" data-trigger-value=\"\" data-activation-type=\"alwaysActivated\" data-activation-value=\"\" data-deactivation-type=\"neverDeactivate\" data-deactivation-value=\"\" data-form-name=\"Form Template\" data-height=\"533\" data-layout-iframe-id=\"popup-hZb4B6NKLcgsumLCU8mp\" data-form-id=\"hZb4B6NKLcgsumLCU8mp\" title=\"Form Template\"></iframe><script src=\"https://link.msgsndr.com/js/form_embed.js\"></script>",
       "chatWidgetEmbed": "<script src=\"https://widgets.leadconnectorhq.com/loader.js\" data-resources-url=\"https://widgets.leadconnectorhq.com/chat-widget/loader.js\" data-widget-id=\"6906dfec7e51cb0a9742fccc\"></script>",
       "reviewsEmbed": ""
+    },
+    "featurable": {
+      "widgetId": "2eaa8820-a6e2-42be-ab85-11a5006d0c45"
     }
   }
 }
