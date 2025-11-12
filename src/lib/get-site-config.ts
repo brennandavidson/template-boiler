@@ -43,3 +43,4 @@ export const getSiteConfigFooter = () => getConfigSection('footer');
 export const getSiteConfigBranding = () => getConfigSection('branding');
 export const getSiteConfigSocial = () => getConfigSection('social');
 export const getSiteConfigIntegrations = () => getConfigSection('integrations');
+export const getSiteConfigProjects = () => getConfigSection('projects');

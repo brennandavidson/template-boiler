@@ -19,8 +19,13 @@ Street: _______________
 City: _______________ State: ___ ZIP: _______
 
 **Business Hours:**
-- Weekday: _______________
-- Weekend: _______________
+- Monday: _______________
+- Tuesday: _______________
+- Wednesday: _______________
+- Thursday: _______________
+- Friday: _______________
+- Saturday: _______________
+- Sunday: _______________
 
 **Years in Business:** ___ years
 
@@ -72,11 +77,20 @@ _______________
 **What makes your business different?** (1-2 factual sentences)
 _______________
 
+**Primary Brand Color:** (Hex code, e.g., #3b82f6 for blue, #10b981 for green)
+_______________
+
 ---
 
 ## CONTACT & SOCIAL MEDIA
 
 **Current Website:** _______________
+
+**Google Review Link:** (Get from Google Maps - "Share" > "Review" link)
+_______________
+
+**Google Maps Embed URL:** (Get from Google Maps - Click "Share" > "Embed a map" > Copy HTML)
+_______________
 
 **Facebook:** _______________
 
@@ -87,6 +101,39 @@ _______________
 **Yelp:** _______________
 
 **Other:** _______________
+
+---
+
+## INTEGRATIONS (REQUIRED)
+
+**IMPORTANT:** These must be set up manually in each platform before configuring the site.
+
+**GoHighLevel Quote Form Embed Code:**
+1. Create a form in GHL for quote requests
+2. Get the INLINE embed code (not popup)
+3. Paste the full `<iframe>` code here:
+
+```
+_______________
+```
+
+**GoHighLevel Chat Widget Code:**
+1. Create a chat widget in GHL
+2. Get the embed code
+3. Paste the full `<script>` code here:
+
+```
+_______________
+```
+
+**Featurable Widget ID (Google Reviews):**
+1. Set up the business in Featurable (featurable.com)
+2. Get the widget ID (looks like: 2eaa8820-a6e2-42be-ab85-11a5006d0c45)
+3. Paste the ID here:
+
+```
+_______________
+```
 
 ---
 

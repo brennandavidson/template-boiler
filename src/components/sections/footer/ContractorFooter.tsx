@@ -198,6 +198,17 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
                 </li>
               ))}
             </ul>
+
+            {contact.googleReviewUrl && (
+              <a
+                href={contact.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 block text-sm text-gray-300 transition-colors hover:text-background-blue"
+              >
+                Review Us →
+              </a>
+            )}
           </div>
         </div>
 

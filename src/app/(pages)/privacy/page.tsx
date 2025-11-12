@@ -13,19 +13,9 @@ export default function PrivacyPolicy() {
 
   return (
     <PageWrapper>
-      {/* LEGAL NOTICE: This is a template privacy policy. Review and customize this document
-          with legal counsel before publishing. Ensure compliance with applicable privacy laws
-          (GDPR, CCPA, etc.) based on your business operations and customer base. */}
-
       {/* Main Content */}
       <main className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          {/* Admin Warning Banner */}
-          <div className="mb-8 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800">
-            <p className="font-semibold">⚠️ Template Privacy Policy</p>
-            <p className="text-sm mt-1">This is a template. Review and customize with legal counsel before publishing.</p>
-          </div>
-
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
 
           <div className="prose prose-lg max-w-none">
@@ -36,30 +26,33 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
               <p className="text-gray-700 mb-4">
-                Welcome to {business.name} ("we," "our," or "us"). This Privacy Policy explains how {business.name} collects, uses, discloses, and safeguards your information when you visit our website and use our services.
+                {business.name} ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
               </p>
               <p className="text-gray-700">
-                By using our services, you agree to the collection and use of information in accordance with this Privacy Policy.
+                By using our website or services, you agree to the collection and use of information in accordance with this Privacy Policy.
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Information We Collect</h2>
-              
+
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Personal Information</h3>
+              <p className="text-gray-700 mb-4">
+                When you request a quote, schedule a service, or contact us, we may collect:
+              </p>
               <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                <li>Name and email address when you create an account</li>
-                <li>Profile information and preferences</li>
-                <li>Usage data and analytics</li>
-                <li>Communications and support interactions</li>
+                <li>Name and contact information (email, phone number, address)</li>
+                <li>Property details and service requirements</li>
+                <li>Payment and billing information</li>
+                <li>Communications with our team</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Usage Information</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Automatically Collected Information</h3>
               <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                <li>App usage patterns and feature interactions</li>
-                <li>Device information (model, operating system, unique identifiers)</li>
-                <li>Log data including IP address, browser type, and access times</li>
-                <li>Location data (when you grant permission) for course recommendations</li>
+                <li>Website usage data and analytics</li>
+                <li>IP address, browser type, and device information</li>
+                <li>Cookies and similar tracking technologies</li>
+                <li>Referral source and pages visited</li>
               </ul>
             </section>
 
@@ -67,25 +60,27 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. How We Use Your Information</h2>
               <p className="text-gray-700 mb-4">We use the collected information to:</p>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>Provide personalized services and recommendations</li>
-                <li>Track usage and improve our products</li>
-                <li>Improve our AI algorithms and app functionality</li>
-                <li>Send you important updates about the service</li>
-                <li>Provide customer support and respond to your inquiries</li>
-                <li>Ensure the security and integrity of our services</li>
+                <li>Provide quotes and schedule services</li>
+                <li>Complete service work and process payments</li>
+                <li>Communicate with you about your project</li>
+                <li>Send appointment reminders and follow-ups</li>
+                <li>Improve our services and customer experience</li>
+                <li>Comply with legal obligations</li>
+                <li>Send promotional communications (with your consent)</li>
               </ul>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Information Sharing</h2>
               <p className="text-gray-700 mb-4">
-                We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following circumstances:
+                We do not sell or rent your personal information to third parties. We may share your information only in the following circumstances:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>With service providers who assist in app functionality (under strict confidentiality agreements)</li>
-                <li>When required by law or to protect our rights and safety</li>
-                <li>In connection with a business transfer or merger (with prior notice to you)</li>
-                <li>With your explicit consent for specific purposes</li>
+                <li>With service providers who help us operate our business (payment processors, scheduling tools, etc.)</li>
+                <li>When required by law, court order, or legal process</li>
+                <li>To protect our rights, property, or safety, or that of our customers</li>
+                <li>In connection with a business sale or merger</li>
+                <li>With your explicit consent</li>
               </ul>
             </section>
 
