@@ -17,19 +17,16 @@ export default function GalleryHero({
 }: GalleryHeroProps) {
   const { openModal } = useQuoteModal();
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gray-900">
       {/* Background Image */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 opacity-40"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-32">

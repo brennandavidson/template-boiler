@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { PageWrapper } from '@/components/layout/PageWrapper';
 import { BlogCard } from '@/components/admin/blog/BlogCard';
 import { BlogPost, BlogCategory } from '@/lib/blog/blog-types';
+import { getBadgeColors } from '@/lib/colors';
 
 interface BlogPageClientProps {
   allPosts: BlogPost[];
@@ -13,6 +14,7 @@ interface BlogPageClientProps {
 const POSTS_PER_PAGE = 9;
 
 export default function BlogPageClient({ allPosts, categories }: BlogPageClientProps) {
+  const badgeColors = getBadgeColors();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -45,12 +47,17 @@ export default function BlogPageClient({ allPosts, categories }: BlogPageClientP
   };
 
   return (
-    <PageWrapper className="pb-16 sm:pb-20">
+    <PageWrapper className="!pt-36 sm:!pt-40 pb-16 sm:pb-20">
       {/* Page Header */}
       <div className="text-center mb-12">
-        <p className="font-heading text-sm font-bold text-primary uppercase tracking-wide mb-2">
-          RESOURCES & INSIGHTS
-        </p>
+        <div className="inline-block mb-4">
+          <span
+            className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
+            style={{ backgroundColor: badgeColors.background, color: badgeColors.text }}
+          >
+            RESOURCES & INSIGHTS
+          </span>
+        </div>
         <h1 className="font-heading text-4xl sm:text-5xl font-bold text-background-blue mb-4">
           POOL CARE BLOG
         </h1>

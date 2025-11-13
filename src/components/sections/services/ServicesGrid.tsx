@@ -1,8 +1,11 @@
 import Link from 'next/link';
+import { getBadgeColors, getBrandGradientOverlay } from '@/lib/colors';
 import Image from 'next/image';
 import { getSiteConfigServices } from '@/lib/get-site-config';
 
 export default function ServicesGrid() {
+  const badgeColors = getBadgeColors();
+  const overlayStyle = getBrandGradientOverlay('vertical');
   // Load services configuration
   const servicesConfig = getSiteConfigServices();
 
@@ -12,7 +15,7 @@ export default function ServicesGrid() {
         {/* Section Header */}
         <div className="mb-16 text-center">
           <div className="inline-block mb-4">
-            <span className="inline-block bg-[#1e3a5f] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider" style={{ backgroundColor: badgeColors.background, color: badgeColors.text }}>
               {servicesConfig.sectionBadge}
             </span>
           </div>
@@ -38,7 +41,7 @@ export default function ServicesGrid() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0" style={overlayStyle} />
 
                 {/* Title and Arrow */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">

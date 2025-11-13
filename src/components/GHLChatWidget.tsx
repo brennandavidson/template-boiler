@@ -39,6 +39,7 @@ export function GHLChatWidget() {
           link.style.setProperty('letter-spacing', '0.05em', 'important');
           link.style.setProperty('text-transform', 'uppercase', 'important');
         });
+
       }, 1000);
     };
 

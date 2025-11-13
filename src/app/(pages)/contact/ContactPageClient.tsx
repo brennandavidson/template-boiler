@@ -1,6 +1,5 @@
 'use client';
 
-import { PageWrapper } from '@/components/layout/PageWrapper';
 import Reviews from '@/components/sections/testimonials/Reviews';
 import ServiceAreas from '@/components/sections/service-areas/ServiceAreas';
 import { getSiteConfigContact, getSiteConfigIntegrations } from '@/lib/get-site-config';
@@ -16,10 +15,9 @@ export default function ContactPageClient() {
 
   return (
     <>
-      <PageWrapper className="pb-16 sm:pb-20 bg-background-blue">
-        <section className="min-h-[80vh] flex items-center justify-center py-16">
-          <div className="w-full max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+      <section className="relative min-h-screen flex items-center justify-center bg-background-blue text-white pt-[12vh] pb-8 lg:pb-0">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12 items-center">
               {/* Left Column - Contact Info */}
               <div className="flex flex-col justify-center">
                 <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -67,14 +65,12 @@ export default function ContactPageClient() {
                       borderRadius: '12px'
                     }}
                     title="Get Free Quote"
-                    fetchPriority="high"
                   />
                 )}
               </div>
             </div>
-          </div>
-        </section>
-      </PageWrapper>
+        </div>
+      </section>
 
       {/* Reviews Section */}
       <Reviews />

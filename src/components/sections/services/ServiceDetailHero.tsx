@@ -28,15 +28,12 @@ export default function ServiceDetailHero({
   };
 
   return (
-    <section className="relative min-h-[70vh] py-32 flex items-center justify-center text-white">
+    <section className="relative min-h-[70vh] py-32 flex items-center justify-center bg-gray-900 text-white">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{ backgroundImage: `url('${backgroundImage}')` }}
       />
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
 
       {/* Content */}
       <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8 z-10">

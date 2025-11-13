@@ -23,6 +23,7 @@ export interface SiteConfig {
 export interface BusinessInfo {
   name: string;
   tagline: string;
+  seoH1?: string;
   primaryLocation: string;
   heroDescription: string;
   heroBackgroundImage: string;
@@ -30,6 +31,10 @@ export interface BusinessInfo {
     google: ReviewBadge;
     facebook: ReviewBadge;
   };
+  trustBadges?: Array<{
+    iconType: string;
+    title: string;
+  }>;
 }
 
 export interface ReviewBadge {
@@ -183,6 +188,36 @@ export interface BrandingConfig {
   logo: {
     horizontal: string;
     horizontalInverted: string;
+  };
+  colors?: {
+    primary?: string;
+    primaryLight?: string;
+    primaryDark?: string;
+    primaryHover?: string;
+    backgroundBlue?: string;
+    backgroundBlueLight?: string;
+    backgroundBlueDark?: string;
+    premium?: string;
+    premiumLight?: string;
+    premiumDark?: string;
+    navBackground?: string;
+    navBorder?: string;
+    badgeBg?: string;
+    badgeText?: string;
+    badgeBgInverted?: string;
+    badgeTextInverted?: string;
+  };
+  logoDimensions?: {
+    horizontal?: {
+      width: number;
+      height: number;
+      maxHeight: number;
+    };
+    horizontalInverted?: {
+      width: number;
+      height: number;
+      maxHeight: number;
+    };
   };
 }
 

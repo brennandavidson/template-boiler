@@ -1,9 +1,12 @@
-import { getSiteConfigServiceAreas, getSiteConfigContact } from '@/lib/get-site-config';
+import { getSiteConfigServiceAreas, getSiteConfigContact, getSiteConfigBranding } from '@/lib/get-site-config';
+import { getBadgeColorsInverted } from '@/lib/colors';
 
 export default function ServiceAreas() {
+  const badgeColorsInverted = getBadgeColorsInverted();
   // Load configuration
   const serviceAreasConfig = getSiteConfigServiceAreas();
   const contactConfig = getSiteConfigContact();
+  const branding = getSiteConfigBranding();
 
   return (
     <section className="bg-background-blue py-16 text-white sm:py-24">
@@ -27,16 +30,24 @@ export default function ServiceAreas() {
                   />
                 ) : (
                   // Service-area business without physical location - show service area visualization
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-gradient-to-br from-blue-50 to-blue-100">
+                  <div
+                    className="absolute inset-0 flex flex-col items-center justify-center p-8"
+                    style={{
+                      background: `linear-gradient(135deg, ${branding.colors.primary}15, ${branding.colors.primaryLight}25)`
+                    }}
+                  >
                     <div className="text-center">
-                      <div className="mb-4 inline-block p-4 bg-background-blue rounded-full">
+                      <div
+                        className="mb-4 inline-block p-4 rounded-full"
+                        style={{ backgroundColor: branding.colors.backgroundBlue }}
+                      >
                         <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
-                      <h3 className="text-2xl font-bold text-background-blue mb-2">Proudly Serving</h3>
-                      <p className="text-gray-700 font-semibold">{contactConfig.address?.city}, {contactConfig.address?.state}</p>
+                      <h3 className="text-2xl font-bold mb-2" style={{ color: branding.colors.backgroundBlue }}>Proudly Serving</h3>
+                      <p className="font-semibold" style={{ color: branding.colors.backgroundBlueDark }}>{contactConfig.address?.city}, {contactConfig.address?.state}</p>
                       <p className="text-gray-600 mt-4 text-sm">& Surrounding Areas</p>
                     </div>
                   </div>
@@ -48,7 +59,7 @@ export default function ServiceAreas() {
           {/* Right Column - Service Areas List */}
           <div className="order-1 flex flex-col justify-center lg:order-2">
             <div className="inline-block mb-4">
-              <span className="inline-block bg-white text-[#1e3a5f] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+              <span className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider" style={{ backgroundColor: badgeColorsInverted.background, color: badgeColorsInverted.text }}>
                 {serviceAreasConfig.sectionBadge}
               </span>
             </div>

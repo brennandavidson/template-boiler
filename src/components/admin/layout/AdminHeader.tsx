@@ -99,7 +99,7 @@ export function AdminHeader() {
           {/* Logo */}
           <Link href="/admin" className="flex items-center space-x-2">
             <Image
-              src={mode === 'dark' ? '/logos/horizontal-logo-inverted.png' : '/logos/horizontal-logo.png'}
+              src='/logos/horizontal-logo.png'
               alt={`${seoConfig.siteName} Admin Logo`}
               width={150}
               height={40}

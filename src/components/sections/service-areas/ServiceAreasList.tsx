@@ -1,3 +1,5 @@
+import { getBadgeColorsInverted } from '@/lib/colors';
+
 interface ServiceArea {
   name: string;
   description: string;
@@ -35,13 +37,20 @@ const defaultAreas: ServiceArea[] = [
 ];
 
 export default function ServiceAreasList({ areas = defaultAreas }: ServiceAreasListProps) {
+  const badgeColorsInverted = getBadgeColorsInverted();
+
   return (
     <section className="bg-background-blue py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="font-heading text-sm font-bold text-primary uppercase tracking-wide mb-2">
-            SERVICE COVERAGE
-          </p>
+          <div className="inline-block mb-4">
+            <span
+              className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
+              style={{ backgroundColor: badgeColorsInverted.background, color: badgeColorsInverted.text }}
+            >
+              SERVICE COVERAGE
+            </span>
+          </div>
           <h2 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl">
             PROUDLY SERVING THESE AREAS
           </h2>

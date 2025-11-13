@@ -1,6 +1,8 @@
 import { getSiteConfigProcess } from '@/lib/get-site-config';
+import { getBadgeColorsInverted } from '@/lib/colors';
 
 export default function OurProcess() {
+  const badgeColorsInverted = getBadgeColorsInverted();
   // Load configuration
   const processConfig = getSiteConfigProcess();
 
@@ -10,7 +12,7 @@ export default function OurProcess() {
         {/* Section Header */}
         <div className="mb-16 text-center">
           <div className="inline-block mb-4">
-            <span className="inline-block bg-white text-[#1e3a5f] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider" style={{ backgroundColor: badgeColorsInverted.background, color: badgeColorsInverted.text }}>
               {processConfig.sectionBadge}
             </span>
           </div>

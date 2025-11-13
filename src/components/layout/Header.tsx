@@ -11,6 +11,8 @@ import {
   getSiteConfigServiceAreas,
   getSiteConfigBranding,
 } from '@/lib/get-site-config';
+import { getNavColors } from '@/lib/colors';
+import { getLogoMaxWidth, getDefaultLogoMaxHeight } from '@/lib/logo-utils';
 
 interface NavLink {
   href: string;
@@ -92,13 +94,21 @@ export function Header({
   // For pages WITHOUT hero: always show background
   const shouldShowBackground = !hasHeroImage || isScrolled || isMenuOpen;
 
+  // Get nav colors from config
+  const navColors = getNavColors();
+
+  // Get logo dimensions from config (calculated at build time)
+  const logoDimensions = branding.logoDimensions?.horizontalInverted;
+  const logoMaxHeight = logoDimensions?.maxHeight || getDefaultLogoMaxHeight();
+  const logoMaxWidth = getLogoMaxWidth();
+
   return (
     <header
       suppressHydrationWarning
       className="fixed top-0 w-full z-50"
       style={{
-        backgroundColor: shouldShowBackground ? 'rgb(30, 58, 95)' : 'transparent',
-        borderBottom: shouldShowBackground ? '2px solid rgb(59, 130, 246)' : '2px solid transparent',
+        backgroundColor: shouldShowBackground ? navColors.background : 'transparent',
+        borderBottom: shouldShowBackground ? `2px solid ${navColors.border}` : '2px solid transparent',
         transition: 'all 300ms'
       }}
     >
@@ -109,9 +119,15 @@ export function Header({
             <Image
               src={branding.logo.horizontalInverted}
               alt={`${business.name} Logo`}
-              width={180}
-              height={36}
-              style={{ height: 'auto', width: 'auto', maxHeight: '36px' }}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{
+                height: 'auto',
+                width: 'auto',
+                maxHeight: `${logoMaxHeight}px`,
+                maxWidth: `${logoMaxWidth}px`
+              }}
               priority
             />
           </Link>
@@ -131,7 +147,7 @@ export function Header({
                     <Link
                       href={link.href}
                       className="font-montserrat text-white hover:text-primary transition-colors font-bold uppercase text-sm tracking-wide flex items-center gap-1"
-                      style={{ fontFamily: 'var(--font-montserrat), sans-serif !important', fontSize: '0.875rem !important', fontWeight: '700 !important', letterSpacing: '0.05em !important', textTransform: 'uppercase !important' }}
+                      style={{ fontFamily: 'var(--font-montserrat), sans-serif', fontSize: '0.875rem', fontWeight: '700', letterSpacing: '0.05em', textTransform: 'uppercase' }}
                     >
                       {link.label}
                       <svg
@@ -176,7 +192,7 @@ export function Header({
                     <Link
                       href={link.href}
                       className="font-montserrat text-white hover:text-primary transition-colors font-bold uppercase text-sm tracking-wide flex items-center gap-1"
-                      style={{ fontFamily: 'var(--font-montserrat), sans-serif !important', fontSize: '0.875rem !important', fontWeight: '700 !important', letterSpacing: '0.05em !important', textTransform: 'uppercase !important' }}
+                      style={{ fontFamily: 'var(--font-montserrat), sans-serif', fontSize: '0.875rem', fontWeight: '700', letterSpacing: '0.05em', textTransform: 'uppercase' }}
                     >
                       {link.label}
                       <svg

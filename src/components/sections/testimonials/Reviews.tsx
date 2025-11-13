@@ -1,9 +1,11 @@
 'use client';
+import { getBadgeColorsInverted } from '@/lib/colors';
 
 import Link from 'next/link';
 import GoogleReviewsWidget from './GoogleReviewsWidget';
 
 export default function Reviews() {
+  const badgeColorsInverted = getBadgeColorsInverted();
   return (
     <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-12 text-white sm:py-16">
       {/* Background Image Overlay */}
@@ -18,7 +20,7 @@ export default function Reviews() {
         {/* Section Header */}
         <div className="mb-12 text-center">
           <div className="inline-block mb-4">
-            <span className="inline-block bg-white text-[#1e3a5f] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider" style={{ backgroundColor: badgeColorsInverted.background, color: badgeColorsInverted.text }}>
               Client Testimonials
             </span>
           </div>

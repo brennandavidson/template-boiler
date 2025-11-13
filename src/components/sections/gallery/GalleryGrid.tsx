@@ -20,123 +20,147 @@ interface GalleryGridProps {
 const defaultImages: GalleryImage[] = [
   {
     id: '1',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Luxury backyard swimming pool'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Luxury backyard swimming pool',
+    title: 'Luxury backyard swimming pool'
   },
   {
     id: '2',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Modern pool design'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Modern pool design',
+    title: 'Modern pool design'
   },
   {
     id: '3',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool with deck chairs'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool with deck chairs',
+    title: 'Pool with deck chairs'
   },
   {
     id: '4',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Resort style pool'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Resort style pool',
+    title: 'Resort style pool'
   },
   {
     id: '5',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Outdoor pool area'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Outdoor pool area',
+    title: 'Outdoor pool area'
   },
   {
     id: '6',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool with waterfall feature'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool with waterfall feature',
+    title: 'Pool with waterfall feature'
   },
   {
     id: '7',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Infinity pool design'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Infinity pool design',
+    title: 'Infinity pool design'
   },
   {
     id: '8',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool with spa area'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool with spa area',
+    title: 'Pool with spa area'
   },
   {
     id: '9',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Custom pool installation'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Custom pool installation',
+    title: 'Custom pool installation'
   },
   {
     id: '10',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Backyard pool renovation'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Backyard pool renovation',
+    title: 'Backyard pool renovation'
   },
   {
     id: '11',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Contemporary pool style'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Contemporary pool style',
+    title: 'Contemporary pool style'
   },
   {
     id: '12',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool deck furniture'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool deck furniture',
+    title: 'Pool deck furniture'
   },
   {
     id: '13',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Elegant pool design'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Elegant pool design',
+    title: 'Elegant pool design'
   },
   {
     id: '14',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool landscaping project'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool landscaping project',
+    title: 'Pool landscaping project'
   },
   {
     id: '15',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Water feature installation'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Water feature installation',
+    title: 'Water feature installation'
   },
   {
     id: '16',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Luxury infinity pool'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Luxury infinity pool',
+    title: 'Luxury infinity pool'
   },
   {
     id: '17',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool and hot tub combo'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool and hot tub combo',
+    title: 'Pool and hot tub combo'
   },
   {
     id: '18',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Professional pool work'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Professional pool work',
+    title: 'Professional pool work'
   },
   {
     id: '19',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool maintenance project'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool maintenance project',
+    title: 'Pool maintenance project'
   },
   {
     id: '20',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Modern swimming pool'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Modern swimming pool',
+    title: 'Modern swimming pool'
   },
   {
     id: '21',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Pool deck installation'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Pool deck installation',
+    title: 'Pool deck installation'
   },
   {
     id: '22',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Beautiful pool area'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Beautiful pool area',
+    title: 'Beautiful pool area'
   },
   {
     id: '23',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Outdoor pool construction'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Outdoor pool construction',
+    title: 'Outdoor pool construction'
   },
   {
     id: '24',
-    src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    alt: 'Custom water features'
+    imageSrc: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'Custom water features',
+    title: 'Custom water features'
   },
 ];
 

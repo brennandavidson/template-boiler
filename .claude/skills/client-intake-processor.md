@@ -130,32 +130,90 @@ For EACH city listed in the intake form:
 
 ### Step 2.4: Generate Blog Posts
 
-1. **Determine blog categories** (1-2 categories)
-   - Based on business type
-   - Example: "Pool Maintenance" or "HVAC Tips"
+**CRITICAL: This step is MANDATORY and must be completed. DO NOT skip blog generation.**
 
-2. **Generate 6-8 blog posts** covering:
-   - Service-specific how-to guides (2-3 posts)
-   - Common problems and solutions (2-3 posts)
-   - Maintenance tips and best practices (1-2 posts)
-   - Local/seasonal considerations (1-2 posts)
+#### A. Delete Existing Template Blogs
+```bash
+# Remove all existing blog categories from template
+rm -rf public/blog-content/categories/*
+```
 
-3. **Each blog post needs:**
-   - Title (clear, specific, not clickbait)
-   - Excerpt (2-3 sentences)
-   - Author info (generic: "Service Type Experts" or "Business Type Professionals")
-   - Published date (current date)
-   - Tags (5-7 relevant keywords)
-   - Featured image URL (Unsplash search for relevant image)
-   - Full content (800-1500 words in HTML format)
-   - SEO metadata (title, description, keywords)
+#### B. Determine Blog Categories (1-2 categories)
+Based on business type, create category slugs:
+- HVAC → `hvac-maintenance` and `hvac-tips`
+- Pool Service → `pool-maintenance` and `pool-tips`
+- Roofing → `roofing-maintenance` and `roofing-tips`
+- Landscaping → `landscaping-tips` and `landscape-design`
+- Plumbing → `plumbing-tips` and `plumbing-maintenance`
 
-4. **Blog content guidelines:**
-   - More conversational than service pages
-   - Educational and actionable
-   - Can use "I've seen" or "In my experience" sparingly
-   - Target long-tail keywords and questions
-   - Address common misconceptions
+#### C. Create Category Structure
+For EACH category:
+
+1. **Create category folder:**
+   ```bash
+   mkdir -p public/blog-content/categories/{category-slug}
+   ```
+
+2. **Create category config file** at `public/blog-content/categories/{category-slug}/.config.json`:
+   ```json
+   {
+     "name": "Category Display Name",
+     "description": "Category description for SEO (1-2 sentences)",
+     "seo": {
+       "title": "Category Name | Business Name Blog",
+       "description": "SEO description for category page",
+       "keywords": ["keyword1", "keyword2", "keyword3"]
+     }
+   }
+   ```
+
+#### D. Generate 6-8 Blog Posts
+Split posts between categories (3-4 posts per category).
+
+**For EACH blog post, you MUST create a JSON file:**
+- File location: `public/blog-content/categories/{category-slug}/{post-slug}.json`
+- File naming: Use kebab-case slug (e.g., `arizona-ac-maintenance-guide.json`)
+
+**Post topics to cover:**
+- Service-specific how-to guides (2-3 posts)
+- Common problems and solutions (2-3 posts)
+- Maintenance tips and best practices (1-2 posts)
+- Local/seasonal considerations (1-2 posts)
+
+**Each JSON file MUST have this exact structure:**
+```json
+{
+  "title": "Full Blog Post Title (60-70 chars)",
+  "excerpt": "2-3 sentence summary that hooks the reader and explains what they'll learn.",
+  "author": {
+    "name": "HVAC Experts" or "Pool Care Experts" or "[Business Type] Professionals",
+    "bio": "Our team of certified [business type] technicians has over X years of experience serving [location]."
+  },
+  "publishedAt": "2024-11-12T10:00:00Z",
+  "tags": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"],
+  "image": "https://images.unsplash.com/photo-XXXXXX?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+  "imageAlt": "Descriptive alt text for image",
+  "featured": false,
+  "content": "<article class='prose prose-lg max-w-none'><h2>First Section Heading</h2><p>Content here...</p><h2>Second Section</h2><p>More content...</p></article>",
+  "seo": {
+    "title": "SEO Title (50-60 chars) | Business Name",
+    "description": "Meta description (150-160 chars) that includes target keyword and value prop",
+    "keywords": ["primary keyword", "secondary keyword", "long tail keyword", "location keyword"]
+  }
+}
+```
+
+**Blog Content Guidelines:**
+- 800-1500 words total
+- Use HTML format with proper semantic tags
+- Include 4-6 H2 headings for structure
+- Use bullet lists (ul/li) and numbered lists (ol/li) where appropriate
+- Educational and actionable advice
+- Target long-tail keywords and questions
+- Address common misconceptions
+- More conversational than service pages (can use "I've seen" or "In my experience" sparingly)
+
+**IMPORTANT:** You MUST actually Write the JSON files. DO NOT just say you will - execute the Write tool for each blog post.
 
 ### Step 2.5: Generate About Us Content
 Create 3 paragraphs (from intake form details):
@@ -188,12 +246,31 @@ Create 3-5 FAQ questions and answers:
 
 ### Step 3.1: Update site.config.json
 
+**IMPORTANT: Generate SEO-Optimized H1**
+Before updating the config, determine the best SEO H1 based on business type:
+
+**H1 Generation Logic:**
+1. Identify the primary service type from business type:
+   - "HVAC" → "HVAC Services"
+   - "Pool Service" → "Pool Services"
+   - "Roofing" → "Roofing Services"
+   - "Landscaping" → "Landscaping Services"
+   - "Plumbing" → "Plumbing Services"
+   - etc.
+
+2. Combine with location: `{Service Type} in {City}, {State}`
+   - Example: "HVAC Services in Mesa, AZ"
+   - Example: "Pool Services in Phoenix, AZ"
+
+3. Use title case for readability and SEO best practices
+
 **Business Section:**
 ```json
 {
   "business": {
     "name": "[from intake]",
-    "tagline": "[from intake]",
+    "seoH1": "[GENERATE: Based on business type, create SEO-optimized H1. Examples: 'HVAC Services in Mesa, AZ', 'Pool Services in Phoenix, AZ', 'Roofing Services in Scottsdale, AZ'. Use the pattern: '{Primary Service Type} in {City}, {State}']",
+    "tagline": "[from intake OR generate if not provided]",
     "primaryLocation": "[city, state]",
     "heroDescription": "[generated]",
     "heroBackgroundImage": "[Unsplash URL]",
@@ -279,8 +356,8 @@ Create slug from service name (lowercase, hyphens):
     "details": {
       "[city-slug]": {
         "hero": {
-          "title": "[BUSINESS TYPE] IN [CITY]",
-          "subtitle": "[Generated subtitle]",
+          "title": "[CITY] [PRIMARY SERVICE TYPE]",
+          "subtitle": "[PRIMARY SERVICE TYPE] IN [CITY]",
           "backgroundImage": "[Unsplash cityscape or generic service image]"
         },
         "sections": [
@@ -293,6 +370,14 @@ Create slug from service name (lowercase, hyphens):
   }
 }
 ```
+
+**Service Area Hero Pattern (SEO-Optimized):**
+- **Subtitle (pill badge)**: "[PRIMARY SERVICE TYPE] IN [CITY]"
+  - Examples: "POOL SERVICES IN PHOENIX", "HVAC SERVICES IN MESA", "ROOFING SERVICES IN SCOTTSDALE"
+- **Title**: "[CITY] [PRIMARY SERVICE TYPE]" (all caps for consistency)
+  - Examples: "PHOENIX POOL SERVICES", "MESA HVAC SERVICES", "SCOTTSDALE ROOFING SERVICES"
+
+**Note:** Use the primary service type from the business (e.g., "Pool Services" for pool companies, "HVAC Services" for HVAC companies, etc.)
 
 **Footer Section:**
 ```json
@@ -326,25 +411,28 @@ Create slug from service name (lowercase, hyphens):
 ```
 
 **Branding Section (Brand Colors):**
-If a primary brand color is provided in the intake form, generate a full color scheme:
-
-1. **Use the provided primary color** as the base
-2. **Generate variations** for light/dark shades
-3. **Apply to config:**
+The intake form collects usage-based colors. Apply them to config:
 
 ```json
 {
   "branding": {
     "colors": {
-      "primary": "[from intake]",
+      "primary": "[from intake: Primary Brand Color]",
       "primaryLight": "[lighten primary by 15%]",
       "primaryDark": "[darken primary by 15%]",
-      "backgroundBlue": "[keep as #1e3a5f or use primary if appropriate]",
-      "backgroundBlueLight": "#253f66",
-      "backgroundBlueDark": "#172e4a",
-      "premium": "[use primary or complementary color]",
+      "primaryHover": "[darken primary by 15%]",
+      "backgroundBlue": "[from intake: Dark Section Background OR Navigation Background]",
+      "backgroundBlueLight": "[lighten backgroundBlue by 10%]",
+      "backgroundBlueDark": "[darken backgroundBlue by 10%]",
+      "premium": "[use primary or generate complementary]",
       "premiumLight": "[lighten premium by 20%]",
-      "premiumDark": "[darken premium by 20%]"
+      "premiumDark": "[darken premium by 20%]",
+      "navBackground": "[from intake: Navigation Background OR primary]",
+      "navBorder": "[use primary]",
+      "badgeBg": "[from intake: Section Badge Color OR navBackground]",
+      "badgeText": "#ffffff",
+      "badgeBgInverted": "#ffffff",
+      "badgeTextInverted": "[badgeBg value]"
     },
     "logo": {
       "horizontal": "/logos/horizontal-logo.png",
@@ -354,11 +442,19 @@ If a primary brand color is provided in the intake form, generate a full color s
 }
 ```
 
-**Color Generation Rules:**
-- If primary color is warm (red, orange, yellow): Keep blue backgrounds
-- If primary color is cool (blue, green, purple): Consider using primary for backgrounds
-- Premium color can be the same as primary or a complementary accent
-- Always ensure sufficient contrast for readability
+**Color Application Rules:**
+1. **Primary Brand Color** (required) → `primary`, `navBorder`, and base for variations
+2. **Navigation Background** (optional) → If not provided, use primary; applies to `navBackground` and `backgroundBlue`
+3. **Section Badge Color** (optional) → If not provided, use `navBackground`; applies to `badgeBg` and `badgeTextInverted`
+4. **Dark Section Background** (optional) → If not provided, use `navBackground`; applies to `backgroundBlue`
+5. **Premium** → Can be same as primary or generate a complementary accent color
+6. **Badge text colors** → White (`#ffffff`) on dark backgrounds, dark badge color on light backgrounds
+
+**Color Generation Tips:**
+- Lighten: Increase RGB values by 15-20%
+- Darken: Decrease RGB values by 15-20%
+- Always ensure sufficient contrast (WCAG AA minimum)
+- Test that badge text is readable on both light and dark backgrounds
 
 **About Us, Process, FAQ, CTA:**
 Fill in based on generated content and intake form data.

@@ -9,12 +9,11 @@ export default function FinalCTA() {
     <section className="relative bg-gray-900 py-16 text-white sm:py-24">
       {/* Background Image with Overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{
           backgroundImage: `url('${ctaConfig.backgroundImage}')`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
       {/* Content */}
       <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">

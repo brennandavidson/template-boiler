@@ -1,10 +1,12 @@
 'use client';
+import { getBadgeColors } from '@/lib/colors';
 
 import { useState } from 'react';
 import Image from 'next/image';
 import { getSiteConfigFAQ } from '@/lib/get-site-config';
 
 export default function FAQ() {
+  const badgeColors = getBadgeColors();
   // Load configuration
   const faqConfig = getSiteConfigFAQ();
 
@@ -21,7 +23,7 @@ export default function FAQ() {
           {/* Left Column - FAQ Accordion */}
           <div>
             <div className="inline-block mb-4">
-              <span className="inline-block bg-[#1e3a5f] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+              <span className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider" style={{ backgroundColor: badgeColors.background, color: badgeColors.text }}>
                 {faqConfig.sectionBadge}
               </span>
             </div>

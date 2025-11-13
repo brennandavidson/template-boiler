@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/ensure-page-seo.js && node scripts/generate-sitemap-pages.js && node scripts/generate-routes.js && node scripts/generate-pages-config.js && next build",
+    "build": "node scripts/calculate-logo-dimensions.js && node scripts/ensure-page-seo.js && node scripts/generate-sitemap-pages.js && node scripts/generate-routes.js && node scripts/generate-pages-config.js && next build",
     "ensure-seo": "node scripts/ensure-page-seo.js",
     "start": "next start",
     "lint": "next lint",
@@ -48,6 +48,7 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9.0.0",
     "eslint-config-next": "15.4.5",
+    "image-size": "^2.0.2",
     "postcss": "^8.5.6",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.17",

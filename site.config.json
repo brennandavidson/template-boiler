@@ -1,6 +1,7 @@
 {
   "business": {
     "name": "All-Star Pools",
+    "seoH1": "POOL SERVICES IN PHOENIX, AZ",
     "tagline": "POOL SERVICES IN",
     "primaryLocation": "PHOENIX, AZ",
     "heroDescription": "Offering top-notch installation, renovation, maintenance, and design services exclusively in your area for discerning homeowners and businesses.",
@@ -175,18 +176,36 @@
     "sectionHeading": "PROUDLY SERVING THESE AREAS",
     "ctaText": "Don't see your city listed? Give us a call! We may still be able to serve your area.",
     "cities": [
-      { "name": "Phoenix", "slug": "phoenix" },
-      { "name": "Mesa", "slug": "mesa" },
-      { "name": "Scottsdale", "slug": "scottsdale" },
-      { "name": "Tempe", "slug": "tempe" },
-      { "name": "Chandler", "slug": "chandler" },
-      { "name": "Gilbert", "slug": "gilbert" }
+      {
+        "name": "Phoenix",
+        "slug": "phoenix"
+      },
+      {
+        "name": "Mesa",
+        "slug": "mesa"
+      },
+      {
+        "name": "Scottsdale",
+        "slug": "scottsdale"
+      },
+      {
+        "name": "Tempe",
+        "slug": "tempe"
+      },
+      {
+        "name": "Chandler",
+        "slug": "chandler"
+      },
+      {
+        "name": "Gilbert",
+        "slug": "gilbert"
+      }
     ],
     "details": {
       "phoenix": {
         "hero": {
-          "title": "POOL SERVICES IN PHOENIX",
-          "subtitle": "Expert Pool Care for Phoenix Residents",
+          "title": "PHOENIX POOL SERVICES",
+          "subtitle": "POOL SERVICES IN PHOENIX",
           "backgroundImage": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         },
         "sections": [
@@ -206,8 +225,8 @@
       },
       "mesa": {
         "hero": {
-          "title": "POOL SERVICES IN MESA",
-          "subtitle": "Trusted Pool Experts in Mesa, AZ",
+          "title": "MESA POOL SERVICES",
+          "subtitle": "POOL SERVICES IN MESA",
           "backgroundImage": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         },
         "sections": [
@@ -227,8 +246,8 @@
       },
       "scottsdale": {
         "hero": {
-          "title": "LUXURY POOL SERVICES IN SCOTTSDALE",
-          "subtitle": "Premium Pool Care for Scottsdale Properties",
+          "title": "SCOTTSDALE POOL SERVICES",
+          "subtitle": "POOL SERVICES IN SCOTTSDALE",
           "backgroundImage": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         },
         "sections": [
@@ -248,8 +267,8 @@
       },
       "tempe": {
         "hero": {
-          "title": "POOL SERVICES IN TEMPE",
-          "subtitle": "Professional Pool Care in Tempe, AZ",
+          "title": "TEMPE POOL SERVICES",
+          "subtitle": "POOL SERVICES IN TEMPE",
           "backgroundImage": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         },
         "sections": [
@@ -269,8 +288,8 @@
       },
       "chandler": {
         "hero": {
-          "title": "POOL SERVICES IN CHANDLER",
-          "subtitle": "Expert Pool Care for Chandler Families",
+          "title": "CHANDLER POOL SERVICES",
+          "subtitle": "POOL SERVICES IN CHANDLER",
           "backgroundImage": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         },
         "sections": [
@@ -290,8 +309,8 @@
       },
       "gilbert": {
         "hero": {
-          "title": "POOL SERVICES IN GILBERT",
-          "subtitle": "Trusted Pool Experts in Gilbert, AZ",
+          "title": "GILBERT POOL SERVICES",
+          "subtitle": "POOL SERVICES IN GILBERT",
           "backgroundImage": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         },
         "sections": [
@@ -320,9 +339,18 @@
       "We take pride in delivering superior results that exceed expectations, while maintaining the highest standards of customer satisfaction and service excellence."
     ],
     "stats": {
-      "yearsExperience": { "value": "15+", "label": "Years Experience" },
-      "projectsCompleted": { "value": "500+", "label": "Projects Completed" },
-      "satisfactionRate": { "value": "100%", "label": "Satisfaction Rate" }
+      "yearsExperience": {
+        "value": "15+",
+        "label": "Years Experience"
+      },
+      "projectsCompleted": {
+        "value": "500+",
+        "label": "Projects Completed"
+      },
+      "satisfactionRate": {
+        "value": "100%",
+        "label": "Satisfaction Rate"
+      }
     },
     "image": {
       "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -388,16 +416,40 @@
   "footer": {
     "companyDescription": "Your trusted partner for professional pool services in the Phoenix area.",
     "businessLinks": [
-      { "label": "Home", "href": "/" },
-      { "label": "Projects", "href": "/projects" },
-      { "label": "Blog", "href": "/blog" },
-      { "label": "Contact", "href": "/contact" },
-      { "label": "Our Reviews", "href": "/reviews" },
-      { "label": "Review Us", "href": "/review" }
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Projects",
+        "href": "/projects"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      },
+      {
+        "label": "Our Reviews",
+        "href": "/reviews"
+      },
+      {
+        "label": "Review Us",
+        "href": "https://www.google.com/search?q=all+star+pools+phoenix"
+      }
     ],
     "legalLinks": [
-      { "label": "Privacy", "href": "/privacy" },
-      { "label": "Terms", "href": "/terms-of-service" }
+      {
+        "label": "Privacy",
+        "href": "/privacy"
+      },
+      {
+        "label": "Terms",
+        "href": "/terms-of-service"
+      }
     ],
     "hours": {
       "monday": "9:00AM - 5:00PM",
@@ -415,16 +467,35 @@
       "primary": "#3b82f6",
       "primaryLight": "#60A5FA",
       "primaryDark": "#2563EB",
+      "primaryHover": "#2563EB",
       "backgroundBlue": "#1e3a5f",
       "backgroundBlueLight": "#253f66",
       "backgroundBlueDark": "#172e4a",
       "premium": "#06B6D4",
       "premiumLight": "#67E8F9",
-      "premiumDark": "#0891B2"
+      "premiumDark": "#0891B2",
+      "navBackground": "#1e3a5f",
+      "navBorder": "#3b82f6",
+      "badgeBg": "#1e3a5f",
+      "badgeText": "#ffffff",
+      "badgeBgInverted": "#ffffff",
+      "badgeTextInverted": "#1e3a5f"
     },
     "logo": {
       "horizontal": "/logos/horizontal-logo.png",
       "horizontalInverted": "/logos/horizontal-logo-inverted.png"
+    },
+    "logoDimensions": {
+      "horizontal": {
+        "width": 3443,
+        "height": 820,
+        "maxHeight": 40
+      },
+      "horizontalInverted": {
+        "width": 3443,
+        "height": 820,
+        "maxHeight": 40
+      }
     }
   },
   "social": {

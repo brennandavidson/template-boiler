@@ -7,7 +7,7 @@
 **Business Type:** (e.g., Pool Service, HVAC, Roofing, Landscaping)
 _______________
 
-**Tagline/Slogan:** (if they have one)
+**Tagline/Slogan:** (if they have one - company motto/catchphrase)
 _______________
 
 **Phone:** _______________
@@ -77,8 +77,21 @@ _______________
 **What makes your business different?** (1-2 factual sentences)
 _______________
 
-**Primary Brand Color:** (Hex code, e.g., #3b82f6 for blue, #10b981 for green)
-_______________
+---
+
+## BRAND COLORS
+
+**Primary Brand Color:** (Main buttons and CTAs)
+Hex Code: _______________ (e.g., #3b82f6 for blue, #10b981 for green)
+
+**Navigation Background:** (Top nav when scrolled - typically dark)
+Hex Code: _______________ (e.g., #1e3a5f, or leave blank to use primary)
+
+**Section Badge Color:** (Pills/labels on light backgrounds - typically dark)
+Hex Code: _______________ (e.g., #1e3a5f, or leave blank to use nav background)
+
+**Dark Section Background:** (Hero sections, footer - typically same as nav)
+Hex Code: _______________ (Leave blank to use nav background)
 
 ---
 

@@ -809,3 +809,8 @@ iframe[title="Get Free Quote"]::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
+/* Chat widget styling */
+chat-widget {
+  z-index: 9999 !important;
+}
+

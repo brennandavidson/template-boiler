@@ -15,7 +15,7 @@ export default function HeroWithForm() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-[10vh] pb-8 lg:pb-0">
-      {/* Background Image Overlay */}
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{
@@ -29,8 +29,7 @@ export default function HeroWithForm() {
           {/* Left Column - Hero Text */}
           <div className="flex flex-col justify-center">
             <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl mb-4 mt-0">
-              {business.tagline}
-              <span className="block mt-2">{business.primaryLocation}</span>
+              {business.seoH1 || `${business.tagline} ${business.primaryLocation}`}
             </h1>
 
             <p className="text-xl text-gray-200 max-w-xl lg:text-2xl mt-0 mb-0">
@@ -41,7 +40,7 @@ export default function HeroWithForm() {
             <div className="mt-6 mb-0 flex flex-wrap items-center gap-4 sm:gap-8">
               {/* Google Reviews */}
               <a
-                href={business.reviewBadges?.google?.url || "#"}
+                href={contact.googleReviewUrl || business.reviewBadges?.google?.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View our Google reviews"
@@ -116,7 +115,6 @@ export default function HeroWithForm() {
                   borderRadius: '12px'
                 }}
                 title="Get Free Quote"
-                fetchPriority="high"
               />
             )}
           </div>
