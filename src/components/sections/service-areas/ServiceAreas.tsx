@@ -33,7 +33,7 @@ export default function ServiceAreas() {
                   <div
                     className="absolute inset-0 flex flex-col items-center justify-center p-8"
                     style={{
-                      background: `linear-gradient(135deg, ${branding.colors.primary}15, ${branding.colors.primaryLight}25)`
+                      background: `linear-gradient(135deg, ${branding.colors.primary}15, ${branding.colors.primaryLight || branding.colors.primary}25)`
                     }}
                   >
                     <div className="text-center">

@@ -72,7 +72,6 @@ export default function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
                 border: 'none'
               }}
               title="Get Free Quote"
-              fetchPriority="high"
             />
           )}
         </div>

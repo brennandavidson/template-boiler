@@ -40,8 +40,8 @@ export function hexToRgb(hex: string): string {
 export function getNavColors() {
   const colors = getBrandingColors();
   return {
-    background: hexToRgb(colors.navBackground),
-    border: hexToRgb(colors.navBorder),
+    background: hexToRgb(colors.navBackground || colors.backgroundBlue),
+    border: hexToRgb(colors.navBorder || colors.backgroundBlue),
   };
 }
 
@@ -51,8 +51,8 @@ export function getNavColors() {
 export function getBadgeColors() {
   const colors = getBrandingColors();
   return {
-    background: colors.badgeBg,
-    text: colors.badgeText,
+    background: colors.badgeBg || `${colors.backgroundBlue}20`,
+    text: colors.badgeText || colors.backgroundBlue,
   };
 }
 
@@ -62,8 +62,8 @@ export function getBadgeColors() {
 export function getBadgeColorsInverted() {
   const colors = getBrandingColors();
   return {
-    background: colors.badgeBgInverted,
-    text: colors.badgeTextInverted,
+    background: colors.badgeBgInverted || `${colors.primary}20`,
+    text: colors.badgeTextInverted || colors.primary,
   };
 }
 
