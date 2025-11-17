@@ -64,13 +64,13 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
             <div className="space-y-2 text-sm text-gray-300">
               <a
                 href={`tel:${contact.phone.replace(/\D/g, '')}`}
-                className="block transition-colors hover:text-background-blue"
+                className="block transition-colors hover:text-primary"
               >
                 {contact.phone}
               </a>
               <a
                 href={`mailto:${contact.email}`}
-                className="block transition-colors hover:text-background-blue"
+                className="block transition-colors hover:text-primary"
               >
                 {contact.email}
               </a>
@@ -145,7 +145,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 transition-colors hover:text-background-blue"
+                    className="text-gray-300 transition-colors hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -164,7 +164,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-gray-300 transition-colors hover:text-background-blue"
+                    className="text-gray-300 transition-colors hover:text-primary"
                   >
                     {service.title}
                   </Link>
@@ -193,7 +193,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
                 <li key={area.slug}>
                   <Link
                     href={`/service-areas/${area.slug}`}
-                    className="text-gray-300 transition-colors hover:text-background-blue"
+                    className="text-gray-300 transition-colors hover:text-primary"
                   >
                     {area.name}
                   </Link>
@@ -242,7 +242,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-gray-400 transition-colors hover:text-background-blue"
+                  className="text-gray-400 transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
