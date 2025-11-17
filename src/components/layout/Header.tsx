@@ -53,18 +53,6 @@ export function Header({
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
 
-  // Build submenus from config
-  const servicesSubmenu = services.items.map(service => ({
-    href: `/services/${service.slug}`,
-    label: service.title,
-  }));
-
-  const serviceAreasSubmenu = serviceAreas.cities.map(city => ({
-    href: `/service-areas/${city.slug}`,
-    label: city.name,
-  }));
-
-
   // Dropdown configuration - items per column before switching to 2-column layout
   const DROPDOWN_ITEMS_PER_COLUMN = 8;
 
