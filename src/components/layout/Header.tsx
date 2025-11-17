@@ -339,8 +339,8 @@ export function Header({
                     </button>
 
                     {/* Mobile Submenu */}
-                    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
-                      isServicesOpen ? 'max-h-96 mt-2' : 'max-h-0'
+                    <div className={`pl-4 space-y-2 transition-all duration-200 ${
+                      isServicesOpen ? 'max-h-[60vh] mt-2 overflow-y-auto' : 'max-h-0 overflow-hidden'
                     }`}>
                       {servicesSubmenu.map((item) => (
                         <Link
@@ -377,8 +377,8 @@ export function Header({
                     </button>
 
                     {/* Mobile Submenu */}
-                    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
-                      isServiceAreasOpen ? 'max-h-96 mt-2' : 'max-h-0'
+                    <div className={`pl-4 space-y-2 transition-all duration-200 ${
+                      isServiceAreasOpen ? 'max-h-[60vh] mt-2 overflow-y-auto' : 'max-h-0 overflow-hidden'
                     }`}>
                       {serviceAreasSubmenu.map((item) => (
                         <Link
