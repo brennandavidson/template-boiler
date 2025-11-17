@@ -4,8 +4,8 @@ import { getSiteConfigProjects } from '@/lib/get-site-config';
 
 export default function WorkGallery() {
   const projectsConfig = getSiteConfigProjects();
-  // Use the first 8 projects from the gallery for homepage display
-  const projects = projectsConfig?.gallery?.slice(0, 8) || [];
+  // Display all projects from the gallery - no hard limit
+  const projects = projectsConfig?.gallery || [];
 
   return (
     <section className="bg-background-blue py-16 text-white sm:py-24">
