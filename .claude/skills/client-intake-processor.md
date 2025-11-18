@@ -273,7 +273,7 @@ Before updating the config, determine the best SEO H1 based on business type:
     "tagline": "[from intake OR generate if not provided]",
     "primaryLocation": "[city, state]",
     "heroDescription": "[generated]",
-    "heroBackgroundImage": "[KEEP EXISTING - do not change]",
+    "heroBackgroundImage": "[Unsplash URL - industry appropriate]",
     "reviewBadges": {
       "google": { "enabled": true, "rating": 5, "reviewCount": "X+", "url": "[from intake]" },
       "facebook": { "enabled": true, "rating": 5, "reviewCount": "X+", "url": "[from intake]" }
@@ -321,7 +321,7 @@ Create slug from service name (lowercase, hyphens):
       {
         "title": "[Service Name]",
         "slug": "[generated-slug]",
-        "imageSrc": "[KEEP EXISTING - do not change]",
+        "imageSrc": "[Unsplash URL - service specific]",
         "imageAlt": "[Service] services",
         "description": "[1-2 sentence overview]"
       }
@@ -332,7 +332,7 @@ Create slug from service name (lowercase, hyphens):
           "title": "[GENERATED TITLE]",
           "subtitle": "[Service] IN [City]",
           "description": "[2-3 sentences]",
-          "backgroundImage": "[KEEP EXISTING - do not change]"
+          "backgroundImage": "[Unsplash URL - service specific]"
         },
         "sections": [
           { "heading": "[Section Title]", "content": "[Generated content]" },
@@ -360,7 +360,7 @@ Create slug from service name (lowercase, hyphens):
         "hero": {
           "title": "[CITY] [PRIMARY SERVICE TYPE]",
           "subtitle": "[PRIMARY SERVICE TYPE] IN [CITY]",
-          "backgroundImage": "[KEEP EXISTING - do not change]"
+          "backgroundImage": "[Unsplash URL - cityscape or industry appropriate]"
         },
         "sections": [
           { "heading": "[Generated]", "content": "[City-specific content]" },
@@ -508,31 +508,27 @@ If there are syntax errors, fix them before proceeding.
 **CRITICAL: Understand the different types of images and their sources:**
 
 1. **Hero Background Images** (business.heroBackgroundImage)
-   - Source: KEEP EXISTING template Unsplash URLs
-   - DO NOT replace unless client provides specific hero image in client-intake/
    - DO NOT scrape from client website
    - DO NOT use /projects/ images
+   - Use appropriate stock images (Unsplash) if needed
 
 2. **Service Images** (services.items[].imageSrc, services.details[].hero.backgroundImage)
-   - Source: KEEP EXISTING template Unsplash URLs
-   - DO NOT replace unless client provides specific service images in client-intake/
    - DO NOT scrape from client website
    - DO NOT use /projects/ images
+   - Use appropriate stock images (Unsplash) if needed
 
 3. **About Us Image** (aboutUs.image.src)
-   - Source: KEEP EXISTING template Unsplash URL
-   - DO NOT replace unless client provides specific about image in client-intake/
    - DO NOT scrape from client website
    - DO NOT use /projects/ images
+   - Use appropriate stock images (Unsplash) if needed
 
 4. **Service Area Hero Images** (serviceAreas.details[].hero.backgroundImage)
-   - Source: KEEP EXISTING template Unsplash URLs
-   - DO NOT replace unless client provides specific city images in client-intake/
    - DO NOT scrape from client website
    - DO NOT use /projects/ images
+   - Use appropriate stock images (Unsplash) if needed
 
 5. **Blog Post Images** (blog posts image field)
-   - Source: Use relevant Unsplash URLs for each blog topic
+   - Use relevant Unsplash URLs for each blog topic
    - DO NOT scrape from client website
    - DO NOT use /projects/ images
 
@@ -548,7 +544,7 @@ If there are syntax errors, fix them before proceeding.
    - Copy to /public/logos/
    - Always replace template logos with client logos
 
-**GOLDEN RULE: Unless the client provides specific images in the client-intake/ folder, KEEP THE EXISTING TEMPLATE IMAGES. DO NOT scrape images from client websites. DO NOT cross-contaminate image types (e.g., using project gallery images as hero backgrounds). Each image type has its specific source and purpose.**
+**GOLDEN RULE: DO NOT scrape images from client websites. DO NOT cross-contaminate image types (e.g., using project gallery images as hero backgrounds). Each image type has its specific source and purpose.**
 
 ### Step 4.1: Delete Existing Blog Content
 ```bash
