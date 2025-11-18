@@ -53,6 +53,9 @@ export function Header({
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
 
+  // Dropdown configuration - items per column before switching to 2-column layout
+  const DROPDOWN_ITEMS_PER_COLUMN = 8;
+
   // Memoize submenus to prevent rebuilding on every render
   const servicesSubmenu = useMemo(() =>
     services.items.map(service => ({
@@ -71,8 +74,8 @@ export function Header({
   );
 
   // Memoize layout decisions
-  const servicesNeedsTwoColumns = useMemo(() => servicesSubmenu.length >= 8, [servicesSubmenu.length]);
-  const serviceAreasNeedsTwoColumns = useMemo(() => serviceAreasSubmenu.length >= 8, [serviceAreasSubmenu.length]);
+  const servicesNeedsTwoColumns = useMemo(() => servicesSubmenu.length >= DROPDOWN_ITEMS_PER_COLUMN, [servicesSubmenu.length]);
+  const serviceAreasNeedsTwoColumns = useMemo(() => serviceAreasSubmenu.length >= DROPDOWN_ITEMS_PER_COLUMN, [serviceAreasSubmenu.length]);
 
   useEffect(() => {
     // Check scroll position immediately on mount
@@ -172,19 +175,21 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 ${servicesNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl ${servicesNeedsTwoColumns ? 'grid grid-cols-2' : ''} overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${servicesNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      {servicesSubmenu.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                      <div className={servicesNeedsTwoColumns ? 'grid grid-cols-2' : ''}>
+                        {servicesSubmenu.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
@@ -217,19 +222,21 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 ${serviceAreasNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl ${serviceAreasNeedsTwoColumns ? 'grid grid-cols-2' : ''} overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${serviceAreasNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServiceAreasOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      {serviceAreasSubmenu.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                      <div className={serviceAreasNeedsTwoColumns ? 'grid grid-cols-2' : ''}>
+                        {serviceAreasSubmenu.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
@@ -338,8 +345,8 @@ export function Header({
                     </button>
 
                     {/* Mobile Submenu */}
-                    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
-                      isServicesOpen ? 'max-h-[60vh] overflow-y-auto mt-2' : 'max-h-0'
+                    <div className={`pl-4 space-y-2 transition-all duration-200 ${
+                      isServicesOpen ? 'max-h-[60vh] mt-2 overflow-y-auto' : 'max-h-0 overflow-hidden'
                     }`}>
                       {servicesSubmenu.map((item) => (
                         <Link
@@ -376,8 +383,8 @@ export function Header({
                     </button>
 
                     {/* Mobile Submenu */}
-                    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
-                      isServiceAreasOpen ? 'max-h-[60vh] overflow-y-auto mt-2' : 'max-h-0'
+                    <div className={`pl-4 space-y-2 transition-all duration-200 ${
+                      isServiceAreasOpen ? 'max-h-[60vh] mt-2 overflow-y-auto' : 'max-h-0 overflow-hidden'
                     }`}>
                       {serviceAreasSubmenu.map((item) => (
                         <Link

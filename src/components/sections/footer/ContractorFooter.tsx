@@ -35,6 +35,13 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
     { day: 'Sun', hours: footer.hours.sunday },
   ];
 
+  // Limit services and service areas to 8 items max
+  const maxFooterItems = 8;
+  const displayServices = services.items.slice(0, maxFooterItems);
+  const displayServiceAreas = serviceAreas.cities.slice(0, maxFooterItems);
+  const showServicesViewAll = services.items.length >= maxFooterItems;
+  const showServiceAreasViewAll = serviceAreas.cities.length >= maxFooterItems;
+
   return (
     <footer className="bg-black text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -57,13 +64,13 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
             <div className="space-y-2 text-sm text-gray-300">
               <a
                 href={`tel:${contact.phone.replace(/\D/g, '')}`}
-                className="block transition-colors hover:text-background-blue"
+                className="block transition-colors hover:text-primary"
               >
                 {contact.phone}
               </a>
               <a
                 href={`mailto:${contact.email}`}
-                className="block transition-colors hover:text-background-blue"
+                className="block transition-colors hover:text-primary"
               >
                 {contact.email}
               </a>
@@ -138,7 +145,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 transition-colors hover:text-background-blue"
+                    className="text-gray-300 transition-colors hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -153,16 +160,26 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
               Our Services
             </p>
             <ul className="space-y-2 text-sm">
-              {services.items.map((service) => (
+              {displayServices.map((service) => (
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-gray-300 transition-colors hover:text-background-blue"
+                    className="text-gray-300 transition-colors hover:text-primary"
                   >
                     {service.title}
                   </Link>
                 </li>
               ))}
+              {showServicesViewAll && (
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-primary font-semibold transition-colors hover:text-primary-light"
+                  >
+                    See All →
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -172,16 +189,26 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
               Service Areas
             </p>
             <ul className="space-y-2 text-sm">
-              {serviceAreas.cities.map((area) => (
+              {displayServiceAreas.map((area) => (
                 <li key={area.slug}>
                   <Link
                     href={`/service-areas/${area.slug}`}
-                    className="text-gray-300 transition-colors hover:text-background-blue"
+                    className="text-gray-300 transition-colors hover:text-primary"
                   >
                     {area.name}
                   </Link>
                 </li>
               ))}
+              {showServiceAreasViewAll && (
+                <li>
+                  <Link
+                    href="/service-areas"
+                    className="text-primary font-semibold transition-colors hover:text-primary-light"
+                  >
+                    See All →
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -215,7 +242,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-gray-400 transition-colors hover:text-background-blue"
+                  className="text-gray-400 transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>

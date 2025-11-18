@@ -30,7 +30,8 @@ export function getLogoDimensions(logoPath: string): { width: number; height: nu
     }
 
     // Get image dimensions
-    const dimensions = sizeOf(fullPath);
+    const imageBuffer = fs.readFileSync(fullPath);
+    const dimensions = sizeOf(imageBuffer);
 
     if (!dimensions.width || !dimensions.height) {
       console.warn(`Could not read dimensions for ${logoPath}, using defaults`);

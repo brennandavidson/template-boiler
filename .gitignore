@@ -136,8 +136,8 @@ jspm_packages/
 # TernJS port file
 .tern-port
 
-# Claude AI local directory
-.claude/
+# Claude AI - exclude only references (local reference images)
+.claude/references/
 
 # Application settings (contains configurations)
 settings.json

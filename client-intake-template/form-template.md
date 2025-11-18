@@ -171,7 +171,3 @@ Place files in the appropriate folders:
 - [ ] Building/office photo
 - [ ] Hero background images
 
----
-
-**Form Completed By:** _______________
-**Date:** _______________

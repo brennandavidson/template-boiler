@@ -184,18 +184,16 @@ export interface LinkItem {
 }
 
 export interface BrandingConfig {
-  primaryColor: string;
-  backgroundBlue: string;
   logo: {
     horizontal: string;
     horizontalInverted: string;
   };
-  colors?: {
-    primary?: string;
+  colors: {
+    primary: string;
     primaryLight?: string;
     primaryDark?: string;
     primaryHover?: string;
-    backgroundBlue?: string;
+    backgroundBlue: string;
     backgroundBlueLight?: string;
     backgroundBlueDark?: string;
     premium?: string;
@@ -238,6 +236,9 @@ export interface IntegrationsConfig {
     quoteFormEmbedPopup: string;
     chatWidgetEmbed: string;
     reviewsEmbed?: string;
+  };
+  featurable?: {
+    widgetId: string;
   };
 }
 

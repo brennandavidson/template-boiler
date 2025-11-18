@@ -4,7 +4,7 @@ import { getSiteConfigProjects } from '@/lib/get-site-config';
 
 export default function WorkGallery() {
   const projectsConfig = getSiteConfigProjects();
-  // Use the first 8 projects from the gallery for homepage display
+  // Homepage preview: Show first 8 projects (full gallery available on /projects page)
   const projects = projectsConfig?.gallery?.slice(0, 8) || [];
 
   return (

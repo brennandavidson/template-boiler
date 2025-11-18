@@ -14,7 +14,7 @@ import siteConfigData from '../../site.config.json';
  */
 export function getSiteConfig(): SiteConfig {
   // Type assertion - the JSON file matches our SiteConfig interface
-  return siteConfigData as SiteConfig;
+  return siteConfigData as unknown as SiteConfig;
 }
 
 /**
