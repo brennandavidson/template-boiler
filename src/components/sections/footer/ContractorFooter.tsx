@@ -78,7 +78,7 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
 
             <button
               onClick={onQuoteClick}
-              className="font-heading mt-6 w-full rounded-md bg-primary px-4 py-2 text-sm font-bold uppercase transition-colors hover-dark"
+              className="font-heading mt-6 w-full rounded-md bg-primary px-4 py-2 text-sm font-bold uppercase transition-colors hover:bg-primary-dark"
             >
               Get Quote
             </button>

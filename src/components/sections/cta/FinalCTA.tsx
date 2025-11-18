@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import QuoteButton from '@/components/ui/QuoteButton';
 import { getSiteConfigCTA } from '@/lib/get-site-config';
 import { getBrandSectionBg } from '@/lib/colors';
 
@@ -28,12 +28,7 @@ export default function FinalCTA() {
           {ctaConfig.subheading}
         </p>
 
-        <Link
-          href="#hero"
-          className="font-heading inline-block rounded-md bg-primary px-10 py-4 text-lg font-bold uppercase transition-all hover-dark hover:scale-105"
-        >
-          {ctaConfig.buttonText}
-        </Link>
+        <QuoteButton variant="hero">{ctaConfig.buttonText}</QuoteButton>
       </div>
     </section>
   );

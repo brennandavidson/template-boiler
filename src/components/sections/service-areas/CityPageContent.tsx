@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuoteModal } from '@/contexts/QuoteModalContext';
+import QuoteButton from '@/components/ui/QuoteButton';
 import { getBadgeColors, getBrandSectionBg } from '@/lib/colors';
 
 interface ContentSection {
@@ -23,7 +23,6 @@ export default function CityPageContent({
   sections,
   backgroundImage = 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
 }: CityPageContentProps) {
-  const { openModal } = useQuoteModal();
   const badgeColors = getBadgeColors();
   const brandBg = getBrandSectionBg();
 
@@ -46,18 +45,13 @@ export default function CityPageContent({
               className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
               style={{ backgroundColor: badgeColors.background, color: badgeColors.text }}
             >
-              {heroSubtitle}
+              {heroTitle}
             </span>
           </div>
           <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl mb-8">
-            {heroTitle}
+            {heroSubtitle}
           </h1>
-          <button
-            onClick={openModal}
-            className="font-heading bg-primary hover-dark text-white px-8 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-lg"
-          >
-            Get Free Quote
-          </button>
+          <QuoteButton variant="hero" />
         </div>
       </section>
 

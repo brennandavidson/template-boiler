@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import QuoteButton from '@/components/ui/QuoteButton';
 import { useHeader } from '@/contexts/HeaderContext';
 import {
   getSiteConfigBusiness,
@@ -281,12 +282,7 @@ export function Header({
             </a>
 
             {/* Get Free Quote Button */}
-            <button
-              onClick={handleQuoteClick}
-              className="font-heading bg-primary hover-dark text-white px-6 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-md"
-            >
-              Get Free Quote
-            </button>
+            <QuoteButton variant="nav" onClick={onQuoteClick} />
           </div>
 
           {/* Mobile/Tablet CTA & Menu - Right Side */}
@@ -294,7 +290,7 @@ export function Header({
             {/* Mobile Call Button */}
             <a
               href={`tel:${phone.replace(/\D/g, '')}`}
-              className="font-heading bg-primary hover-dark text-white px-4 py-3 rounded-md font-bold uppercase text-xs transition-colors shadow-md flex items-center gap-2"
+              className="font-heading bg-primary hover:bg-primary-dark text-white px-4 py-3 rounded-md font-bold uppercase text-xs transition-colors shadow-md flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -426,12 +422,7 @@ export function Header({
             })}
 
             {/* Mobile Quote Button */}
-            <button
-              onClick={handleQuoteClick}
-              className="font-heading w-full bg-primary hover-dark text-white px-6 py-3 rounded-md font-bold uppercase text-sm transition-colors"
-            >
-              Get Free Quote
-            </button>
+            <QuoteButton variant="nav" onClick={onQuoteClick} className="w-full" />
           </div>
         </div>
       </nav>

@@ -95,17 +95,49 @@ For EACH service listed in the intake form:
 
 2. Each section should be 200-400 words
 
-3. Apply elite-content-generator guidelines:
+3. **CRITICAL - HTML Formatting Requirements:**
+
+   **EXAMPLE OF PROPER FORMATTING:**
+   ```html
+   <h2>What is Air Conditioning Repair?</h2>
+   <p>Air conditioning repair addresses issues that prevent your AC system from cooling effectively. These problems can range from simple thermostat malfunctions to complex compressor failures.</p>
+
+   <p>Professional AC repair involves diagnosing the root cause and implementing lasting solutions. This ensures your system runs efficiently and prevents costly future breakdowns.</p>
+
+   <h3>Common AC Problems</h3>
+   <ul>
+     <li>Refrigerant leaks causing poor cooling</li>
+     <li>Frozen evaporator coils</li>
+     <li>Faulty thermostats or sensors</li>
+     <li>Clogged drain lines leading to water damage</li>
+   </ul>
+
+   <p>Each of these issues requires specific repair techniques and replacement parts. A trained technician can quickly identify the problem and recommend the best solution.</p>
+   ```
+
+   **FORMATTING RULES (MANDATORY):**
+   - Each section gets an `<h2>` heading (e.g., "What is Air Conditioning Repair?")
+   - Use `<h3>` subheadings within sections when covering sub-topics
+   - Break content into 2-4 sentence paragraphs with `<p>` tags
+   - Use `<ul>` and `<li>` for bulleted lists (benefits, features, steps, tips)
+   - Use `<ol>` and `<li>` for numbered lists (process steps, sequential instructions)
+   - Add line breaks between paragraphs for readability
+   - **NO WALLS OF TEXT** - break up long paragraphs
+
+4. Apply elite-content-generator guidelines:
    - Educational expert voice
    - Industry-standard information (not business-specific claims)
    - Local/regional considerations when relevant
    - Natural, non-AI language
    - Specific details and examples
 
-4. Generate hero content:
-   - Title (uppercase, bold)
-   - Subtitle (service + location)
-   - Description (2-3 sentences about the service generally)
+5. Generate hero content:
+   - **CRITICAL - SEO Heading Hierarchy:**
+     - `title` = Short tagline/category (e.g., "Pool Installation Experts") - displays as BADGE
+     - `subtitle` = SEO-optimized H1 (e.g., "Pool Installation in Phoenix, AZ") - displays as H1
+     - `description` = 2-3 sentences about the service generally
+   - **The `subtitle` is the H1**, so it MUST be keyword-rich and location-specific
+   - **The `title` is just a badge**, so it can be generic/branded
 
 ### Step 2.3: Generate Service Area (City) Page Content
 For EACH city listed in the intake form:
@@ -117,26 +149,48 @@ For EACH city listed in the intake form:
 
 2. Each section should be 200-400 words
 
-3. Include city-specific elements:
+3. **CRITICAL - HTML Formatting Requirements:**
+   - Each section gets an `<h2>` heading (e.g., "Phoenix's Premier HVAC Provider")
+   - Use `<h3>` subheadings within sections when covering sub-topics
+   - Break content into 2-4 sentence paragraphs with `<p>` tags
+   - Use `<ul>` and `<li>` for bulleted lists (services offered, local benefits, area coverage)
+   - Use `<ol>` and `<li>` for numbered lists (process steps, reasons to choose)
+   - Add line breaks between paragraphs for readability
+   - **NO WALLS OF TEXT** - break up long paragraphs
+
+4. Include city-specific elements:
    - Local climate challenges
    - Neighborhood references (general, not too specific)
    - Regional regulations or requirements
    - Seasonal considerations for that area
 
-4. Generate hero content:
-   - Title: "[SERVICE TYPE] IN [CITY]"
-   - Subtitle: descriptive tagline
-   - Background image URL (use appropriate Unsplash search)
+5. Generate hero content:
+   - **CRITICAL - SEO Heading Hierarchy:**
+     - `heroTitle` = Short tagline/category (e.g., "Pool Services") - displays as BADGE
+     - `heroSubtitle` = SEO-optimized H1 (e.g., "Pool Services in Phoenix, AZ") - displays as H1
+     - Background image URL (use appropriate Unsplash search)
+   - **The `heroSubtitle` is the H1**, so it MUST be keyword-rich and location-specific
+   - **The `heroTitle` is just a badge**, so it can be generic/branded
+   - Use pattern: `heroSubtitle` = "[SERVICE TYPE] in [CITY], [STATE]"
 
 ### Step 2.4: Generate Blog Posts
 
-**CRITICAL: This step is MANDATORY and must be completed. DO NOT skip blog generation.**
+**🚨 CRITICAL: This step is MANDATORY and must be completed. DO NOT skip blog generation. 🚨**
 
-#### A. Delete Existing Template Blogs
+**YOU MUST:**
+1. ✅ Delete ALL existing template blogs using Bash tool
+2. ✅ Create new category folders using Bash tool
+3. ✅ Write category config files using Write tool
+4. ✅ Write 6-8 blog post JSON files using Write tool
+
+#### A. Delete Existing Template Blogs (REQUIRED - Use Bash Tool)
+
+**YOU MUST run this command using the Bash tool:**
 ```bash
-# Remove all existing blog categories from template
 rm -rf public/blog-content/categories/*
 ```
+
+**This step is NOT optional. Execute it now before proceeding.**
 
 #### B. Determine Blog Categories (1-2 categories)
 Based on business type, create category slugs:
@@ -146,15 +200,17 @@ Based on business type, create category slugs:
 - Landscaping → `landscaping-tips` and `landscape-design`
 - Plumbing → `plumbing-tips` and `plumbing-maintenance`
 
-#### C. Create Category Structure
+#### C. Create Category Structure (REQUIRED - Use Bash + Write Tools)
+
 For EACH category:
 
-1. **Create category folder:**
+1. **Create category folder using Bash tool:**
    ```bash
    mkdir -p public/blog-content/categories/{category-slug}
    ```
+   **YOU MUST execute this command for EACH category.**
 
-2. **Create category config file** at `public/blog-content/categories/{category-slug}/.config.json`:
+2. **Create category config file using Write tool** at `public/blog-content/categories/{category-slug}/.config.json`:
    ```json
    {
      "name": "Category Display Name",
@@ -167,12 +223,16 @@ For EACH category:
    }
    ```
 
-#### D. Generate 6-8 Blog Posts
+#### D. Generate 6-8 Blog Posts (REQUIRED - Use Write Tool)
+
+**🚨 YOU MUST WRITE 6-8 BLOG POST JSON FILES. This is NOT optional. 🚨**
+
 Split posts between categories (3-4 posts per category).
 
-**For EACH blog post, you MUST create a JSON file:**
+**For EACH blog post, you MUST use the Write tool to create a JSON file:**
 - File location: `public/blog-content/categories/{category-slug}/{post-slug}.json`
 - File naming: Use kebab-case slug (e.g., `arizona-ac-maintenance-guide.json`)
+- **ACTION REQUIRED:** Execute Write tool 6-8 times, once per blog post
 
 **Post topics to cover:**
 - Service-specific how-to guides (2-3 posts)
@@ -213,7 +273,18 @@ Split posts between categories (3-4 posts per category).
 - Address common misconceptions
 - More conversational than service pages (can use "I've seen" or "In my experience" sparingly)
 
-**IMPORTANT:** You MUST actually Write the JSON files. DO NOT just say you will - execute the Write tool for each blog post.
+**🚨 CRITICAL REMINDER:**
+- ✅ You MUST execute the Write tool 6-8 times (once per blog post)
+- ✅ DO NOT just plan or describe the blogs - WRITE THEM
+- ✅ Each blog post requires its own Write tool execution
+- ✅ Verify you created the files before moving to next step
+- ❌ Saying "I will create blogs" is NOT sufficient - you must DO it
+
+**Checklist before proceeding to Step 2.5:**
+- [ ] Deleted old template blogs with Bash tool
+- [ ] Created 1-2 category folders with Bash tool
+- [ ] Wrote 1-2 category .config.json files with Write tool
+- [ ] Wrote 6-8 blog post JSON files with Write tool (one Write execution per post)
 
 ### Step 2.5: Generate About Us Content
 Create 3 paragraphs (from intake form details):
@@ -234,11 +305,38 @@ Create 5 process steps for "Our Process" section:
 Each step needs a title and brief description.
 
 ### Step 2.7: Generate FAQ Items
-Create 3-5 FAQ questions and answers:
-- "Can you provide references from past clients?"
-- "What sets you apart from other [business type]s?"
-- "Is there a fee for a consultation or estimate?"
-- Additional questions based on industry/services
+
+**CRITICAL: FAQ Strategy - Lead with Value, Not Limitations**
+
+Create 5-6 FAQ questions that follow this priority order:
+
+**Priority 1 - Value & Convenience (Questions 1-2):**
+- "Do you offer free estimates/consultations?"
+- "How quickly can you schedule service?"
+- "What areas do you serve?"
+- "Do you offer financing options?"
+
+**Priority 2 - Trust & Credibility (Questions 3-4):**
+- "Are you licensed and insured?"
+- "How long have you been in business?"
+- "Do you offer warranties on your work?"
+
+**Priority 3 - Service Details (Questions 5-6):**
+- Industry-specific helpful questions that showcase expertise
+- Maintenance tips or service frequency questions
+- Product/service option questions
+
+**AVOID Leading with Limitations:**
+- ❌ DO NOT lead with "Do you offer 24/7/emergency service?" if the answer is no
+- ❌ DO NOT ask "What sets you apart?" (too generic, hard to answer well)
+- ❌ DO NOT ask about limitations or missing services upfront
+
+**If You Must Address a Limitation:**
+- Place it as the LAST FAQ (position 5-6)
+- Frame the question positively
+- Answer by emphasizing what you DO offer
+- Example: Instead of "Do you offer emergency service?" → "What are your service hours?"
+  Then answer: "We provide same-day service Monday-Saturday, with priority scheduling for urgent AC repairs during Arizona's summer heat."
 
 ---
 

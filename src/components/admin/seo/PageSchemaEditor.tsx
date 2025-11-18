@@ -6,7 +6,7 @@ import { seoConfig } from '@/seo/seo.config';
 // Consistent input styling
 const INPUT_CLASS = 'w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors';
 const LABEL_CLASS = 'block text-sm font-medium text-gray-700 mb-1';
-const BUTTON_PRIMARY_CLASS = 'px-3 py-1.5 bg-primary hover-dark text-white rounded-lg transition-colors shadow-sm';
+const BUTTON_PRIMARY_CLASS = 'px-3 py-1.5 bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors shadow-sm';
 const BUTTON_DANGER_CLASS = 'text-red-600 hover:text-red-700 text-sm transition-colors';
 const SECTION_CLASS = 'bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-3';
 const CARD_CLASS = 'bg-white border border-gray-200 rounded-lg p-3 space-y-2';

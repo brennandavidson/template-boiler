@@ -183,12 +183,21 @@ export default function GalleryGrid({ images = defaultImages }: GalleryGridProps
                   src={image.imageSrc}
                   alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-opacity group-hover:opacity-75"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
 
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+                {/* Hover Overlay with Magnifying Glass Icon */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity group-hover:opacity-100">
+                  <svg className="h-12 w-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
+                    />
+                  </svg>
+                </div>
               </button>
             ))}
           </div>

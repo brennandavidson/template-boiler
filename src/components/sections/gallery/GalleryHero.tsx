@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuoteModal } from '@/contexts/QuoteModalContext';
+import QuoteButton from '@/components/ui/QuoteButton';
 import { getBrandSectionBg } from '@/lib/colors';
 
 interface GalleryHeroProps {
@@ -16,7 +16,6 @@ export default function GalleryHero({
   backgroundImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
   onQuoteClick,
 }: GalleryHeroProps) {
-  const { openModal } = useQuoteModal();
   const brandBg = getBrandSectionBg();
 
   return (
@@ -39,12 +38,7 @@ export default function GalleryHero({
         <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
           {subtitle}
         </p>
-        <button
-          onClick={onQuoteClick || openModal}
-          className="font-heading bg-primary hover-dark text-white px-8 py-4 rounded-md font-bold uppercase text-sm transition-colors shadow-lg"
-        >
-          Get Free Quote
-        </button>
+        <QuoteButton variant="hero" onClick={onQuoteClick} />
       </div>
     </section>
   );

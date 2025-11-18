@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuoteModal } from '@/contexts/QuoteModalContext';
+import QuoteButton from '@/components/ui/QuoteButton';
 import { getBrandSectionBg, getBadgeColors } from '@/lib/colors';
 
 interface ServiceDetailHeroProps {
@@ -18,17 +18,8 @@ export default function ServiceDetailHero({
   backgroundImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
   onQuoteClick
 }: ServiceDetailHeroProps) {
-  const { openModal } = useQuoteModal();
   const brandBg = getBrandSectionBg();
   const badgeColors = getBadgeColors();
-
-  const handleQuoteClick = () => {
-    if (onQuoteClick) {
-      onQuoteClick();
-    } else {
-      openModal();
-    }
-  };
 
   return (
     <section className="relative min-h-[70vh] py-32 flex items-center justify-center text-white" style={{ backgroundColor: brandBg }}>
@@ -40,13 +31,18 @@ export default function ServiceDetailHero({
 
       {/* Content */}
       <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8 z-10">
-        {subtitle && (
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
-            {subtitle}
-          </p>
+        {title && (
+          <div className="inline-block mb-6">
+            <span
+              className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
+              style={{ backgroundColor: badgeColors.background, color: badgeColors.text }}
+            >
+              {title}
+            </span>
+          </div>
         )}
         <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6">
-          {title}
+          {subtitle}
         </h1>
 
         {description && (
@@ -55,12 +51,7 @@ export default function ServiceDetailHero({
           </p>
         )}
 
-        <button
-          onClick={handleQuoteClick}
-          className="font-heading inline-block rounded-md bg-primary px-10 py-4 text-lg font-bold uppercase transition-all hover-dark hover:scale-105"
-        >
-          Get Free Quote
-        </button>
+        <QuoteButton variant="hero" onClick={onQuoteClick} />
       </div>
 
       {/* Wave Divider at Bottom */}

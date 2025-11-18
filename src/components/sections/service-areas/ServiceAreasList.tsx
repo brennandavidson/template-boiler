@@ -98,7 +98,7 @@ export default function ServiceAreasList({ areas = defaultAreas }: ServiceAreasL
                 <div className="mt-auto">
                   <a
                     href={`/service-areas/${citySlug}`}
-                    className="inline-block w-full text-center font-heading bg-primary hover-dark text-white px-6 py-3 rounded-md font-bold uppercase text-sm transition-colors"
+                    className="inline-block w-full text-center font-heading bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-md font-bold uppercase text-sm transition-all hover:scale-105 shadow-lg"
                   >
                     Learn More
                   </a>
