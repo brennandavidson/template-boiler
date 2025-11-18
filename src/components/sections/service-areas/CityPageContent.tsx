@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuoteModal } from '@/contexts/QuoteModalContext';
-import { getBadgeColors } from '@/lib/colors';
+import { getBadgeColors, getBrandSectionBg } from '@/lib/colors';
 
 interface ContentSection {
   heading: string;
@@ -25,11 +25,12 @@ export default function CityPageContent({
 }: CityPageContentProps) {
   const { openModal } = useQuoteModal();
   const badgeColors = getBadgeColors();
+  const brandBg = getBrandSectionBg();
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gray-900">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: brandBg }}>
         <div
           className="absolute inset-0 z-0 opacity-40"
           style={{

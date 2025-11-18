@@ -1,12 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import { getSiteConfigCTA } from '@/lib/get-site-config';
+import { getBrandSectionBg } from '@/lib/colors';
 
 export default function FinalCTA() {
   // Load configuration
   const ctaConfig = getSiteConfigCTA();
+  const brandBg = getBrandSectionBg();
 
   return (
-    <section className="relative bg-gray-900 py-16 text-white sm:py-24">
+    <section className="relative py-16 text-white sm:py-24" style={{ backgroundColor: brandBg }}>
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"

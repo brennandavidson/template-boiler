@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useHeader } from '@/contexts/HeaderContext';
@@ -53,16 +53,26 @@ export function Header({
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
 
-  // Build submenus from config
-  const servicesSubmenu = services.items.map(service => ({
-    href: `/services/${service.slug}`,
-    label: service.title,
-  }));
+  // Memoize submenus to prevent rebuilding on every render
+  const servicesSubmenu = useMemo(() =>
+    services.items.map(service => ({
+      href: `/services/${service.slug}`,
+      label: service.title,
+    })),
+    [services.items]
+  );
 
-  const serviceAreasSubmenu = serviceAreas.cities.map(city => ({
-    href: `/service-areas/${city.slug}`,
-    label: city.name,
-  }));
+  const serviceAreasSubmenu = useMemo(() =>
+    serviceAreas.cities.map(city => ({
+      href: `/service-areas/${city.slug}`,
+      label: city.name,
+    })),
+    [serviceAreas.cities]
+  );
+
+  // Memoize layout decisions
+  const servicesNeedsTwoColumns = useMemo(() => servicesSubmenu.length >= 8, [servicesSubmenu.length]);
+  const serviceAreasNeedsTwoColumns = useMemo(() => serviceAreasSubmenu.length >= 8, [serviceAreasSubmenu.length]);
 
   useEffect(() => {
     // Check scroll position immediately on mount
@@ -162,7 +172,7 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${servicesNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl ${servicesNeedsTwoColumns ? 'grid grid-cols-2' : ''} overflow-hidden transition-all duration-200 ${
                         isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
@@ -207,7 +217,7 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${serviceAreasNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl ${serviceAreasNeedsTwoColumns ? 'grid grid-cols-2' : ''} overflow-hidden transition-all duration-200 ${
                         isServiceAreasOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
@@ -329,7 +339,7 @@ export function Header({
 
                     {/* Mobile Submenu */}
                     <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
-                      isServicesOpen ? 'max-h-96 mt-2' : 'max-h-0'
+                      isServicesOpen ? 'max-h-[60vh] overflow-y-auto mt-2' : 'max-h-0'
                     }`}>
                       {servicesSubmenu.map((item) => (
                         <Link
@@ -367,7 +377,7 @@ export function Header({
 
                     {/* Mobile Submenu */}
                     <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${
-                      isServiceAreasOpen ? 'max-h-96 mt-2' : 'max-h-0'
+                      isServiceAreasOpen ? 'max-h-[60vh] overflow-y-auto mt-2' : 'max-h-0'
                     }`}>
                       {serviceAreasSubmenu.map((item) => (
                         <Link

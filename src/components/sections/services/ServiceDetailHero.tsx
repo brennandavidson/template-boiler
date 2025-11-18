@@ -1,6 +1,7 @@
 'use client';
 
 import { useQuoteModal } from '@/contexts/QuoteModalContext';
+import { getBrandSectionBg, getBadgeColors } from '@/lib/colors';
 
 interface ServiceDetailHeroProps {
   title: string;
@@ -18,6 +19,8 @@ export default function ServiceDetailHero({
   onQuoteClick
 }: ServiceDetailHeroProps) {
   const { openModal } = useQuoteModal();
+  const brandBg = getBrandSectionBg();
+  const badgeColors = getBadgeColors();
 
   const handleQuoteClick = () => {
     if (onQuoteClick) {
@@ -28,7 +31,7 @@ export default function ServiceDetailHero({
   };
 
   return (
-    <section className="relative min-h-[70vh] py-32 flex items-center justify-center bg-gray-900 text-white">
+    <section className="relative min-h-[70vh] py-32 flex items-center justify-center text-white" style={{ backgroundColor: brandBg }}>
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"

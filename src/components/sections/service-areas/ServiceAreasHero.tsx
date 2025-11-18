@@ -1,6 +1,7 @@
 'use client';
 
 import { useQuoteModal } from '@/contexts/QuoteModalContext';
+import { getBrandSectionBg } from '@/lib/colors';
 
 interface ServiceAreasHeroProps {
   title?: string;
@@ -16,8 +17,10 @@ export default function ServiceAreasHero({
   onQuoteClick,
 }: ServiceAreasHeroProps) {
   const { openModal } = useQuoteModal();
+  const brandBg = getBrandSectionBg();
+
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gray-900">
+    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden" style={{ backgroundColor: brandBg }}>
       {/* Background Image */}
       <div
         className="absolute inset-0 z-0 opacity-40"
