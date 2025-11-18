@@ -27,6 +27,7 @@ export interface BusinessInfo {
   primaryLocation: string;
   heroDescription: string;
   heroBackgroundImage: string;
+  reviewsSectionBackgroundImage?: string;
   reviewBadges: {
     google: ReviewBadge;
     facebook: ReviewBadge;
@@ -244,6 +245,7 @@ export interface IntegrationsConfig {
 
 export interface ProjectsSection {
   gallery: GalleryImage[];
+  heroBackgroundImage?: string;
 }
 
 export interface GalleryImage {

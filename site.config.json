@@ -6,6 +6,7 @@
     "primaryLocation": "PHOENIX, AZ",
     "heroDescription": "Offering top-notch installation, renovation, maintenance, and design services exclusively in your area for discerning homeowners and businesses.",
     "heroBackgroundImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "reviewsSectionBackgroundImage": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     "reviewBadges": {
       "google": {
         "enabled": true,
@@ -507,6 +508,7 @@
     "yelp": "https://www.yelp.com/biz/all-star-pools-phoenix"
   },
   "projects": {
+    "heroBackgroundImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
     "gallery": [
       {
         "id": "1",

@@ -16,6 +16,7 @@ import { getSiteConfig } from '@/lib/get-site-config';
 export default function GalleryPage() {
   const config = getSiteConfig();
   const projects = config.projects?.gallery || [];
+  const heroBackgroundImage = config.projects?.heroBackgroundImage;
 
   return (
     <>
@@ -23,7 +24,7 @@ export default function GalleryPage() {
       <HeaderSetter hasHeroImage={true} />
 
       {/* Gallery Hero */}
-      <GalleryHero />
+      <GalleryHero backgroundImage={heroBackgroundImage} />
 
       {/* Gallery Grid */}
       <GalleryGrid images={projects} />
