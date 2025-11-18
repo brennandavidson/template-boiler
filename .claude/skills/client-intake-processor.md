@@ -299,11 +299,13 @@ Before updating the config, determine the best SEO H1 based on business type:
       "state": "[from intake]",
       "zip": "[from intake]"
     },
-    "googleMapsEmbed": "[from intake - full embed URL]",
-    "googleReviewUrl": "[from intake]"
+    "googleMapsEmbed": "[ALWAYS REPLACE with intake value - full embed URL]",
+    "googleReviewUrl": "[ALWAYS REPLACE with intake value]"
   }
 }
 ```
+
+**CRITICAL:** Always replace `googleMapsEmbed` and `googleReviewUrl` with values from intake form, even if template has existing values.
 
 **Services Section:**
 Create slug from service name (lowercase, hyphens):
@@ -558,11 +560,46 @@ cp client-intake/logo/square.png public/logos/square-logo.png
 ```
 
 ### Step 4.4: Copy Project Images (if provided)
+
+**CRITICAL: This step MUST completely replace the existing projects gallery, not append to it.**
+
+1. **Check if project images exist:**
 ```bash
+ls client-intake/projects/
+```
+
+2. **If images exist, copy them:**
+```bash
+mkdir -p public/projects
 cp client-intake/projects/* public/projects/
 ```
 
-Then update the projects gallery in config to reference these images.
+3. **COMPLETELY REPLACE the projects.gallery array in site.config.json:**
+
+```json
+{
+  "projects": {
+    "gallery": [
+      {
+        "id": "1",
+        "title": "[Descriptive title from image filename or generate]",
+        "imageSrc": "/projects/project-1.jpg",
+        "alt": "[Descriptive alt text]",
+        "category": "installation",
+        "featured": true
+      }
+      // ... for each image in client-intake/projects/
+    ]
+  }
+}
+```
+
+**IMPORTANT:**
+- Delete ALL existing items from the gallery array first
+- Create new items only from the client's provided images
+- Use `/projects/[filename]` for imageSrc (local path, not Unsplash)
+- Number images sequentially (project-1.jpg, project-2.jpg, etc.)
+- Set first 3-4 images as `"featured": true`, rest as `false`
 
 ---
 

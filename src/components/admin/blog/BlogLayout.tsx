@@ -17,20 +17,10 @@ export function BlogLayout({ post, relatedPosts = [], useFullUrl = false }: Blog
   return (
     <>
       <HeaderSetter hasHeroImage={false} />
-      <PageWrapper className="pb-8 sm:pb-12 lg:pb-16">
+      <PageWrapper className="!pt-36 sm:!pt-40 pb-8 sm:pb-12 lg:pb-16">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Blog Header */}
         <header className="mb-8 sm:mb-12">
-          {/* Category Badge */}
-          {post.category && (
-            <Link
-              href={`/blog/${post.category}`}
-              className="inline-block text-sm font-bold text-primary hover:text-primary-dark mb-4 uppercase tracking-wide"
-            >
-              {post.category}
-            </Link>
-          )}
-
           {/* Title */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-background-blue mb-4">
             {post.title}
@@ -175,7 +165,7 @@ export function BlogLayout({ post, relatedPosts = [], useFullUrl = false }: Blog
                         </div>
                       )}
                       <div className="p-4">
-                        <h3 className="font-heading font-semibold text-background-blue group-hover:text-primary transition-colors line-clamp-2">
+                        <h3 className="font-heading font-semibold text-base text-background-blue group-hover:text-primary transition-colors line-clamp-2">
                           {relatedPost.title}
                         </h3>
                         <p className="text-sm text-gray-700 mt-2 line-clamp-2">

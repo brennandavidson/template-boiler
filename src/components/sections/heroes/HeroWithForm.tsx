@@ -1,6 +1,7 @@
 'use client';
 
 import { getSiteConfigBusiness, getSiteConfigContact, getSiteConfigIntegrations } from '@/lib/get-site-config';
+import { getBrandSectionBg } from '@/lib/colors';
 
 export default function HeroWithForm() {
   // Load configuration
@@ -8,13 +9,16 @@ export default function HeroWithForm() {
   const contact = getSiteConfigContact();
   const integrations = getSiteConfigIntegrations();
 
+  // Get brand background color
+  const brandBg = getBrandSectionBg();
+
   // Extract form URL from the inline embed code
   const embedCode = integrations.ghl?.quoteFormEmbedInline || '';
   const srcMatch = embedCode.match(/src="([^"]+)"/);
   const formUrl = srcMatch ? srcMatch[1] : '';
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-[10vh] pb-8 lg:pb-0">
+    <section className="relative min-h-screen flex items-center justify-center text-white pt-[10vh] pb-8 lg:pb-0" style={{ backgroundColor: brandBg }}>
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
@@ -39,13 +43,7 @@ export default function HeroWithForm() {
             {/* Trust Indicators - Review Badges */}
             <div className="mt-6 mb-0 flex flex-wrap items-center gap-4 sm:gap-8">
               {/* Google Reviews */}
-              <a
-                href={contact.googleReviewUrl || business.reviewBadges?.google?.url || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View our Google reviews"
-                className="flex items-center gap-2 sm:gap-4 hover:opacity-80 transition-opacity"
-              >
+              <div className="flex items-center gap-2 sm:gap-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
                   <svg className="w-7 h-7 sm:w-10 sm:h-10" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -69,16 +67,10 @@ export default function HeroWithForm() {
                   </div>
                   <span className="text-sm font-semibold text-white/90 mt-1">5 Star Reviews</span>
                 </div>
-              </a>
+              </div>
 
               {/* Facebook Reviews */}
-              <a
-                href={business.reviewBadges?.facebook?.url || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View our Facebook reviews"
-                className="flex items-center gap-2 sm:gap-4 hover:opacity-80 transition-opacity"
-              >
+              <div className="flex items-center gap-2 sm:gap-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
                   <svg className="w-7 h-7 sm:w-10 sm:h-10" viewBox="0 0 24 24">
                     <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -99,7 +91,7 @@ export default function HeroWithForm() {
                   </div>
                   <span className="text-sm font-semibold text-white/90 mt-1">5 Star Reviews</span>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
 

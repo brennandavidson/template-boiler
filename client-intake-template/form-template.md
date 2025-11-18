@@ -99,7 +99,10 @@ Hex Code: _______________ (Leave blank to use nav background)
 
 **Current Website:** _______________
 
-**Google Review Link:** (Get from Google Maps - "Share" > "Review" link)
+**Google Business Profile URL:** (Your Google Maps business page - share the main profile link)
+_______________
+
+**Google Review Link:** (Direct link to leave a review - "Share" > "Review" link)
 _______________
 
 **Google Maps Embed URL:** (Get from Google Maps - Click "Share" > "Embed a map" > Copy HTML)

@@ -12,6 +12,7 @@ import { seoConfig } from '@/seo/seo.config';
 import { Switch } from '@/components/admin/ui/Switch';
 import PageSchemaEditor from '@/components/admin/seo/PageSchemaEditor';
 import { PageSchema } from '@/components/admin/seo/schema-types';
+import { getSiteConfigBusiness } from '@/lib/get-site-config';
 
 interface BlogFormData {
   title: string;
@@ -48,6 +49,7 @@ interface BlogPostEditorProps {
 
 export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEditorProps) {
   const router = useRouter();
+  const business = getSiteConfigBusiness();
   const [activeTab, setActiveTab] = useState('content');
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState<string[]>([]);
@@ -63,15 +65,15 @@ export default function BlogPostEditor({ initialData, slug, mode }: BlogPostEdit
   const [isCircularRedirect, setIsCircularRedirect] = useState(false);
   // Check if post is published based on initial data
   const isPublished = mode === 'edit' && initialData && !initialData.draft && !!initialData.publishedAt;
-  
-  const [formData, setFormData] = useState<BlogFormData>(initialData ? 
+
+  const [formData, setFormData] = useState<BlogFormData>(initialData ?
     { ...initialData, slug: initialData.slug || slug || '' } : {
     title: '',
     slug: '',
     excerpt: '',
     content: '',
     author: {
-      name: '',
+      name: business.name,
       image: '',
       bio: ''
     },

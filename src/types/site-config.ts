@@ -54,6 +54,7 @@ export interface ContactInfo {
     zip: string;
   };
   googleMapsEmbed: string;
+  googleBusinessUrl?: string;
   googleReviewUrl?: string;
 }
 
