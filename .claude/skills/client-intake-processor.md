@@ -273,7 +273,7 @@ Before updating the config, determine the best SEO H1 based on business type:
     "tagline": "[from intake OR generate if not provided]",
     "primaryLocation": "[city, state]",
     "heroDescription": "[generated]",
-    "heroBackgroundImage": "[Unsplash URL]",
+    "heroBackgroundImage": "[KEEP EXISTING - do not change]",
     "reviewBadges": {
       "google": { "enabled": true, "rating": 5, "reviewCount": "X+", "url": "[from intake]" },
       "facebook": { "enabled": true, "rating": 5, "reviewCount": "X+", "url": "[from intake]" }
@@ -321,7 +321,7 @@ Create slug from service name (lowercase, hyphens):
       {
         "title": "[Service Name]",
         "slug": "[generated-slug]",
-        "imageSrc": "[Unsplash URL for this service]",
+        "imageSrc": "[KEEP EXISTING - do not change]",
         "imageAlt": "[Service] services",
         "description": "[1-2 sentence overview]"
       }
@@ -332,7 +332,7 @@ Create slug from service name (lowercase, hyphens):
           "title": "[GENERATED TITLE]",
           "subtitle": "[Service] IN [City]",
           "description": "[2-3 sentences]",
-          "backgroundImage": "[Unsplash URL]"
+          "backgroundImage": "[KEEP EXISTING - do not change]"
         },
         "sections": [
           { "heading": "[Section Title]", "content": "[Generated content]" },
@@ -360,7 +360,7 @@ Create slug from service name (lowercase, hyphens):
         "hero": {
           "title": "[CITY] [PRIMARY SERVICE TYPE]",
           "subtitle": "[PRIMARY SERVICE TYPE] IN [CITY]",
-          "backgroundImage": "[Unsplash cityscape or generic service image]"
+          "backgroundImage": "[KEEP EXISTING - do not change]"
         },
         "sections": [
           { "heading": "[Generated]", "content": "[City-specific content]" },
@@ -503,6 +503,53 @@ If there are syntax errors, fix them before proceeding.
 
 ## Phase 4: Assets
 
+### IMAGE HANDLING STRATEGY - READ THIS FIRST
+
+**CRITICAL: Understand the different types of images and their sources:**
+
+1. **Hero Background Images** (business.heroBackgroundImage)
+   - Source: KEEP EXISTING template Unsplash URLs
+   - DO NOT replace unless client provides specific hero image in client-intake/
+   - DO NOT scrape from client website
+   - DO NOT use /projects/ images
+
+2. **Service Images** (services.items[].imageSrc, services.details[].hero.backgroundImage)
+   - Source: KEEP EXISTING template Unsplash URLs
+   - DO NOT replace unless client provides specific service images in client-intake/
+   - DO NOT scrape from client website
+   - DO NOT use /projects/ images
+
+3. **About Us Image** (aboutUs.image.src)
+   - Source: KEEP EXISTING template Unsplash URL
+   - DO NOT replace unless client provides specific about image in client-intake/
+   - DO NOT scrape from client website
+   - DO NOT use /projects/ images
+
+4. **Service Area Hero Images** (serviceAreas.details[].hero.backgroundImage)
+   - Source: KEEP EXISTING template Unsplash URLs
+   - DO NOT replace unless client provides specific city images in client-intake/
+   - DO NOT scrape from client website
+   - DO NOT use /projects/ images
+
+5. **Blog Post Images** (blog posts image field)
+   - Source: Use relevant Unsplash URLs for each blog topic
+   - DO NOT scrape from client website
+   - DO NOT use /projects/ images
+
+6. **Project Gallery Images** (projects.gallery[])
+   - Source: ONLY from client-intake/projects/ folder (if provided)
+   - Copy to /public/projects/ and use local paths (/projects/project-1.jpg)
+   - COMPLETELY REPLACE template gallery array
+   - These are ONLY for the portfolio/gallery section
+   - DO NOT use these images anywhere else on the site
+
+7. **Logo Images** (branding.logo.horizontal, branding.logo.horizontalInverted)
+   - Source: ONLY from client-intake/logo/ folder
+   - Copy to /public/logos/
+   - Always replace template logos with client logos
+
+**GOLDEN RULE: Unless the client provides specific images in the client-intake/ folder, KEEP THE EXISTING TEMPLATE IMAGES. DO NOT scrape images from client websites. DO NOT cross-contaminate image types (e.g., using project gallery images as hero backgrounds). Each image type has its specific source and purpose.**
+
 ### Step 4.1: Delete Existing Blog Content
 ```bash
 rm -rf public/blog-content/categories/*
@@ -563,6 +610,8 @@ cp client-intake/logo/square.png public/logos/square-logo.png
 
 **CRITICAL: This step MUST completely replace the existing projects gallery, not append to it.**
 
+**IMPORTANT: Project images are ONLY for the gallery/portfolio section - NOT for hero backgrounds, service images, or any other decorative images on the site.**
+
 1. **Check if project images exist:**
 ```bash
 ls client-intake/projects/
@@ -600,6 +649,7 @@ cp client-intake/projects/* public/projects/
 - Use `/projects/[filename]` for imageSrc (local path, not Unsplash)
 - Number images sequentially (project-1.jpg, project-2.jpg, etc.)
 - Set first 3-4 images as `"featured": true`, rest as `false`
+- **DO NOT use /projects/ images anywhere else in the site (hero, services, about, etc.)**
 
 ---
 
