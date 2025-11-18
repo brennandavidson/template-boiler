@@ -544,6 +544,12 @@ If there are syntax errors, fix them before proceeding.
    - Copy to /public/logos/
    - Always replace template logos with client logos
 
+8. **Favicon Images** (all /public/favicon/ files)
+   - Source: Generated from client-intake/logo/square.png
+   - Use ImageMagick convert command to resize square logo to all favicon formats
+   - Replaces: favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png, android-chrome icons
+   - DO NOT leave default boilerplate favicons
+
 **GOLDEN RULE: DO NOT scrape images from client websites. DO NOT cross-contaminate image types (e.g., using project gallery images as hero backgrounds). Each image type has its specific source and purpose.**
 
 ### Step 4.1: Delete Existing Blog Content
@@ -601,6 +607,48 @@ cp client-intake/logo/horizontal.png public/logos/horizontal-logo.png
 cp client-intake/logo/horizontal-white.png public/logos/horizontal-logo-inverted.png
 cp client-intake/logo/square.png public/logos/square-logo.png
 ```
+
+### Step 4.3.5: Generate Favicon Files from Square Logo
+
+**CRITICAL: If square.png logo exists, generate all favicon formats from it.**
+
+This requires ImageMagick or a similar tool. Use the `convert` command:
+
+```bash
+# Check if square logo exists
+if [ -f client-intake/logo/square.png ]; then
+  # Generate favicon.ico (multi-size ICO file)
+  convert client-intake/logo/square.png -define icon:auto-resize=16,32,48 public/favicon/favicon.ico
+
+  # Generate PNG favicons
+  convert client-intake/logo/square.png -resize 16x16 public/favicon/favicon-16x16.png
+  convert client-intake/logo/square.png -resize 32x32 public/favicon/favicon-32x32.png
+
+  # Generate Apple Touch Icon
+  convert client-intake/logo/square.png -resize 180x180 public/favicon/apple-touch-icon.png
+
+  # Generate Android Chrome icons
+  convert client-intake/logo/square.png -resize 192x192 public/favicon/android-chrome-192x192.png
+  convert client-intake/logo/square.png -resize 512x512 public/favicon/android-chrome-512x512.png
+
+  echo "✓ Favicons generated from square logo"
+else
+  echo "⚠ No square logo found - favicons not updated"
+fi
+```
+
+**Alternative if ImageMagick is not available:**
+Use a web-based favicon generator or ask the user to provide pre-generated favicon files.
+
+**Files that should be generated:**
+- `/public/favicon/favicon.ico` (16x16, 32x32, 48x48 multi-size)
+- `/public/favicon/favicon-16x16.png`
+- `/public/favicon/favicon-32x32.png`
+- `/public/favicon/apple-touch-icon.png` (180x180)
+- `/public/favicon/android-chrome-192x192.png`
+- `/public/favicon/android-chrome-512x512.png`
+
+**Note:** The site.webmanifest file doesn't need to be regenerated - it's generic.
 
 ### Step 4.4: Copy Project Images (if provided)
 
