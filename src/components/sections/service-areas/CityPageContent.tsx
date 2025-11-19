@@ -39,7 +39,7 @@ export default function CityPageContent({
           }}
         />
 
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-32">
+        <div className="relative z-10 mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8 py-32">
           <div className="inline-block mb-6">
             <span
               className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
@@ -48,7 +48,7 @@ export default function CityPageContent({
               {heroTitle}
             </span>
           </div>
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl mb-8">
+          <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl mb-8 uppercase">
             {heroSubtitle}
           </h1>
           <QuoteButton variant="hero" />

@@ -38,7 +38,8 @@ Extract and verify all required information:
 - **GHL quote form embed code (inline)**
 - **GHL chat widget embed code**
 - **Featurable widget ID**
-- **Google Review URL**
+- **Google Business Profile URL** (main profile/map link)
+- **Google Review URL** (direct review submission link)
 
 ### Step 1.2: Check for Missing Information
 If ANY required fields are missing:
@@ -84,6 +85,91 @@ Before generating ANY content:
 
 3. **Document findings** for use in content generation
 
+---
+
+## 🎯 SEO CONTENT FORMATTING STANDARDS
+
+**APPLIES TO: Service pages, Service Area pages, and Blog posts**
+
+These are **mandatory** formatting rules for ALL SEO content. Services/Service Areas and Blogs follow the SAME formatting standards, with only word count differences.
+
+### HTML Structure Requirements:
+
+**✅ DO THIS - Proper HTML with semantic tags:**
+```html
+<h2>What is Air Conditioning Repair?</h2>
+<p>Air conditioning repair addresses issues that prevent your AC system from cooling effectively. These problems can range from simple thermostat malfunctions to complex compressor failures.</p>
+
+<p>Professional AC repair involves diagnosing the root cause and implementing lasting solutions. This ensures your system runs efficiently and prevents costly future breakdowns.</p>
+
+<h3>Common AC Problems</h3>
+<ul>
+  <li>Refrigerant leaks causing poor cooling</li>
+  <li>Frozen evaporator coils</li>
+  <li>Faulty thermostats or sensors</li>
+  <li>Clogged drain lines leading to water damage</li>
+</ul>
+
+<p>Each of these issues requires specific repair techniques and replacement parts. A trained technician can quickly identify the problem and recommend the best solution.</p>
+
+<h3>Signs You Need Professional Repair</h3>
+<ol>
+  <li>System runs constantly but doesn't cool effectively</li>
+  <li>Strange noises like grinding or squealing</li>
+  <li>Ice forming on refrigerant lines</li>
+  <li>Sudden spike in energy bills</li>
+</ol>
+
+<p>If you notice any of these warning signs, it's time to call a professional before a small problem becomes an expensive failure.</p>
+```
+
+**❌ DON'T DO THIS - Walls of text:**
+```
+Air conditioning repair addresses issues that prevent your AC system from cooling effectively. These problems can range from simple thermostat malfunctions to complex compressor failures. Professional AC repair involves diagnosing the root cause and implementing lasting solutions. This ensures your system runs efficiently and prevents costly future breakdowns. Common problems include refrigerant leaks causing poor cooling, frozen evaporator coils, faulty thermostats or sensors, and clogged drain lines leading to water damage.
+```
+
+### MANDATORY Formatting Rules:
+
+1. **Headings:**
+   - Use `<h2>` for main section headings
+   - Use `<h3>` for sub-topics within sections
+   - Never skip heading levels (no h4 without h3)
+
+2. **Paragraphs:**
+   - Every paragraph MUST be wrapped in `<p>` tags
+   - Keep paragraphs to 2-4 sentences maximum
+   - Leave blank lines between paragraphs for readability
+
+3. **Lists:**
+   - Use `<ul>` + `<li>` for unordered lists (features, benefits, tips, problems)
+   - Use `<ol>` + `<li>` for ordered lists (steps, processes, rankings)
+   - Each list item should be concise (1-2 sentences max)
+
+4. **Structure:**
+   - Alternate between paragraphs, lists, and headings
+   - Never have more than 2 paragraphs in a row without a heading or list
+   - Use lists every 2-3 paragraphs to break up text
+
+5. **Content Flow:**
+   - Each section should follow: H2 → paragraphs → optional H3/list → more paragraphs
+   - End sections with actionable takeaways when appropriate
+
+### Word Count Guidelines:
+
+- **Service Pages:** 600-1000 words total (200-400 words per section, 3-4 sections)
+- **Service Area Pages:** 600-1000 words total (200-400 words per section, 3 sections)
+- **Blog Posts:** 1000-1500 words total (use more sections and deeper coverage)
+
+### Quality Standards:
+
+- Educational expert voice (not salesy)
+- Include specific details and examples
+- Natural, non-AI language
+- Local/regional considerations when relevant
+- Address user questions and pain points
+
+---
+
 ### Step 2.2: Generate Service Page Content
 For EACH service listed in the intake form:
 
@@ -93,45 +179,15 @@ For EACH service listed in the intake form:
    - How [Service] Works / What to Expect
    - Cost Factors / Decision Considerations (optional)
 
-2. Each section should be 200-400 words
+2. **🎯 FOLLOW "SEO CONTENT FORMATTING STANDARDS" ABOVE** - Word count: 600-1000 words total (200-400 per section)
 
-3. **CRITICAL - HTML Formatting Requirements:**
+3. Apply industry-specific considerations:
+   - Include local/regional factors when relevant
+   - Address common customer pain points
+   - Provide specific details and examples
+   - Use natural, expert voice (not salesy)
 
-   **EXAMPLE OF PROPER FORMATTING:**
-   ```html
-   <h2>What is Air Conditioning Repair?</h2>
-   <p>Air conditioning repair addresses issues that prevent your AC system from cooling effectively. These problems can range from simple thermostat malfunctions to complex compressor failures.</p>
-
-   <p>Professional AC repair involves diagnosing the root cause and implementing lasting solutions. This ensures your system runs efficiently and prevents costly future breakdowns.</p>
-
-   <h3>Common AC Problems</h3>
-   <ul>
-     <li>Refrigerant leaks causing poor cooling</li>
-     <li>Frozen evaporator coils</li>
-     <li>Faulty thermostats or sensors</li>
-     <li>Clogged drain lines leading to water damage</li>
-   </ul>
-
-   <p>Each of these issues requires specific repair techniques and replacement parts. A trained technician can quickly identify the problem and recommend the best solution.</p>
-   ```
-
-   **FORMATTING RULES (MANDATORY):**
-   - Each section gets an `<h2>` heading (e.g., "What is Air Conditioning Repair?")
-   - Use `<h3>` subheadings within sections when covering sub-topics
-   - Break content into 2-4 sentence paragraphs with `<p>` tags
-   - Use `<ul>` and `<li>` for bulleted lists (benefits, features, steps, tips)
-   - Use `<ol>` and `<li>` for numbered lists (process steps, sequential instructions)
-   - Add line breaks between paragraphs for readability
-   - **NO WALLS OF TEXT** - break up long paragraphs
-
-4. Apply elite-content-generator guidelines:
-   - Educational expert voice
-   - Industry-standard information (not business-specific claims)
-   - Local/regional considerations when relevant
-   - Natural, non-AI language
-   - Specific details and examples
-
-5. Generate hero content:
+4. Generate hero content:
    - **CRITICAL - SEO Heading Hierarchy:**
      - `title` = Short tagline/category (e.g., "Pool Installation Experts") - displays as BADGE
      - `subtitle` = SEO-optimized H1 (e.g., "Pool Installation in Phoenix, AZ") - displays as H1
@@ -147,18 +203,9 @@ For EACH city listed in the intake form:
    - Complete [Service Type] Services for [City] Residents/Homes
    - Why [City] Homeowners/Residents Choose [Business Type] Services
 
-2. Each section should be 200-400 words
+2. **🎯 FOLLOW "SEO CONTENT FORMATTING STANDARDS" ABOVE** - Word count: 600-1000 words total (200-400 per section)
 
-3. **CRITICAL - HTML Formatting Requirements:**
-   - Each section gets an `<h2>` heading (e.g., "Phoenix's Premier HVAC Provider")
-   - Use `<h3>` subheadings within sections when covering sub-topics
-   - Break content into 2-4 sentence paragraphs with `<p>` tags
-   - Use `<ul>` and `<li>` for bulleted lists (services offered, local benefits, area coverage)
-   - Use `<ol>` and `<li>` for numbered lists (process steps, reasons to choose)
-   - Add line breaks between paragraphs for readability
-   - **NO WALLS OF TEXT** - break up long paragraphs
-
-4. Include city-specific elements:
+3. Include city-specific elements:
    - Local climate challenges
    - Neighborhood references (general, not too specific)
    - Regional regulations or requirements
@@ -264,14 +311,15 @@ Split posts between categories (3-4 posts per category).
 ```
 
 **Blog Content Guidelines:**
-- 800-1500 words total
-- Use HTML format with proper semantic tags
-- Include 4-6 H2 headings for structure
-- Use bullet lists (ul/li) and numbered lists (ol/li) where appropriate
-- Educational and actionable advice
-- Target long-tail keywords and questions
+
+**🎯 FOLLOW "SEO CONTENT FORMATTING STANDARDS" ABOVE** - Word count: 1000-1500 words total
+
+Additional blog-specific guidelines:
+- Include 4-6 H2 sections (more sections than service/area pages)
+- Target long-tail keywords and answer specific questions
 - Address common misconceptions
-- More conversational than service pages (can use "I've seen" or "In my experience" sparingly)
+- Provide actionable advice readers can implement
+- Slightly more conversational than service pages (can use "I've seen" or "In my experience" sparingly, but still maintain expert voice)
 
 **🚨 CRITICAL REMINDER:**
 - ✅ You MUST execute the Write tool 6-8 times (once per blog post)
@@ -398,12 +446,13 @@ Before updating the config, determine the best SEO H1 based on business type:
       "zip": "[from intake]"
     },
     "googleMapsEmbed": "[ALWAYS REPLACE with intake value - full embed URL]",
-    "googleReviewUrl": "[ALWAYS REPLACE with intake value]"
+    "googleBusinessUrl": "[ALWAYS REPLACE with Google Business Profile URL from intake]",
+    "googleReviewUrl": "[ALWAYS REPLACE with Google Review URL from intake]"
   }
 }
 ```
 
-**CRITICAL:** Always replace `googleMapsEmbed` and `googleReviewUrl` with values from intake form, even if template has existing values.
+**CRITICAL:** Always replace `googleMapsEmbed`, `googleBusinessUrl`, and `googleReviewUrl` with values from intake form, even if template has existing values.
 
 **Services Section:**
 Create slug from service name (lowercase, hyphens):

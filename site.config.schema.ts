@@ -102,7 +102,15 @@ export interface SiteConfigSchema {
       notes: "Get from Google Maps > Share > Embed a map";
     };
 
-    /** Google review profile URL */
+    /** Google Business Profile URL (for map/profile links) */
+    googleBusinessUrl: {
+      type: string;
+      required: false;
+      example: "https://share.google.com/09fdUUKLALdogYaNJ";
+      notes: "Main Google Business Profile link - used in footer and social icons";
+    };
+
+    /** Google review link URL (for direct review submission) */
     googleReviewUrl: {
       type: string;
       required: false;

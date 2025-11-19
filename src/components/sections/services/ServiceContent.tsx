@@ -17,11 +17,10 @@ export default function ServiceContent({ sections }: ServiceContentProps) {
               <h2 className="font-heading text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">
                 {section.heading}
               </h2>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed">
-                  {section.content}
-                </p>
-              </div>
+              <div
+                className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: section.content }}
+              />
             </div>
           ))}
         </div>
