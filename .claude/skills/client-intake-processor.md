@@ -693,9 +693,10 @@ If there are syntax errors, fix them before proceeding.
 
 8. **Favicon Images** (all /public/favicon/ files)
    - Source: Generated from client-intake/logo/square.png
-   - Use ImageMagick convert command to resize square logo to all favicon formats
+   - Use Python + Pillow to resize square logo to all favicon formats (Windows-compatible)
    - Replaces: favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png, android-chrome icons
    - DO NOT leave default boilerplate favicons
+   - If Pillow unavailable, inform user to install or use online favicon generator
 
 **GOLDEN RULE: DO NOT scrape images from client websites. DO NOT cross-contaminate image types (e.g., using project gallery images as hero backgrounds). Each image type has its specific source and purpose.**
 
@@ -757,35 +758,67 @@ cp client-intake/logo/square.png public/logos/square-logo.png
 
 ### Step 4.3.5: Generate Favicon Files from Square Logo
 
-**CRITICAL: If square.png logo exists, generate all favicon formats from it.**
+**CRITICAL: If square.png logo exists, generate all favicon formats from it using Python + Pillow.**
 
-This requires ImageMagick or a similar tool. Use the `convert` command:
+**Why Python/Pillow instead of ImageMagick:**
+- ImageMagick's `convert` command conflicts with Windows' built-in `convert.exe` (file system conversion tool)
+- Pillow is more reliable across platforms and typically already installed
+- If Pillow isn't available, the script will fail gracefully with a clear error message
+
+**Use this Python script via Bash tool:**
 
 ```bash
+python << 'PYTHON_EOF'
+import os
+import sys
+
 # Check if square logo exists
-if [ -f client-intake/logo/square.png ]; then
-  # Generate favicon.ico (multi-size ICO file)
-  convert client-intake/logo/square.png -define icon:auto-resize=16,32,48 public/favicon/favicon.ico
+square_logo_path = "client-intake/logo/square.png"
+if not os.path.exists(square_logo_path):
+    print("⚠ No square logo found at client-intake/logo/square.png - skipping favicon generation")
+    sys.exit(0)
 
-  # Generate PNG favicons
-  convert client-intake/logo/square.png -resize 16x16 public/favicon/favicon-16x16.png
-  convert client-intake/logo/square.png -resize 32x32 public/favicon/favicon-32x32.png
+# Try to import Pillow
+try:
+    from PIL import Image
+except ImportError:
+    print("⚠ Pillow not installed. Install with: pip install Pillow")
+    print("⚠ Skipping favicon generation - user can manually convert square.png to favicons")
+    sys.exit(0)
 
-  # Generate Apple Touch Icon
-  convert client-intake/logo/square.png -resize 180x180 public/favicon/apple-touch-icon.png
+# Create favicon directory if it doesn't exist
+os.makedirs("public/favicon", exist_ok=True)
 
-  # Generate Android Chrome icons
-  convert client-intake/logo/square.png -resize 192x192 public/favicon/android-chrome-192x192.png
-  convert client-intake/logo/square.png -resize 512x512 public/favicon/android-chrome-512x512.png
+# Load the square logo
+img = Image.open(square_logo_path)
 
-  echo "✓ Favicons generated from square logo"
-else
-  echo "⚠ No square logo found - favicons not updated"
-fi
+# Convert to RGBA if not already
+if img.mode != 'RGBA':
+    img = img.convert('RGBA')
+
+# Generate all favicon sizes
+favicon_sizes = {
+    "favicon-16x16.png": (16, 16),
+    "favicon-32x32.png": (32, 32),
+    "apple-touch-icon.png": (180, 180),
+    "android-chrome-192x192.png": (192, 192),
+    "android-chrome-512x512.png": (512, 512)
+}
+
+for filename, size in favicon_sizes.items():
+    resized = img.resize(size, Image.Resampling.LANCZOS)
+    resized.save(f"public/favicon/{filename}", "PNG")
+    print(f"✓ Generated {filename}")
+
+# Generate multi-size ICO file (16x16, 32x32, 48x48)
+ico_sizes = [(16, 16), (32, 32), (48, 48)]
+ico_images = [img.resize(size, Image.Resampling.LANCZOS) for size in ico_sizes]
+ico_images[0].save("public/favicon/favicon.ico", format="ICO", sizes=ico_sizes)
+print("✓ Generated favicon.ico")
+
+print("✓ All favicons generated successfully from square logo")
+PYTHON_EOF
 ```
-
-**Alternative if ImageMagick is not available:**
-Use a web-based favicon generator or ask the user to provide pre-generated favicon files.
 
 **Files that should be generated:**
 - `/public/favicon/favicon.ico` (16x16, 32x32, 48x48 multi-size)
@@ -794,6 +827,12 @@ Use a web-based favicon generator or ask the user to provide pre-generated favic
 - `/public/favicon/apple-touch-icon.png` (180x180)
 - `/public/favicon/android-chrome-192x192.png`
 - `/public/favicon/android-chrome-512x512.png`
+
+**If Pillow is not installed:**
+The script will output a warning and skip favicon generation. Inform the user that they can either:
+1. Install Pillow: `pip install Pillow` and re-run the intake processor
+2. Use an online favicon generator with their square logo
+3. Manually resize the square.png to the required sizes
 
 **Note:** The site.webmanifest file doesn't need to be regenerated - it's generic.
 
