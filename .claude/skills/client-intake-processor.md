@@ -335,12 +335,12 @@ Additional blog-specific guidelines:
 - [ ] Wrote 6-8 blog post JSON files with Write tool (one Write execution per post)
 
 ### Step 2.5: Generate About Us Content
-Create 3 paragraphs (from intake form details):
-- Paragraph 1: Years of experience and specialization
-- Paragraph 2: Quality and craftsmanship focus
-- Paragraph 3: Customer satisfaction and standards
+Create 3 **concise** paragraphs (from intake form details):
+- Paragraph 1: Years of experience and specialization (MAX 200 characters / ~30-35 words)
+- Paragraph 2: Quality and craftsmanship focus (MAX 250 characters / ~35-40 words)
+- Paragraph 3: Customer satisfaction and standards (MAX 200 characters / ~30-35 words)
 
-Keep it professional and factual based on provided information.
+**IMPORTANT:** Keep paragraphs brief and impactful. Each paragraph should be 1-2 sentences maximum. This is a homepage section, not a detailed biography - avoid writing novels. Reference the base template'''s About Us section (site.config.json lines 338-342) for the ideal length and tone.
 
 ### Step 2.6: Generate Process Steps
 Create 5 process steps for "Our Process" section:
