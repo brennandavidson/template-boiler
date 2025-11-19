@@ -2,16 +2,21 @@
 
 import { PageWrapper } from '@/components/layout/PageWrapper';
 import GoogleReviewsWidget from '@/components/sections/testimonials/GoogleReviewsWidget';
+import { getBadgeColors } from '@/lib/colors';
 
 export default function ReviewsPageClient() {
+  const badgeColors = getBadgeColors();
 
   return (
-    <PageWrapper className="pb-16 sm:pb-20 bg-white">
+    <PageWrapper className="!pt-36 sm:!pt-40 pb-16 sm:pb-20 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="mb-12 text-center">
           <div className="inline-block mb-4">
-            <span className="inline-block bg-background-blue text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span
+              className="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
+              style={{ backgroundColor: badgeColors.background, color: badgeColors.text }}
+            >
               Client Testimonials
             </span>
           </div>
