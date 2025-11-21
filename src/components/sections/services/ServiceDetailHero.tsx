@@ -41,7 +41,7 @@ export default function ServiceDetailHero({
             </span>
           </div>
         )}
-        <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6">
+        <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6 uppercase">
           {subtitle}
         </h1>
 
