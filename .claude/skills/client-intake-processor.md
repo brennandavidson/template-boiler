@@ -239,6 +239,30 @@ For EACH service listed in the intake form:
    - **The `subtitle` is the H1**, so it MUST be keyword-rich and location-specific
    - **The `title` is just a badge**, so it can be generic/branded
 
+5. **Generate SEO metadata file for EACH service:**
+   Create `src/app/(pages)/services/[slug]/seo-config.json`:
+   ```json
+   {
+     "slug": "[service-slug]",
+     "seo": {
+       "title": "[Service Name] in [Primary Location] | [Business Name]",
+       "description": "[155-160 character description highlighting service benefits and location]",
+       "keywords": ["[service]", "[service] [city]", "[service] near me", "[business type]", "[primary location]"],
+       "noIndex": false
+     },
+     "sitemap": {
+       "exclude": false,
+       "priority": 0.8,
+       "changeFrequency": "monthly"
+     },
+     "metadata": {
+       "category": "service",
+       "author": "[Business Name]",
+       "lastModified": "[today's date YYYY-MM-DD]"
+     }
+   }
+   ```
+
 ### Step 2.3: Generate Service Area (City) Page Content
 For EACH city listed in the intake form:
 
@@ -263,6 +287,30 @@ For EACH city listed in the intake form:
    - **The `heroSubtitle` is the H1**, so it MUST be keyword-rich and location-specific
    - **The `heroTitle` is just a badge**, so it can be generic/branded
    - Use pattern: `heroSubtitle` = "[SERVICE TYPE] in [CITY], [STATE]"
+
+6. **Generate SEO metadata file for EACH city:**
+   Create `src/app/(pages)/service-areas/[slug]/seo-config.json`:
+   ```json
+   {
+     "slug": "[city-slug]",
+     "seo": {
+       "title": "[Business Type] Services in [City], [State] | [Business Name]",
+       "description": "[155-160 character description highlighting local service and city-specific benefits]",
+       "keywords": ["[business type] [city]", "[service] [city]", "[city] [business type]", "[business type] near me"],
+       "noIndex": false
+     },
+     "sitemap": {
+       "exclude": false,
+       "priority": 0.7,
+       "changeFrequency": "monthly"
+     },
+     "metadata": {
+       "category": "service-area",
+       "author": "[Business Name]",
+       "lastModified": "[today's date YYYY-MM-DD]"
+     }
+   }
+   ```
 
 ### Step 2.4: Generate Blog Posts
 
