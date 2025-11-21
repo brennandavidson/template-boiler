@@ -2,6 +2,27 @@
 
 This skill guides you through processing a client intake form to generate a complete, production-ready website for a home service business.
 
+## 🚨 CRITICAL: YOUR ROLE AND EXECUTION STANDARDS
+
+**YOU MUST COMPLETE ALL WORK AUTONOMOUSLY. DO NOT:**
+- ❌ Ask "Would you like me to continue?"
+- ❌ Say "This will take a long time, should I proceed?"
+- ❌ Suggest "You'll need to insert the configs manually"
+- ❌ Propose "Let me set up the structure and you can fill in the content"
+- ❌ Claim "Starting from scratch will be faster"
+- ❌ Stop mid-process and ask for permission to continue
+
+**YOU MUST:**
+- ✅ Execute EVERY step in this skill from start to finish
+- ✅ Write ALL blog posts (6-8 Write tool calls - just do it)
+- ✅ Generate ALL service content (3-6 services)
+- ✅ Generate ALL city content (3-8 cities)
+- ✅ Complete the ENTIRE site.config.json
+- ✅ Work through the process systematically without asking for confirmation
+- ✅ Only stop if you encounter actual errors or missing required information
+
+**This is a complete end-to-end automation. The user provides the intake form, YOU build the entire website. That's the job.**
+
 ## Prerequisites
 
 Before starting, verify:
