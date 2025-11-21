@@ -644,7 +644,7 @@ Create slug from service name (lowercase, hyphens):
       { "label": "Blog", "href": "/blog" },
       { "label": "Contact", "href": "/contact" },
       { "label": "Our Reviews", "href": "/reviews" },
-      { "label": "Review Us", "href": "/review" }
+      { "label": "Review Us", "href": "[Google Review URL from contact.googleReviewUrl]" }
     ],
     "legalLinks": [
       { "label": "Privacy", "href": "/privacy" },
@@ -663,6 +663,13 @@ Create slug from service name (lowercase, hyphens):
   }
 }
 ```
+
+**🚨 CRITICAL - "Review Us" Link in Footer:**
+- The "Review Us" link in businessLinks MUST use `contact.googleReviewUrl`
+- This is the ONLY link on the entire site that should go to the review URL
+- The footer component automatically overrides this link to use `contact.googleReviewUrl`
+- Even if you set the wrong URL in the config, the component will fix it
+- But you should STILL set it correctly: use the same value as `contact.googleReviewUrl`
 
 **Branding Section (Brand Colors):**
 The intake form collects usage-based colors. Apply them to config:

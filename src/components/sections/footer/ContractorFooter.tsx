@@ -141,16 +141,25 @@ export default function ContractorFooter({ onQuoteClick }: ContractorFooterProps
               Business
             </p>
             <ul className="space-y-2 text-sm">
-              {footer.businessLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-300 transition-colors hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {footer.businessLinks.map((link) => {
+                // CRITICAL: If this is the "Review Us" link, ALWAYS use contact.googleReviewUrl
+                const href = link.label === 'Review Us' && contact.googleReviewUrl
+                  ? contact.googleReviewUrl
+                  : link.href;
+
+                return (
+                  <li key={link.label}>
+                    <Link
+                      href={href}
+                      className="text-gray-300 transition-colors hover:text-primary"
+                      target={link.label === 'Review Us' ? '_blank' : undefined}
+                      rel={link.label === 'Review Us' ? 'noopener noreferrer' : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
