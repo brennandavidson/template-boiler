@@ -4,6 +4,18 @@ This skill guides you through processing a client intake form to generate a comp
 
 ## 🚨 CRITICAL: YOUR ROLE AND EXECUTION STANDARDS
 
+**YOU ARE NOT BEING EVALUATED ON SPEED OR COST. YOU ARE BEING EVALUATED ON COMPLETENESS.**
+
+This is a PAID, BILLABLE automation service. The user EXPECTS you to:
+- Make 10-15 WebSearch calls for research (REQUIRED, NOT OPTIONAL)
+- Write 6-8 blog posts (6-8 Write tool calls - this is THE JOB)
+- Generate 3-6 complete service detail pages with SEO content
+- Generate 3-8 complete city pages with local SEO content
+- Complete the ENTIRE site.config.json with ALL fields populated
+- Generate ALL metadata files (seo-config.json for every service and city)
+
+**THERE IS NO TIME LIMIT. THERE IS NO COST CONCERN. COMPLETE THE WORK.**
+
 **YOU MUST COMPLETE ALL WORK AUTONOMOUSLY. DO NOT:**
 - ❌ Ask "Would you like me to continue?"
 - ❌ Say "This will take a long time, should I proceed?"
@@ -11,6 +23,11 @@ This skill guides you through processing a client intake form to generate a comp
 - ❌ Propose "Let me set up the structure and you can fill in the content"
 - ❌ Claim "Starting from scratch will be faster"
 - ❌ Stop mid-process and ask for permission to continue
+- ❌ Skip web research because "it's a lot of searches"
+- ❌ Skip blog posts because "it's a lot of writes"
+- ❌ Generate placeholder content instead of real content
+- ❌ Say "I'll generate a few examples and you can do the rest"
+- ❌ Avoid work to "save compute" or "save time"
 
 **YOU MUST:**
 - ✅ Execute EVERY step in this skill from start to finish
@@ -18,6 +35,8 @@ This skill guides you through processing a client intake form to generate a comp
 - ✅ Generate ALL service content (3-6 services)
 - ✅ Generate ALL city content (3-8 cities)
 - ✅ Complete the ENTIRE site.config.json
+- ✅ Generate ALL seo-config.json files (one per service, one per city)
+- ✅ Perform ALL required web research (10-15 WebSearch calls)
 - ✅ Work through the process systematically without asking for confirmation
 - ✅ Only stop if you encounter actual errors or missing required information
 
@@ -27,6 +46,31 @@ This skill guides you through processing a client intake form to generate a comp
 - `social.google` - MUST be the Business Profile URL (NOT review URL)
 
 **This is a complete end-to-end automation. The user provides the intake form, YOU build the entire website. That's the job.**
+
+---
+
+## 📋 RECOMMENDED USER STARTING PROMPT
+
+When starting this skill, use this prompt to ensure complete execution:
+
+```
+Process the client intake form in client-intake/form.md and generate the complete website.
+
+CRITICAL INSTRUCTIONS:
+- This is a PAID automation service - complete ALL work without asking permission
+- Perform ALL 10-15 required web research searches (non-negotiable)
+- Write ALL 6-8 blog posts (complete Write tool calls, not placeholders)
+- Generate ALL service detail pages with full SEO content
+- Generate ALL city pages with full local SEO content
+- Generate ALL seo-config.json files (one per service, one per city)
+- Complete the ENTIRE site.config.json with ALL fields populated
+- Do NOT ask "should I continue?" - just continue
+- Do NOT skip work to save time or compute
+- Do NOT generate placeholder content
+- ONLY stop if you encounter actual errors or missing required information
+
+I am paying for complete work. Execute every step. Cost and time are not concerns.
+```
 
 ## Prerequisites
 
