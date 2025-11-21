@@ -176,7 +176,7 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${servicesNeedsTwoColumns ? 'min-w-[28rem]' : 'min-w-[14rem]'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
@@ -223,7 +223,7 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${serviceAreasNeedsTwoColumns ? 'min-w-[28rem]' : 'min-w-[14rem]'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServiceAreasOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
