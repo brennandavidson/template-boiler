@@ -21,6 +21,11 @@ This skill guides you through processing a client intake form to generate a comp
 - ✅ Work through the process systematically without asking for confirmation
 - ✅ Only stop if you encounter actual errors or missing required information
 
+**🚨 CRITICAL FIELDS THAT MUST NEVER BE MISSING:**
+- `contact.googleBusinessUrl` - MUST be included in site.config.json
+- `contact.googleReviewUrl` - MUST be included in site.config.json
+- `social.google` - MUST be the Business Profile URL (NOT review URL)
+
 **This is a complete end-to-end automation. The user provides the intake form, YOU build the entire website. That's the job.**
 
 ## Prerequisites
@@ -545,7 +550,14 @@ Before updating the config, determine the best SEO H1 based on business type:
 }
 ```
 
-**CRITICAL:** Always replace `googleMapsEmbed`, `googleBusinessUrl`, and `googleReviewUrl` with values from intake form, even if template has existing values.
+**🚨 CRITICAL - GOOGLE URLs:**
+- `googleBusinessUrl` = Google Business Profile URL (e.g., https://g.page/r/XXXXX)
+- `googleReviewUrl` = Google Review URL (e.g., https://g.page/r/XXXXX/review)
+- **THESE ARE DIFFERENT URLS!** The business profile URL does NOT have "/review" at the end
+- ALWAYS include BOTH fields in the contact object
+- The footer social icon links to `googleBusinessUrl` (business profile), NOT review URL
+
+Always replace `googleMapsEmbed`, `googleBusinessUrl`, and `googleReviewUrl` with values from intake form, even if template has existing values.
 
 **Services Section:**
 Create slug from service name (lowercase, hyphens):
@@ -722,11 +734,18 @@ Fill in based on generated content and intake form data.
     "instagram": "[from intake]",
     "twitter": "[from intake]",
     "youtube": "[from intake]",
-    "google": "[from intake]",
+    "google": "[Google Business Profile URL - NOT the review URL - remove /review if present]",
     "yelp": "[from intake]"
   }
 }
 ```
+
+**🚨 CRITICAL - social.google MUST BE BUSINESS PROFILE URL:**
+- The `social.google` field is used for the footer social icon
+- This MUST be the Google Business Profile URL (WITHOUT "/review")
+- If the intake form provides "https://g.page/r/XXXXX/review", remove the "/review" part
+- Example: "https://g.page/r/CaDvitYkL0FbEAI/review" → "https://g.page/r/CaDvitYkL0FbEAI"
+- NEVER use the review URL for social.google - footer icons link to profiles, not review pages
 
 **Integrations Section:**
 ```json
