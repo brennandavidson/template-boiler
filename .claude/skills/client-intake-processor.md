@@ -116,9 +116,8 @@ These are **mandatory** formatting rules for ALL SEO content. Services/Service A
 
 ### HTML Structure Requirements:
 
-**✅ DO THIS - Proper HTML with semantic tags:**
+**✅ DO THIS - Proper HTML without section heading (component handles H2):**
 ```html
-<h2>What is Air Conditioning Repair?</h2>
 <p>Air conditioning repair addresses issues that prevent your AC system from cooling effectively. These problems can range from simple thermostat malfunctions to complex compressor failures.</p>
 
 <p>Professional AC repair involves diagnosing the root cause and implementing lasting solutions. This ensures your system runs efficiently and prevents costly future breakdowns.</p>
@@ -144,6 +143,8 @@ These are **mandatory** formatting rules for ALL SEO content. Services/Service A
 <p>If you notice any of these warning signs, it's time to call a professional before a small problem becomes an expensive failure.</p>
 ```
 
+**Note:** The section heading (e.g., "What is Air Conditioning Repair?") goes in the `heading` field, NOT in the `content` HTML.
+
 **❌ DON'T DO THIS - Walls of text:**
 ```
 Air conditioning repair addresses issues that prevent your AC system from cooling effectively. These problems can range from simple thermostat malfunctions to complex compressor failures. Professional AC repair involves diagnosing the root cause and implementing lasting solutions. This ensures your system runs efficiently and prevents costly future breakdowns. Common problems include refrigerant leaks causing poor cooling, frozen evaporator coils, faulty thermostats or sensors, and clogged drain lines leading to water damage.
@@ -151,10 +152,17 @@ Air conditioning repair addresses issues that prevent your AC system from coolin
 
 ### MANDATORY Formatting Rules:
 
+**🚨 CRITICAL - DO NOT DUPLICATE HEADINGS:**
+- The `heading` field becomes the H2 heading automatically
+- DO NOT include an H2 in the `content` field that repeats the section heading
+- Start content directly with `<p>` paragraphs
+- Only use `<h3>` for sub-topics WITHIN the section
+
 1. **Headings:**
-   - Use `<h2>` for main section headings
-   - Use `<h3>` for sub-topics within sections
+   - **NEVER use `<h2>` in content** - the component renders `heading` as H2
+   - Use `<h3>` ONLY for sub-topics within the section
    - Never skip heading levels (no h4 without h3)
+   - Content should start with `<p>` tags, not headings
 
 2. **Paragraphs:**
    - Every paragraph MUST be wrapped in `<p>` tags
@@ -172,7 +180,8 @@ Air conditioning repair addresses issues that prevent your AC system from coolin
    - Use lists every 2-3 paragraphs to break up text
 
 5. **Content Flow:**
-   - Each section should follow: H2 → paragraphs → optional H3/list → more paragraphs
+   - Each section follows: `heading` (rendered as H2) → `content` (paragraphs → optional H3/list → more paragraphs)
+   - Start content with paragraphs, not headings
    - End sections with actionable takeaways when appropriate
 
 ### Word Count Guidelines:
