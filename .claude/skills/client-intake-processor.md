@@ -84,27 +84,41 @@ If logo files are missing, warn the user but continue (they can add later).
 
 **CRITICAL: Use the `elite-content-generator` skill for ALL content in this phase.**
 
-### Step 2.1: Research Phase
-Before generating ANY content:
+### Step 2.1: Research Phase - MANDATORY, NO EXCEPTIONS
 
-1. **Research the industry**
-   ```
-   Use WebSearch to research:
-   - "[business type] common problems"
-   - "[business type] maintenance tips"
-   - "[business type] cost factors"
-   - "[primary location] [business type] challenges"
-   ```
+**🚨 THIS STEP IS NON-NEGOTIABLE. YOU MUST COMPLETE ALL SEARCHES. 🚨**
 
-2. **Understand local market**
-   ```
-   Search for local considerations:
-   - "[city] climate and weather patterns"
-   - "[city] [business type] regulations"
-   - "[city] HOA requirements" (if applicable)
-   ```
+Before generating ANY content, you MUST perform these WebSearch calls:
 
-3. **Document findings** for use in content generation
+**REQUIRED WEB SEARCHES (Do ALL of these):**
+
+1. **Industry Research (3-4 searches):**
+   - WebSearch: "[business type] common problems"
+   - WebSearch: "[business type] maintenance tips"  
+   - WebSearch: "[business type] cost factors [primary location]"
+   - WebSearch: "[specific service] issues [primary location]" (for main service)
+
+2. **Local Market Research (2-3 searches per city):**
+   For EACH city in the intake form:
+   - WebSearch: "[city], [state] climate challenges"
+   - WebSearch: "[city] [business type] requirements"
+   - WebSearch: "[city] seasonal [business type] considerations"
+
+**TOTAL SEARCHES REQUIRED:** ~10-15 WebSearch calls depending on number of cities
+
+**DO NOT:**
+- ❌ Skip this step because "it will take time"
+- ❌ Say "I'll generate content based on general knowledge"
+- ❌ Claim "research isn't necessary for this industry"
+- ❌ Ask permission to skip research
+
+**YOU MUST:**
+- ✅ Execute ALL WebSearch calls listed above
+- ✅ Take notes from search results
+- ✅ Use findings to write specific, localized content
+- ✅ Reference real climate/regional factors in content
+
+**This is the difference between generic AI slop and professional SEO content.**
 
 ---
 
