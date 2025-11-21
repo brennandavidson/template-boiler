@@ -650,8 +650,21 @@ The intake form collects usage-based colors. Apply them to config:
 - Always ensure sufficient contrast (WCAG AA minimum)
 - Test that badge text is readable on both light and dark backgrounds
 
-**About Us, Process, FAQ, CTA:**
+**About Us, Process, FAQ:**
 Fill in based on generated content and intake form data.
+
+**CTA Section - DO NOT MODIFY:**
+```json
+{
+  "cta": {
+    "heading": "READY TO TAKE THE NEXT STEP?",
+    "subheading": "GET A FREE QUOTE TODAY!",
+    "buttonText": "Get Free Quote",
+    "backgroundImage": "[use appropriate Unsplash image]"
+  }
+}
+```
+**🚨 CRITICAL:** The buttonText MUST ALWAYS be "Get Free Quote" - NEVER change it to a phone number or call button. The button opens a quote modal, not a phone call.
 
 **Social Section:**
 ```json
