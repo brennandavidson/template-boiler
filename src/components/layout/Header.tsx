@@ -176,7 +176,7 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 ${servicesNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
@@ -185,7 +185,7 @@ export function Header({
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                            className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm whitespace-nowrap"
                           >
                             {item.label}
                           </Link>
@@ -223,7 +223,7 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 ${serviceAreasNeedsTwoColumns ? 'w-[28rem]' : 'w-56'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServiceAreasOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
@@ -232,7 +232,7 @@ export function Header({
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm"
+                            className="block px-6 py-3 text-gray-700 hover:bg-primary hover:text-white transition-colors font-medium text-sm whitespace-nowrap"
                           >
                             {item.label}
                           </Link>
