@@ -67,6 +67,12 @@ Each service page should include 3-4 sections covering:
 - Use contractions (it's, you'll, there's) for natural flow
 - Be conversational but authoritative
 
+**Punctuation Rules:**
+- **NEVER use em dashes (—)** - Use regular hyphens (-) or split into separate sentences instead
+- Use periods to end sentences, not em dashes for parenthetical thoughts
+- Example: ❌ "Pool installations take 8-12 weeks—depending on the type—from start to finish"
+- Example: ✅ "Pool installations take 8-12 weeks from start to finish, depending on the type"
+
 **Avoid AI Red Flags:**
 ❌ "Unlock the secrets"
 ❌ "In today's fast-paced world"
@@ -132,7 +138,7 @@ Before finalizing content, verify:
 > "Our pool installations take 8-12 weeks from start to finish. Our crews start at 7 AM to beat the heat. We charge $50,000-$75,000 for most installations. We've been serving Phoenix for 20 years with over 500 completed pools."
 
 **✅ GOOD (Industry education, specific but not business claims):**
-> "Pool installations in Phoenix typically take 8-12 weeks from excavation to completion. The timeline depends mainly on pool type—gunite pools need 4-6 weeks just for the concrete shell to cure, while fiberglass installations can be swim-ready in two weeks. Most contractors work early mornings during summer to avoid the extreme midday heat. You'll need a permit from the city (usually around $50), and some neighborhoods have HOA requirements about pool placement and fencing. The Phoenix hard water also means you'll want to factor in startup chemistry costs—expect to spend $200-300 getting your water balanced initially."
+> "Pool installations in Phoenix typically take 8-12 weeks from excavation to completion. The timeline depends mainly on pool type. Gunite pools need 4-6 weeks just for the concrete shell to cure, while fiberglass installations can be swim-ready in two weeks. Most contractors work early mornings during summer to avoid the extreme midday heat. You'll need a permit from the city (usually around $50), and some neighborhoods have HOA requirements about pool placement and fencing. The Phoenix hard water also means you'll want to factor in startup chemistry costs. Expect to spend $200-300 getting your water balanced initially."
 
 ## Content Type Specific Guidelines
 
