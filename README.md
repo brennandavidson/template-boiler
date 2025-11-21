@@ -35,6 +35,7 @@ This template enables you to duplicate professional business websites in ~20 min
 
 - Node.js 18+
 - npm or yarn
+- Python 3.7+ (for favicon generation during client intake)
 
 ### Installation
 
@@ -42,8 +43,11 @@ This template enables you to duplicate professional business websites in ~20 min
 # Clone the repository
 git clone <repository-url>
 
-# Install dependencies
+# Install Node.js dependencies
 npm install
+
+# Install Python dependencies (for favicon generation)
+pip install -r requirements.txt
 
 # Set up environment variables
 cp .env.example .env.local

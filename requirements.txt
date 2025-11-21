@@ -1,0 +1,5 @@
+# Python dependencies for the Next.js Marketing Boilerplate
+# Install with: pip install -r requirements.txt
+
+# Image processing for favicon generation
+Pillow>=10.0.0
