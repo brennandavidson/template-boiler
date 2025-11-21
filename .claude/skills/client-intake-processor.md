@@ -293,8 +293,8 @@ Split posts between categories (3-4 posts per category).
   "title": "Full Blog Post Title (60-70 chars)",
   "excerpt": "2-3 sentence summary that hooks the reader and explains what they'll learn.",
   "author": {
-    "name": "HVAC Experts" or "Pool Care Experts" or "[Business Type] Professionals",
-    "bio": "Our team of certified [business type] technicians has over X years of experience serving [location]."
+    "name": "[Business Name from intake form]",
+    "bio": "Our team at [Business Name] has over [X years] of experience providing [business type] services to [location] homeowners."
   },
   "publishedAt": "2024-11-12T10:00:00Z",
   "tags": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"],
@@ -321,12 +321,13 @@ Additional blog-specific guidelines:
 - Provide actionable advice readers can implement
 - Slightly more conversational than service pages (can use "I've seen" or "In my experience" sparingly, but still maintain expert voice)
 
-**🚨 CRITICAL REMINDER:**
+**🚨 CRITICAL REMINDERS:**
 - ✅ You MUST execute the Write tool 6-8 times (once per blog post)
 - ✅ DO NOT just plan or describe the blogs - WRITE THEM
 - ✅ Each blog post requires its own Write tool execution
 - ✅ Verify you created the files before moving to next step
 - ❌ Saying "I will create blogs" is NOT sufficient - you must DO it
+- **⚠️ AUTHOR NAME: Use the actual business name from the intake form, NOT generic names like "HVAC Experts" or "Pool Care Experts"**
 
 **Checklist before proceeding to Step 2.5:**
 - [ ] Deleted old template blogs with Bash tool
