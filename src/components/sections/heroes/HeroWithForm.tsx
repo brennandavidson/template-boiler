@@ -32,7 +32,7 @@ export default function HeroWithForm() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12 items-center">
           {/* Left Column - Hero Text */}
           <div className="flex flex-col justify-center">
-            <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl mb-4 mt-0">
+            <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl mb-4 mt-0 uppercase">
               {business.seoH1 || `${business.tagline} ${business.primaryLocation}`}
             </h1>
 

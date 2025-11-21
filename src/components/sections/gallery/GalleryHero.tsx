@@ -32,7 +32,7 @@ export default function GalleryHero({
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-32">
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl mb-4">
+        <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl mb-4 uppercase">
           {title}
         </h1>
         <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
