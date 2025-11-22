@@ -176,11 +176,11 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 ${servicesNeedsTwoColumns ? 'min-w-[28rem]' : 'min-w-[14rem]'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${servicesNeedsTwoColumns ? 'min-w-[32rem]' : 'min-w-[14rem]'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      <div className={servicesNeedsTwoColumns ? 'grid grid-cols-2' : ''}>
+                      <div className={servicesNeedsTwoColumns ? 'grid grid-cols-2 gap-x-4' : ''}>
                         {servicesSubmenu.map((item) => (
                           <Link
                             key={item.href}
@@ -223,11 +223,11 @@ export function Header({
 
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 ${serviceAreasNeedsTwoColumns ? 'min-w-[28rem]' : 'min-w-[14rem]'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 mt-2 ${serviceAreasNeedsTwoColumns ? 'min-w-[32rem]' : 'min-w-[14rem]'} bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-200 ${
                         isServiceAreasOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
                     >
-                      <div className={serviceAreasNeedsTwoColumns ? 'grid grid-cols-2' : ''}>
+                      <div className={serviceAreasNeedsTwoColumns ? 'grid grid-cols-2 gap-x-4' : ''}>
                         {serviceAreasSubmenu.map((item) => (
                           <Link
                             key={item.href}
