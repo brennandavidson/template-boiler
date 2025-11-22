@@ -7,7 +7,10 @@ This skill guides you through processing a client intake form to generate a comp
 **YOU ARE NOT BEING EVALUATED ON SPEED OR COST. YOU ARE BEING EVALUATED ON COMPLETENESS.**
 
 This is a PAID, BILLABLE automation service. The user EXPECTS you to:
-- Make 10-15 WebSearch calls for research (REQUIRED, NOT OPTIONAL)
+- Perform competitive research (5-8 WebSearch + WebFetch calls - REQUIRED, NOT OPTIONAL)
+  * Find 3-5 real competitor websites in the industry and location
+  * Use WebFetch to analyze their actual website content
+  * Extract proven messaging, pain points, and value propositions
 - Write 6-8 blog posts (6-8 Write tool calls - this is THE JOB)
 - Generate 3-6 complete service detail pages with SEO content
 - Generate 3-8 complete city pages with local SEO content
@@ -58,7 +61,11 @@ Process the client intake form in client-intake/form.md and generate the complet
 
 CRITICAL INSTRUCTIONS:
 - This is a PAID automation service - complete ALL work without asking permission
-- Perform ALL 10-15 required web research searches (non-negotiable)
+- Perform ALL required competitive research (5-8 WebSearch + WebFetch calls):
+  * Find 3-5 top competitors in the industry and location
+  * Use WebFetch to analyze their actual website content
+  * Extract messaging, pain points, and value propositions
+  * Use this intelligence to write competitive content
 - Write ALL 6-8 blog posts (complete Write tool calls, not placeholders)
 - Generate ALL service detail pages with full SEO content
 - Generate ALL city pages with full local SEO content
@@ -133,41 +140,56 @@ If logo files are missing, warn the user but continue (they can add later).
 
 **CRITICAL: Use the `elite-content-generator` skill for ALL content in this phase.**
 
-### Step 2.1: Research Phase - MANDATORY, NO EXCEPTIONS
+### Step 2.1: Competitive Research Phase - MANDATORY, NO EXCEPTIONS
 
 **🚨 THIS STEP IS NON-NEGOTIABLE. YOU MUST COMPLETE ALL SEARCHES. 🚨**
 
-Before generating ANY content, you MUST perform these WebSearch calls:
+Before generating ANY content, you MUST perform competitive analysis by finding and analyzing successful competitors.
 
-**REQUIRED WEB SEARCHES (Do ALL of these):**
+**THE GOAL:** Find 3-5 top-ranking competitors in the same industry and location, then use WebFetch to analyze their website content, messaging, and structure.
 
-1. **Industry Research (3-4 searches):**
-   - WebSearch: "[business type] common problems"
-   - WebSearch: "[business type] maintenance tips"  
-   - WebSearch: "[business type] cost factors [primary location]"
-   - WebSearch: "[specific service] issues [primary location]" (for main service)
+**REQUIRED RESEARCH PROCESS:**
 
-2. **Local Market Research (2-3 searches per city):**
-   For EACH city in the intake form:
-   - WebSearch: "[city], [state] climate challenges"
-   - WebSearch: "[city] [business type] requirements"
-   - WebSearch: "[city] seasonal [business type] considerations"
+**Step 2.1.1: Find Competitors (2-3 WebSearch calls)**
+- WebSearch: "best [business type] companies in [primary city/area]"
+  - Example: "best HVAC companies in Phoenix AZ"
+- WebSearch: "[business type] [primary city]"
+  - Example: "pool service Mesa AZ"
+- WebSearch: "top rated [business type] [state]"
+  - Example: "top rated roofing contractors Arizona"
 
-**TOTAL SEARCHES REQUIRED:** ~10-15 WebSearch calls depending on number of cities
+**Goal:** Identify 3-5 successful competitors with professional websites (NOT aggregators like Yelp/HomeAdvisor)
+
+**Step 2.1.2: Analyze Competitor Websites (3-5 WebFetch calls)**
+For each competitor website found:
+- WebFetch: [competitor-website-url] with prompt: "Analyze this [business type] website. What services do they highlight? What pain points do they address? What makes their messaging effective? What local/regional factors do they mention? Extract key talking points, service descriptions, and value propositions."
+
+**TOTAL RESEARCH REQUIRED:** 5-8 WebSearch + WebFetch calls
+
+**Step 2.1.3: Take Research Notes**
+From your competitive analysis, document:
+- Common services/offerings in this market
+- How competitors describe pain points and solutions
+- Local/regional factors they mention (climate, regulations, etc.)
+- Pricing approaches and value propositions
+- Service area coverage and how they describe different cities
+- Technical terminology and industry-specific language they use
 
 **DO NOT:**
 - ❌ Skip this step because "it will take time"
-- ❌ Say "I'll generate content based on general knowledge"
+- ❌ Search for random generic keywords like "HVAC maintenance tips"
+- ❌ Look up Wikipedia-style information instead of real competitors
+- ❌ Use general knowledge instead of actual market research
 - ❌ Claim "research isn't necessary for this industry"
-- ❌ Ask permission to skip research
 
 **YOU MUST:**
-- ✅ Execute ALL WebSearch calls listed above
-- ✅ Take notes from search results
-- ✅ Use findings to write specific, localized content
-- ✅ Reference real climate/regional factors in content
+- ✅ Find REAL competitor websites (not directories)
+- ✅ Use WebFetch to analyze their actual website content
+- ✅ Extract proven messaging, pain points, and value props
+- ✅ Use this intelligence to inform YOUR content generation
+- ✅ Write content that matches or exceeds competitor quality
 
-**This is the difference between generic AI slop and professional SEO content.**
+**This is the difference between generic AI slop and competitive, market-tested SEO content.**
 
 ---
 
