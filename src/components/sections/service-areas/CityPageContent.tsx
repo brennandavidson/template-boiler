@@ -64,7 +64,7 @@ export default function CityPageContent({
                 {section.heading}
               </h2>
               <div
-                className="text-gray-700 leading-relaxed mb-4"
+                className="prose prose-lg max-w-none text-gray-700 leading-relaxed prose-headings:font-heading prose-headings:font-bold prose-headings:text-gray-900 mb-4"
                 dangerouslySetInnerHTML={{ __html: section.content }}
               />
             </div>

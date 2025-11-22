@@ -11,8 +11,18 @@ import Reviews from '@/components/sections/testimonials/Reviews';
 import OurProcess from '@/components/sections/process/OurProcess';
 import FinalCTA from '@/components/sections/cta/FinalCTA';
 import { HeaderSetter } from '@/components/layout/HeaderSetter';
+import { getSiteConfigServiceAreas } from '@/lib/get-site-config';
 
 export default function ServiceAreasPage() {
+  const serviceAreas = getSiteConfigServiceAreas();
+
+  // Transform cities data for ServiceAreasList component
+  const areas = serviceAreas.cities.map(city => ({
+    name: city.name,
+    description: serviceAreas.details?.[city.slug]?.sections[0]?.content?.replace(/<[^>]*>/g, '').slice(0, 150) + '...' ||
+                 `Professional services for ${city.name} residents.`
+  }));
+
   return (
     <>
       {/* Set header context - has hero image on this page */}
@@ -25,7 +35,7 @@ export default function ServiceAreasPage() {
       <ServiceAreasContent />
 
       {/* Service Areas List */}
-      <ServiceAreasList />
+      <ServiceAreasList areas={areas} />
 
       {/* Reviews/Testimonials */}
       <Reviews />

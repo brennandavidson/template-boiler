@@ -31,9 +31,10 @@ Optional files:
 2. Research competitors (5-8 WebSearch + WebFetch calls)
 3. Write all website copy (hero, about us, process, FAQ, etc.)
 4. Generate SEO content using elite-content-generator skill (service pages, city pages, blog posts)
-5. Build site.config.json with all data
-6. Copy assets (logos, project photos, generate favicons)
-7. Test build
+5. Generate SEO metadata files (.seo-config.json for all pages)
+6. Build site.config.json with all data
+7. Copy assets (logos, project photos, generate favicons)
+8. Test build
 
 ---
 
@@ -97,19 +98,122 @@ Use competitor research to inform messaging. Write in professional, educational 
 
 ## Step 4: Generate SEO Content
 
-Use the elite-content-generator skill to create all SEO content.
+Use the elite-content-generator skill for content quality. Write service page and city page content for site.config.json (Step 5), and blog posts as JSON files (below).
 
-The elite-content-generator skill will guide you through creating:
-- Service pages (one for each service from intake form)
-- Service area pages (one for each city from intake form)
-- Blog posts (6-8 posts across 1-2 categories)
+### Blog Post Generation
 
-All formatting requirements, content structure, and quality standards are defined in the elite-content-generator skill.
+Create 6-8 blog posts across 1-2 categories. Blog posts are stored as JSON files in `public/blog-content/categories/[category-slug]/`.
+
+1. Choose 1-2 category slugs (lowercase-hyphenated): maintenance-tips, repair-guides, hvac-tips, pool-care, etc.
+
+2. For each category, create directory and config:
+```bash
+mkdir -p public/blog-content/categories/[category-slug]
+```
+
+Create `.config.json` in each category folder:
+```json
+{
+  "name": "Maintenance Tips",
+  "description": "Expert tips for maintaining your HVAC system"
+}
+```
+
+3. Generate 3-4 blog posts per category. Each post is a separate JSON file named `[post-slug].json`:
+
+```json
+{
+  "title": "[SEO-optimized title]",
+  "excerpt": "[2-3 sentence summary]",
+  "author": {
+    "name": "[Business Name]",
+    "bio": "[Brief company description]"
+  },
+  "publishedAt": "2024-03-15T10:00:00Z",
+  "tags": ["[keyword1]", "[keyword2]", "[keyword3]"],
+  "image": "[Unsplash URL]",
+  "imageAlt": "[Image description]",
+  "featured": false,
+  "content": "<article class='prose prose-lg max-w-none'>[HTML content from elite-content-generator skill]</article>",
+  "seo": {
+    "title": "[60-char SEO title]",
+    "description": "[155-char meta description]",
+    "keywords": ["[keyword1]", "[keyword2]", "[keyword3]"]
+  }
+}
+```
+
+Use the elite-content-generator skill for all blog content HTML. Wrap final HTML in `<article class='prose prose-lg max-w-none'>`.
 
 ---
-## Step 5: Build site.config.json
+
+## Step 5: Generate SEO Metadata Files
+
+Create SEO metadata files for all service and city pages in `src/seo/pages/`.
+
+### Service Page SEO Files
+
+For each service, create `src/seo/pages/services/[service-slug].seo-config.json`:
+
+```json
+{
+  "title": "[Service] in [City], [State] | [Business Name]",
+  "description": "[145-155 char description of service targeting local keywords]",
+  "openGraph": {
+    "title": "[Service] in [City], [State] | [Business Name]",
+    "description": "[Same as description above]",
+    "type": "website"
+  }
+}
+```
+
+Example: `src/seo/pages/services/hvac-repair.seo-config.json`
+```json
+{
+  "title": "HVAC Repair in Mesa, AZ | Ash Cooling & Heating",
+  "description": "Fast, reliable HVAC repair in Mesa and the East Valley. Licensed technicians, same-day service, 12+ years experience. Call for emergency AC repair today.",
+  "openGraph": {
+    "title": "HVAC Repair in Mesa, AZ | Ash Cooling & Heating",
+    "description": "Fast, reliable HVAC repair in Mesa and the East Valley. Licensed technicians, same-day service, 12+ years experience. Call for emergency AC repair today.",
+    "type": "website"
+  }
+}
+```
+
+### Service Area SEO Files
+
+For each city, create `src/seo/pages/service-areas/[city-slug].seo-config.json`:
+
+```json
+{
+  "title": "[Service Type] in [City], [State] | [Business Name]",
+  "description": "[145-155 char description highlighting local service availability]",
+  "openGraph": {
+    "title": "[Service Type] in [City], [State] | [Business Name]",
+    "description": "[Same as description above]",
+    "type": "website"
+  }
+}
+```
+
+Create one SEO file for EVERY service and EVERY city from the intake form.
+
+---
+## Step 6: Build site.config.json
 
 Update site.config.json with all intake data and generated content.
+
+### Image URL Rules
+
+IMPORTANT: Leave ALL image fields empty or use placeholder values. Never populate with actual URLs.
+
+Set all image fields to empty string "" or omit them entirely:
+- heroBackgroundImage: ""
+- reviewsSectionBackgroundImage: ""
+- service imageSrc: ""
+- service detail backgroundImage: ""
+- service area backgroundImage: ""
+- CTA backgroundImage: ""
 
 ### SEO H1 Pattern
 Generate seoH1 using: `{Service Type} in {City}, {State}`
@@ -341,7 +445,7 @@ node -e "require('./site.config.json')"
 Fix any syntax errors before proceeding.
 
 ---
-## Step 6: Copy Assets
+## Step 7: Copy Assets
 
 Copy logos, generate favicons, and process project photos.
 
@@ -393,27 +497,43 @@ PYTHON_EOF
 If Pillow is not installed, inform user to install it or use online favicon generator.
 
 ### Process Project Photos
-Check for project images and copy to public folder:
 
+First, check if project photos exist:
 ```bash
 ls client-intake/projects/
 ```
 
-If images exist, copy all to `/public/projects/` and update `projects.gallery[]` in site.config.json with local paths:
+If ANY images exist:
+
+1. Create the public/projects directory:
+```bash
+mkdir -p public/projects
+```
+
+2. Copy ALL images from client-intake/projects/ to public/projects/:
+```bash
+cp client-intake/projects/*.jpg public/projects/
+cp client-intake/projects/*.jpeg public/projects/ 2>/dev/null || true
+cp client-intake/projects/*.png public/projects/ 2>/dev/null || true
+```
+
+3. Update site.config.json projects.gallery[] with ALL copied images:
 ```json
 {
   "projects": {
     "gallery": [
-      { "src": "/projects/project-1.jpg", "alt": "Project description" }
+      { "src": "/projects/project-1.jpg", "alt": "HVAC installation project" },
+      { "src": "/projects/project-2.jpg", "alt": "HVAC repair work" },
+      { "src": "/projects/project-3.jpg", "alt": "Commercial HVAC system" }
     ]
   }
 }
 ```
 
-Completely replace the template gallery array. Do not append.
+IMPORTANT: Completely replace the template gallery array. Do not append. Include one entry for every image file copied.
 
 ---
-## Step 7: Test Build
+## Step 8: Test Build
 
 Run build and verify key pages:
 
