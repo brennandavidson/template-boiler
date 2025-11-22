@@ -96,26 +96,19 @@ export function getBrandOverlay(opacity: 'light' | 'medium' | 'heavy' = 'medium'
 }
 
 /**
- * Get gradient overlay using brand colors
+ * Get gradient overlay - uses black for better image visibility
  * For more sophisticated overlay effects
  */
 export function getBrandGradientOverlay(direction: 'vertical' | 'horizontal' = 'vertical') {
-  const colors = getBrandingColors();
-  const baseColor = colors.backgroundBlue;
-
-  // Convert hex to RGB
-  const hex = baseColor.replace('#', '');
-  const r = parseInt(hex.substring(0, 2), 16);
-  const g = parseInt(hex.substring(2, 4), 16);
-  const b = parseInt(hex.substring(4, 6), 16);
-
+  // Always use black for overlays - provides better contrast with images
+  // and works universally regardless of brand colors
   if (direction === 'vertical') {
     return {
-      backgroundImage: `linear-gradient(to top, rgba(${r}, ${g}, ${b}, 0.8), rgba(${r}, ${g}, ${b}, 0.4), transparent)`,
+      backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent)`,
     };
   } else {
     return {
-      backgroundImage: `linear-gradient(to right, rgba(${r}, ${g}, ${b}, 0.7), rgba(${r}, ${g}, ${b}, 0.6), rgba(${r}, ${g}, ${b}, 0.7))`,
+      backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7))`,
     };
   }
 }

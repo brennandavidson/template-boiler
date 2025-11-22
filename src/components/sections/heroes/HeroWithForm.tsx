@@ -23,7 +23,7 @@ export default function HeroWithForm() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{
-          backgroundImage: `url('${business.heroBackgroundImage}')`,
+          backgroundImage: `url(${business.heroBackgroundImage})`,
         }}
       />
 

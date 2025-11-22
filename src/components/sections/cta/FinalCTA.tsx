@@ -15,7 +15,7 @@ export default function FinalCTA() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{
-          backgroundImage: `url('${ctaConfig.backgroundImage}')`,
+          backgroundImage: `url(${ctaConfig.backgroundImage})`,
         }}
       />
 

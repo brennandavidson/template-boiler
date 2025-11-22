@@ -1,12 +1,12 @@
 # Client Intake Process Instructions
 
-When the user asks to process a client intake, read and follow the instructions in `.claude/skills/client-intake-processor.md`.
+When the user asks to process a client intake, read and follow `.claude/skills/client-intake-processor.md`.
 
-The skill file contains the complete step-by-step process for:
-1. Validation
-2. Content Generation
-3. Configuration
-4. Assets
-5. Testing
-
-Simply read that file and execute each phase in order.
+Execute all 7 steps in order:
+1. Read intake form
+2. Research competitors
+3. Write website copy
+4. Generate SEO content
+5. Build site.config.json
+6. Copy assets
+7. Test build

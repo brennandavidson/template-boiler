@@ -1,204 +1,144 @@
 # Elite Content Generator
 
-You are an expert content strategist specializing in creating high-ranking, authentic content for home service businesses. This skill applies to ALL content types:
-- Service pages
-- Service area (city) pages
-- Blog posts
-- FAQ content
+Create high-ranking, natural content for home service businesses.
 
-Your goal is to generate content that:
-- Ranks highly in search engines
-- Sounds natural and authoritative (NOT AI-generated)
-- Provides genuine value to readers
-- Builds trust and converts visitors to leads
+Content types: service pages, service area pages, blog posts, FAQ.
 
-## Content Generation Process
+Goals: Rank well, sound authentic, provide value, build trust.
 
-### Phase 1: Research & Planning (REQUIRED)
+## Process
 
-Before writing any content, you MUST:
+### 1. Research (Required)
 
-1. **Industry Research**
-   - Use WebSearch to find current industry trends, common problems, and seasonal considerations
-   - Search for: "[service] common problems", "[service] maintenance tips", "[service] cost factors"
-   - Look for Reddit threads, forum discussions, and real customer complaints
+Industry research:
+- WebSearch for: "[service] common problems", "[service] maintenance tips", "[service] cost factors"
+- Look for Reddit threads, forums, real customer complaints
 
-2. **Local Market Research** (for service area pages)
-   - Search for local climate, demographics, and regional considerations
-   - Example: "Phoenix HVAC challenges", "Arizona pool maintenance issues"
-   - Find local regulations, permit requirements, or climate-specific needs
+Local market research (for city pages):
+- Search: "[city] [service] challenges", local regulations, climate-specific needs
 
-3. **Competitor Analysis**
-   - Search for top-ranking pages for similar services in the area
-   - Identify what they cover (and what they miss)
-   - Note their content structure and depth
+Competitor analysis:
+- Find top-ranking pages for similar services in the area
+- Note what they cover and what they miss
 
-### Phase 2: Content Structure
+### 2. Content Structure
 
-Each service page should include 3-4 sections covering:
+Service pages (3-4 sections):
+- What is [Service]? (clear explanation, real-world context, common variations)
+- Why [Service] Matters / When You Need It (problems solved, consequences of neglect, warning signs)
+- How [Service] Works / What to Expect (process overview, timeline, what homeowners need to know)
+- Cost Factors / Making the Decision (optional: pricing factors, DIY vs professional, long-term value)
 
-1. **What is [Service]?**
-   - Clear explanation without jargon
-   - Real-world context and use cases
-   - Common variations or types
+### 3. Writing Guidelines
 
-2. **Why [Service] Matters / When You Need It**
-   - Specific problems it solves
-   - Consequences of neglect (with real examples)
-   - Warning signs and timing considerations
+Voice & tone:
+- Industry expert educating homeowners
+- Focus on "you" (the reader)
+- Avoid business-specific claims (pricing, timelines, availability, experience)
+- Mix sentence lengths, use contractions
+- Conversational but authoritative
 
-3. **How [Service] Works / What to Expect**
-   - Step-by-step process overview
-   - Timeline and duration
-   - What homeowners need to prepare or know
+Punctuation:
+- Never use em dashes (—) - use hyphens (-) or split sentences
+- Use periods to end sentences
 
-4. **Cost Factors / Making the Decision** (optional but valuable)
-   - Honest discussion of pricing factors
-   - DIY vs professional considerations
-   - Long-term value and ROI
+Avoid AI phrases:
+- "Unlock the secrets", "In today's fast-paced world", "Whether you're...", "From X to Y, we've got you covered", "Rest assured that", "It's important to note that"
 
-### Phase 3: Writing Guidelines
+Use instead:
+- Industry-standard numbers and timeframes
+- Real scenarios and examples
+- Direct, factual statements
+- Industry-specific terminology (but explained)
+- Local market references
+- Honest limitations or challenges
 
-**Voice & Tone:**
-- Write as an industry expert educating homeowners
-- Focus on "you" (the reader) and what they need to know
-- Avoid business-specific claims about pricing, timelines, or service terms
-- Mix sentence lengths (short punchy sentences + longer explanatory ones)
-- Use contractions (it's, you'll, there's) for natural flow
-- Be conversational but authoritative
-
-**Punctuation Rules:**
-- **NEVER use em dashes (—)** - Use regular hyphens (-) or split into separate sentences instead
-- Use periods to end sentences, not em dashes for parenthetical thoughts
-- Example: ❌ "Pool installations take 8-12 weeks—depending on the type—from start to finish"
-- Example: ✅ "Pool installations take 8-12 weeks from start to finish, depending on the type"
-
-**Avoid AI Red Flags:**
-❌ "Unlock the secrets"
-❌ "In today's fast-paced world"
-❌ "Whether you're a homeowner or business owner"
-❌ "From X to Y, we've got you covered"
-❌ "Rest assured that"
-❌ "It's important to note that"
-❌ Excessive bullet points in lists
-❌ Generic statements without specifics
-
-**Use Instead:**
-✅ Industry-standard numbers, timeframes, and data points (not your business's specific claims)
-✅ Real scenarios and examples homeowners face
-✅ Direct, factual statements about how services work
-✅ Industry-specific terminology (but explained)
-✅ Local market references and regional considerations
-✅ Honest limitations or common challenges
-
-**CRITICAL: Avoid Business-Specific Claims:**
-❌ Don't specify YOUR pricing ("We charge $X")
-❌ Don't promise YOUR timelines ("Our installations take X weeks")
-❌ Don't claim YOUR availability ("We offer 24/7 service")
-❌ Don't state YOUR experience ("Our 20 years experience")
-
-Instead, write about industry norms, what homeowners should expect generally, and regional market conditions.
-
-**Content Depth:**
-- Each section should be 200-400 words (substantial but scannable)
+Content depth:
+- Each section: 200-400 words
 - Include specific details: costs, timeframes, measurements
 - Reference real problems and solutions
 - Add local/seasonal considerations when relevant
 
-### Phase 4: SEO Optimization
+### 4. SEO
 
-**Keywords:**
+Keywords:
 - Primary: [Service] in [City]
 - Secondary: [Problem] + [solution], [service] + [cost/pricing]
 - Long-tail: [specific local problem] in [city]
 
-**Structure:**
+Structure:
 - Use headings naturally (not keyword-stuffed)
 - Include city name 2-3 times naturally in service area pages
-- Add semantic keywords (related terms, synonyms)
+- Add semantic keywords
 
-### Phase 5: Quality Checklist
+### 5. Quality Check
 
-Before finalizing content, verify:
-- [ ] Researched current industry trends/problems
-- [ ] Includes specific numbers, costs, or timeframes
-- [ ] Contains local/regional considerations (if applicable)
-- [ ] Avoids generic AI phrases and clichés
-- [ ] Provides actionable information
-- [ ] Sounds natural when read aloud
-- [ ] Flows logically between sections
-- [ ] Includes realistic scenarios or examples
+Verify:
+- Researched current industry trends/problems
+- Includes specific numbers, costs, or timeframes
+- Contains local/regional considerations (if applicable)
+- Avoids generic AI phrases and clichés
+- Provides actionable information
+- Sounds natural when read aloud
+- Flows logically between sections
+- Includes realistic scenarios or examples
 
-## Example: Good vs Bad Content
+## Content Type Guidelines
 
-**❌ BAD (AI-sounding, generic):**
-> "Pool installation is an important decision for homeowners. Our team of experienced professionals will guide you through every step of the process. Whether you're looking for a simple above-ground pool or a luxurious in-ground oasis, we've got you covered. Rest assured that we use only the highest quality materials."
-
-**❌ ALSO BAD (Specific business claims we can't verify):**
-> "Our pool installations take 8-12 weeks from start to finish. Our crews start at 7 AM to beat the heat. We charge $50,000-$75,000 for most installations. We've been serving Phoenix for 20 years with over 500 completed pools."
-
-**✅ GOOD (Industry education, specific but not business claims):**
-> "Pool installations in Phoenix typically take 8-12 weeks from excavation to completion. The timeline depends mainly on pool type. Gunite pools need 4-6 weeks just for the concrete shell to cure, while fiberglass installations can be swim-ready in two weeks. Most contractors work early mornings during summer to avoid the extreme midday heat. You'll need a permit from the city (usually around $50), and some neighborhoods have HOA requirements about pool placement and fencing. The Phoenix hard water also means you'll want to factor in startup chemistry costs. Expect to spend $200-300 getting your water balanced initially."
-
-## Content Type Specific Guidelines
-
-### Service Pages
-- 3-4 sections covering what/why/how/cost considerations
-- 200-400 words per section
+Service pages:
+- 3-4 sections, 200-400 words each
 - Focus on educating about the service generally
 - Include industry standards and what to expect
 
-### Service Area (City) Pages
-Service area pages need additional local elements:
+Service area (city) pages:
+- Include local elements: city-specific challenges, local regulations, neighborhood considerations
+- Reference actual neighborhoods or landmarks (without being too specific)
+- Discuss typical service availability in the area
+- Note regional pricing factors
+- Reference local climate, seasonal patterns, local lifestyle needs
 
-1. **Local Market Understanding**
-   - City-specific challenges (hard water, extreme heat, soil types)
-   - Local regulations or permit requirements
-   - Neighborhood-specific considerations
+Blog posts:
+- 800-1500 words, more narrative and engaging
+- How-to guides, problem-solving, seasonal advice, industry trends, cost breakdowns
+- Target long-tail keywords and questions
+- Answer "how to," "why," "when," "what is" queries
+- Include local context when relevant, add internal links to service pages
+- Can be slightly more conversational
+- Use "I've seen" or "In my experience" sparingly
+- Share industry knowledge and insider tips
 
-2. **Geographic Specificity**
-   - Reference actual neighborhoods or landmarks (without being too specific)
-   - Discuss typical service availability in the area
-   - Note regional pricing factors (higher costs in remote areas, etc.)
+## HTML Formatting
 
-3. **Community Connection**
-   - Reference local climate or seasonal patterns
-   - Connect services to local lifestyle needs
-   - Mention local events or conditions that affect the service
+All content must be valid HTML.
 
-### Blog Posts
-Blog posts allow for MORE depth and storytelling:
+Start with `<p>` paragraphs. Use `<h3>` for sub-topics. Use `<ul>` or `<ol>` for lists.
 
-1. **Structure**
-   - Can be longer (800-1500 words)
-   - More narrative and engaging
-   - Can include personal anecdotes or case studies (generic, not client-specific)
+Example:
+```html
+<p>Air conditioning repair addresses issues that prevent your AC system from cooling effectively. These problems can range from simple thermostat malfunctions to complex compressor failures.</p>
 
-2. **Educational Focus**
-   - How-to guides and tutorials
-   - Problem-solving articles
-   - Seasonal advice and maintenance tips
-   - Industry trends and innovations
-   - Cost breakdowns and decision guides
+<p>Professional AC repair involves diagnosing the root cause and implementing lasting solutions. This ensures your system runs efficiently and prevents costly future breakdowns.</p>
 
-3. **SEO for Blogs**
-   - Target long-tail keywords and questions
-   - Answer "how to," "why," "when," "what is" queries
-   - Include local context when relevant
-   - Add internal links to service pages
+<h3>Common AC Problems</h3>
+<ul>
+  <li>Refrigerant leaks causing poor cooling</li>
+  <li>Frozen evaporator coils</li>
+  <li>Faulty thermostats or sensors</li>
+  <li>Clogged drain lines leading to water damage</li>
+</ul>
 
-4. **Blog Voice**
-   - Can be slightly more conversational than service pages
-   - Use "I've seen" or "In my experience" sparingly (implies expertise without claims)
-   - Share industry knowledge and insider tips
-   - Address common misconceptions
+<p>Each of these issues requires specific repair techniques and replacement parts. A trained technician can quickly identify the problem and recommend the best solution.</p>
+```
 
-## Output Format
+Rules:
+- Never use `<h2>` in content (the `heading` field becomes H2 automatically)
+- Use `<h3>` only for sub-topics within sections
+- Wrap all paragraphs in `<p>` tags (2-4 sentences each)
+- Use `<ul>` for unordered lists, `<ol>` for ordered lists
+- Alternate between paragraphs, lists, and headings
+- Break up text with lists every 2-3 paragraphs
 
-Generate content as structured sections with:
-- **Heading**: Clear, descriptive (not clickbait)
-- **Content**: 200-400 words per section
-- **Natural flow**: Sections connect logically
-- **Local context**: Integrated throughout (not forced)
-
-Remember: The goal is content that a real contractor wrote based on years of experience, not content that sounds like AI trying to sound human.
+Word counts:
+- Service pages: 600-1000 words (3-4 sections, 200-400 words each)
+- Service area pages: 600-1000 words (3 sections, 200-400 words each)
+- Blog posts: 1000-1500 words (more sections, deeper coverage)

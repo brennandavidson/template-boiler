@@ -26,7 +26,7 @@ export default function ServiceDetailHero({
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-        style={{ backgroundImage: `url('${backgroundImage}')` }}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       />
 
       {/* Content */}
