@@ -33,6 +33,13 @@ export default async function ServiceAreaPage({ params }: Props) {
   const cityInfo = serviceAreas.cities.find(city => city.slug === slug);
   const cityName = cityInfo?.name || slug;
 
+  // Transform cities data for ServiceAreasList component
+  const areas = serviceAreas.cities.map(city => ({
+    name: city.name,
+    description: serviceAreas.details?.[city.slug]?.sections[0]?.content?.replace(/<[^>]*>/g, '').slice(0, 150) + '...' ||
+                 `Professional pool services for ${city.name} residents.`
+  }));
+
   return (
     <>
       <HeaderSetter hasHeroImage={true} />
@@ -47,7 +54,7 @@ export default async function ServiceAreaPage({ params }: Props) {
 
       <Reviews />
       <OurProcess />
-      <ServiceAreasList />
+      <ServiceAreasList areas={areas} />
       <FinalCTA />
     </>
   );
